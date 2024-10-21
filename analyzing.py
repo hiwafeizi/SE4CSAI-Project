@@ -49,7 +49,7 @@ def analyze_data(data):
         print(sample_data)
         
         # Save the sample to a CSV file
-        sample_file_path = "data/sample_data1_first_20.csv"
+        sample_file_path = "sample/form2description.csv"
         sample_data.to_csv(sample_file_path, index=False)
         print(f"\nSample data saved to {sample_file_path}")
     else:
@@ -57,7 +57,7 @@ def analyze_data(data):
 
 if __name__ == "__main__":
     # File path to the CSV
-    file_path = "data/data1.csv"
+    file_path = "data/form2description.csv"
     
     # Load the data
     data = load_data(file_path)
