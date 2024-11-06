@@ -4,6 +4,7 @@ import torch
 from torch.utils.data import DataLoader, Dataset
 from sklearn.model_selection import train_test_split
 from transformers import T5Tokenizer, T5ForConditionalGeneration, AdamW
+import os
 
 # Load the dataset
 def load_data(file_path):
@@ -35,15 +36,22 @@ class TextDataset(Dataset):
 # Tokenize the data and return a DataLoader
 def tokenize_data(data, input_col, output_col, tokenizer, batch_size=256):
     print("Tokenizing data...")
-    input_encodings = tokenizer(data[input_col].tolist(), truncation=True, padding=True, max_length=128, return_tensors="pt")
-    target_encodings = tokenizer(data[output_col].tolist(), truncation=True, padding=True, max_length=128, return_tensors="pt")
+    input_encodings = tokenizer(data[input_col].tolist(), truncation=True, padding=True, max_length=200, return_tensors="pt")
+    target_encodings = tokenizer(data[output_col].tolist(), truncation=True, padding=True, max_length=200, return_tensors="pt")
     dataset = TextDataset({"input_ids": input_encodings['input_ids'], "labels": target_encodings['input_ids']})
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
     print("Tokenization complete.")
     return dataloader
 
-# Train the model with early stopping and detailed epoch time tracking
-def train_model(train_loader, val_loader, tokenizer, model, epochs=30, learning_rate=5e-5, patience=3):
+# Save the model
+def save_model(model, tokenizer, model_name):
+    print(f"Saving model to '{model_name}'...")
+    model.save_pretrained(model_name)
+    tokenizer.save_pretrained(model_name)
+    print(f"Model and tokenizer saved to '{model_name}'.")
+
+# Train the model with intermediate saving
+def train_model(train_loader, val_loader, tokenizer, model, epochs=2, learning_rate=5e-5, patience=3, save_interval=10):
     optimizer = AdamW(model.parameters(), lr=learning_rate)
     model.train()
     
@@ -57,7 +65,7 @@ def train_model(train_loader, val_loader, tokenizer, model, epochs=30, learning_
         # Training Phase
         model.train()
         total_train_loss = 0
-        for batch in train_loader:
+        for batch_num, batch in enumerate(train_loader, 1):
             optimizer.zero_grad()
             inputs = {key: val.to(model.device) for key, val in batch.items()}
             outputs = model(**inputs)
@@ -65,6 +73,10 @@ def train_model(train_loader, val_loader, tokenizer, model, epochs=30, learning_
             train_loss.backward()
             optimizer.step()
             total_train_loss += train_loss.item()
+            
+            # Output batch progress for every 10th batch
+            if batch_num % 10 == 0:
+                print(f"Epoch {epoch + 1}, Batch {batch_num}/{len(train_loader)}, Batch Loss: {train_loss.item():.4f}")
         
         avg_train_loss = total_train_loss / len(train_loader)
         
@@ -84,11 +96,18 @@ def train_model(train_loader, val_loader, tokenizer, model, epochs=30, learning_
         epoch_duration = epoch_end_time - epoch_start_time
         print(f"Epoch {epoch + 1}/{epochs} - Train Loss: {avg_train_loss:.4f} - Validation Loss: {avg_val_loss:.4f} - Epoch Duration: {epoch_duration:.2f} seconds")
 
+        # Save the model at intervals
+        if (epoch + 1) % save_interval == 0:
+            checkpoint_path = f"form2text_checkpoint_epoch{epoch + 1}"
+            os.makedirs(checkpoint_path, exist_ok=True)
+            save_model(model, tokenizer, checkpoint_path)
+            print(f"Checkpoint saved at '{checkpoint_path}'")
+
         # Early Stopping Check
         if avg_val_loss < best_val_loss:
             best_val_loss = avg_val_loss
             patience_counter = 0
-            save_model(model, tokenizer, "form2text")
+            save_model(model, tokenizer, "best_model")
             print(f"Model improved at epoch {epoch + 1} and saved as 'best_model'.")
         else:
             patience_counter += 1
@@ -99,13 +118,6 @@ def train_model(train_loader, val_loader, tokenizer, model, epochs=30, learning_
 
     end_time = time.time()
     print(f"Training completed in {(end_time - start_time) / 60:.2f} minutes.")
-
-# Save the model
-def save_model(model, tokenizer, model_name):
-    print("Saving the model...")
-    model.save_pretrained(model_name)
-    tokenizer.save_pretrained(model_name)
-    print(f"Model and tokenizer saved to '{model_name}'.")
 
 # Main function to orchestrate the process
 def run_training_pipeline(file_path, model_name='t5-small', epochs=30, batch_size=256):
@@ -141,4 +153,4 @@ def run_training_pipeline(file_path, model_name='t5-small', epochs=30, batch_siz
 
 # Run the training pipeline with the dataset
 file_path = 'data/form2description_reduced.csv'
-run_training_pipeline(file_path, model_name='t5-small', epochs=20, batch_size=256)
+run_training_pipeline(file_path, model_name='t5-small', epochs=2, batch_size=256)
