@@ -1,0 +1,315 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Account Setup | LinkInLead
+{% endblock %}
+
+{% block content %}
+<h2 class="text-xl font-bold text-center mt-8">Account Setup</h2>
+
+<!-- Start of the Form -->
+<form id="FormId" method="post" action="{{ url_for('app_views.account_setup') }}" class="form mx-auto">
+    <!-- CSRF Token for Protection -->
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+    <!-- Name and Email Section -->
+    <div class="formRow">
+        <div class="input-group">
+            <label for="name">{{ form.name.label.text }}</label>
+            {{ form.name(class="input-field") }}
+            {% if form.name.errors %}
+                <p class="helper-text error">{{ form.name.errors[0] }}</p>
+            {% else %}
+                <p class="helper-text"></p>
+            {% endif %}
+        </div>
+
+        <div class="input-group">
+            <label for="email">{{ form.email.label.text }}</label>
+            {{ form.email(class="input-field") }}
+            {% if form.email.errors %}
+                <p class="helper-text error">{{ form.email.errors[0] }}</p>
+            {% else %}
+                <p class="helper-text"></p>
+            {% endif %}
+        </div>
+        
+    </div>
+
+    <!-- Password and Confirm Password Section (Side by Side) -->
+    <div class="formRow">
+        <div class="input-group">
+            <label for="password">{{ form.password.label.text }}</label>
+            {{ form.password(id="password", class="input-field w-full", type="password") }}
+            <p class="helper-text error" id="passwordError">{{ form.password.errors[0] if form.password.errors else '' }}</p>
+        </div>
+
+        <div class="input-group">
+            <label for="confirm_password">{{ form.confirm_password.label.text }}</label>
+            {{ form.confirm_password(id="confirmPassword", class="input-field w-full", type="password") }}
+            <p class="helper-text error" id="confirmPasswordError">{{ form.confirm_password.errors[0] if form.confirm_password.errors else '' }}</p>
+        </div>
+    </div>
+
+<script>
+function checkPasswordsMatch() {
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
+    var confirmPasswordError = document.getElementById('confirmPasswordError');
+
+    // Clear previous error
+    confirmPasswordError.textContent = '';
+
+    // Only show the mismatch error if both fields are not empty
+    if (password && confirmPassword && password !== confirmPassword) {
+        confirmPasswordError.textContent = 'Passwords do not match';
+    }
+}
+
+// Event listeners for both password and confirm password fields
+document.getElementById('password').addEventListener('input', checkPasswordsMatch);
+document.getElementById('confirmPassword').addEventListener('input', checkPasswordsMatch);
+</script>
+
+
+    <!-- Tell us about yourself Section -->
+    <div class="formRow">
+        <div class="input-group"> 
+            <label for="about_yourself">{{ form.about_yourself.label.text }}</label>
+            <!-- Apply the class correctly to a textarea if 'about_yourself' is a textarea -->
+            {{ form.about_yourself(class_="input-field ", rows="5") }}
+            {% if form.about_yourself.errors %}
+                <p class="helper-text error">{{ form.about_yourself.errors[0] }}</p>
+            {% else %}
+                <p class="helper-text"></p>
+            {% endif %}
+        </div>
+    </div>
+
+<!-- Target Audience Section -->
+<div class="formRow flex-col text-xs sm:text-sm">
+    <div class="input-group"> 
+        <label class="text-left" for="target_audience">Who is your target audience?</label>
+        <div id="targetAudienceContainer" class="flex flex-col space-y-1 sm:space-y-4">
+            <!-- Default Target Audience input field -->
+            <div class="flex items-center space-x-2">
+                <input type="text" name="target_audience[]" class="input-field w-full " placeholder="Example: Small businesses in the US" value="{{ request.form.getlist('target_audience[]')[0] }}">
+            </div>
+            <!-- If there were additional target audiences submitted, re-render them -->
+            {% for i in range(1, request.form.getlist('target_audience[]') | length) %}
+            <div class="flex items-center space-x-2">
+                <input type="text" name="target_audience[]" class="input-field w-full " value="{{ request.form.getlist('target_audience[]')[i] }}">
+            </div>
+            {% endfor %}
+        </div>
+        <div class="flex justify-between items-center space-x-2 sm:space-x-4 mt-2 sm:mt-4 mb-2 sm:mb-3">
+            <button type="button" id="addTargetAudience" class="secondaryButton text-2xs sm:text-xs">Add another target audience</button>
+            <button type="button" id="removeTargetAudience" class="ml-auto text-red-600 hover:text-red-800 focus:text-red-800 font-semibold rounded transition duration-300 ease-in-out focus:outline-none text-2xs sm:text-sm top-0">Remove</button>
+        </div>
+    </div>
+</div>
+
+    
+<script>
+    document.getElementById('addTargetAudience').addEventListener('click', function() {
+        var container = document.getElementById('targetAudienceContainer');
+
+        // Create a new input group for Target Audience
+        var inputGroup = document.createElement('div');
+        inputGroup.classList.add('flex', 'items-center', 'space-x-2');
+
+        var newInput = document.createElement('input');
+        newInput.type = 'text';
+        newInput.name = 'target_audience[]';  // Ensuring it is treated as part of an array
+        newInput.className = "input-field w-full";
+        newInput.placeholder = 'Example: Small businesses in the US';
+
+        inputGroup.appendChild(newInput);
+        container.appendChild(inputGroup);
+    });
+
+    document.getElementById('removeTargetAudience').addEventListener('click', function() {
+        var container = document.getElementById('targetAudienceContainer');
+
+        // Only remove the last input if there is more than one
+        if (container.children.length > 1) {
+            container.removeChild(container.lastChild);
+        }
+    });
+</script>
+    
+<!-- CTAs Section -->
+<div class="formRow gap-0 flex-col">
+    <div class="input-group"> 
+        <label class="text-left text-xs sm:text-sm" for="cta">What services or products do you offer, and how do they benefit your clients?</label>
+        <div id="ctaContainer" class="flex flex-col space-y-2 pt-0 sm:pt-2">
+            <!-- Default CTA input fields -->
+            <div class="flex items-center space-x-2 w-full">
+                <input type="text" name="cta_name[]" class="input-field" placeholder="Name" value="{{ request.form.getlist('cta_name[]')[0] }}">
+                <input type="text" name="cta_link[]" class="input-field" placeholder="Link (optional)" value="{{ request.form.getlist('cta_link[]')[0] }}">
+            </div>
+            <input type="text" name="cta_text[]" class="input-field" placeholder="Service or product description" value="{{ request.form.getlist('cta_text[]')[0] }}">
+            <!-- If there were additional CTAs submitted, re-render them -->
+            {% for i in range(1, request.form.getlist('cta_text[]') | length) %}
+            <div class="flex items-center space-x-2 w-full">
+                <input type="text" name="cta_name[]" class="input-field" value="{{ request.form.getlist('cta_name[]')[i] }}">
+                <input type="text" name="cta_link[]" class="input-field" value="{{ request.form.getlist('cta_link[]')[i] }}">
+            </div>
+            <input type="text" name="cta_text[]" class="input-field" value="{{ request.form.getlist('cta_text[]')[i] }}">
+            {% endfor %}
+        </div>
+        <div class="flex justify-between items-center mt-2 sm:mt-4 mb-2 sm:mb-3">
+            <button type="button" id="addCta" class="secondaryButton text-2xs  sm:text-xs">Add another service or product</button>
+            <button type="button" id="removeCta" class="ml-3 text-red-600 hover:text-red-800 focus:text-red-800 font-semibold rounded transition duration-300 ease-in-out focus:outline-none text-2xs sm:text-sm origin-top">
+                Remove
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    document.getElementById('addCta').addEventListener('click', function() {
+        var container = document.getElementById('ctaContainer');
+
+        // Create new input group for CTA Name and Link
+        var inputGroup = document.createElement('div');
+        inputGroup.className = 'flex items-center space-x-2 w-full';
+
+        var newCtaNameInput = document.createElement('input');
+        newCtaNameInput.type = 'text';
+        newCtaNameInput.name = 'cta_name[]';
+        newCtaNameInput.className = 'input-field flex-1';
+        newCtaNameInput.placeholder = 'Name';
+
+        var newCtaLinkInput = document.createElement('input');
+        newCtaLinkInput.type = 'text';
+        newCtaLinkInput.name = 'cta_link[]';
+        newCtaLinkInput.className = 'input-field flex-1 ';
+        newCtaLinkInput.placeholder = 'Link (optional)';
+
+        inputGroup.appendChild(newCtaNameInput);
+        inputGroup.appendChild(newCtaLinkInput);
+        container.appendChild(inputGroup);
+
+        // Create a new input for CTA Text
+        var newCtaTextInput = document.createElement('input');
+        newCtaTextInput.type = 'text';
+        newCtaTextInput.name = 'cta_text[]';
+        newCtaTextInput.className = 'input-field w-full ';
+        newCtaTextInput.placeholder = 'Service or product description';
+
+        container.appendChild(newCtaTextInput);
+    });
+
+    document.getElementById('removeCta').addEventListener('click', function() {
+        var container = document.getElementById('ctaContainer');
+
+        // Only remove the last two elements (link/name group and description) if more than one set exists
+        if (container.children.length > 2) {
+            container.removeChild(container.lastChild); // Remove the last description
+            container.removeChild(container.lastChild); // Remove the last name/link group
+        }
+    });
+</script>
+
+    
+<!-- Post Times Section -->
+<!-- <div class="formRow flex-col">
+    <label for="post_times" class="text-left">Select the times for your posts:</label>
+    <div id="postTimesContainer" class="grid grid-cols-2 gap-4 pt-2">
+         Default Time Inputs 
+        {% for time in ["08:00", "12:00", "16:00", "20:00"] %}
+        <div class="flex items-center space-x-2">
+            <input type="time" name="post_times[]" class="post-time-input input-field text-sm cursor-pointer bg-white hover:bg-gray-200 border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" value="{{ time }}">
+            <button type="button" class="removePostTime bg-red-500 text-white py-1 px-2 rounded hover:bg-red-700 text-xs">Remove</button>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="flex justify-start items-center space-x-4 mt-4 mb-3">
+        <button type="button" id="addPostTime" class="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-700 text-xs">Add another post time</button>
+    </div>
+</div> -->
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const postTimesContainer = document.getElementById('postTimesContainer');
+        const addPostTimeButton = document.getElementById('addPostTime');
+
+        // Function to add a new time input
+        function addNewTimeInput() {
+            const newTimeInput = document.createElement('div');
+            newTimeInput.className = 'flex items-center space-x-2';
+            newTimeInput.innerHTML = `
+                <input type="time" name="post_times[]" class="post-time-input input-field text-sm cursor-pointer bg-white hover:bg-gray-200 border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                <button type="button" class="removePostTime bg-red-500 text-white py-1 px-2 rounded hover:bg-red-700 text-xs">Remove</button>
+            `;
+            postTimesContainer.appendChild(newTimeInput);
+
+            // Add event listener to the new remove button
+            newTimeInput.querySelector('.removePostTime').addEventListener('click', function () {
+                newTimeInput.remove();
+            });
+        }
+
+        // Add a new time input when the "Add another post time" button is clicked
+        addPostTimeButton.addEventListener('click', addNewTimeInput);
+
+        // Add event listeners to existing remove buttons
+        document.querySelectorAll('.removePostTime').forEach(button => {
+            button.addEventListener('click', function () {
+                button.parentElement.remove();
+            });
+        });
+    });
+</script> -->
+
+
+
+    <!-- Time Zone Section -->
+    <!-- <div class="formRow">
+        <div class="input-group">
+            <label for="time_zone">{{ form.time_zone.label.text }}</label>
+            {{ form.time_zone(class="input-field text-sm") }}
+            {% if form.time_zone.errors %}
+                <p class="helper-text error">{{ form.time_zone.errors[0] }}</p>
+            {% else %}
+                <p class="helper-text"></p>
+            {% endif %}
+        </div>
+    </div> -->
+
+    <div class="formRow">
+        <div class="input-group">
+            <label for="tone">{{ form.tone.label.text }}</label>
+            {{ form.tone(class="input-field") }}
+            {% if form.tone.errors %}
+                <p class="helper-text error">{{ form.tone.errors[0] }}</p>
+            {% else %}
+                <p class="helper-text"></p>
+            {% endif %}
+        </div>
+    </div>
+    
+
+    <!-- Submit Button -->
+    <input type="submit" value="Save Preferences" class="formButton">
+        
+    <!-- Flash Messages for Errors and Success -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flashes">
+            {% for category, message in messages %}
+                <p class="flash-message text-center {{ category }} text-red-600">{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    {% endwith %}
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,704 @@
+@tailwind base;
+@tailwind components;
+
+/* Base font style using Inter */
+body {
+    margin: 0;
+    width: 100%;
+    display: flex; /* This enables flexbox, which is required for the next few properties to work */
+    flex-direction:column; /* Stacks child elements vertically */
+    align-items: center; /* Centers child elements horizontally in the cross-axis */
+    justify-content: center; /* Centers child elements vertically in the main-axis */
+    text-align: center; /* Centers text inside child elements */
+    color: #022135;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+    background-color: #dcecfa;
+    font-weight: 600;
+}
+  
+* {
+  box-sizing: border-box;
+}
+
+/* Base styles */
+.nav-container {
+  background-color: #7BB7E0; /* Dark background */
+  padding: 40px 70px; /* Adjusted padding for navbar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.navbar-brand {
+  font-size: 32px;
+  font-weight: bold;
+  color: #022135; /* Text color */
+  text-decoration: none;
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  gap: 70px; /* Increased gap for better spacing */
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 30px 40px; /* Adjusted padding for navbar */
+  }
+  
+
+  .navbar-nav {
+      position: fixed;
+      right: -100%; /* Start offscreen to the right */
+      top: 0;
+      height: 100vh;
+      width: 250px; /* Adjust width of the sliding menu */
+      background-color: #7BB7E0;
+      flex-direction: column;
+      gap: 20px;
+      padding: 70px 20px; /* Padding inside the menu */
+      transition: right 0.5s; /* Smooth transition for sliding effect */
+      display: flex;
+  }
+
+  .navbar-nav.active {
+      right: 0; /* Slide in to view */
+  }
+
+  .menu-toggle {
+      display: block; /* Show toggle on mobile */
+      background: none;
+      border: none;
+      font-size: 32px;
+      color: #022135;
+      cursor: pointer;
+  }
+
+  .close-menu {
+      background: none;
+      border: none;
+      font-size: 32px;
+      color: #022135;
+      cursor: pointer;
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-toggle {
+      display: none; /* Hide toggle on desktop */
+  }
+
+  .navbar-nav {
+      display: flex; /* Ensure nav items are visible on desktop */
+  }
+
+  .close-menu {
+      display: none; /* Hide close button on desktop */
+  }
+}
+
+.nav-item .nav-link {
+  font-size: 20px;
+  color: #022135; /* Text color */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-item .nav-link:hover {
+  color: #024388;
+  text-decoration: none; /* Remove underline */
+}
+
+  .container-h1 {  
+    flex: 1; /* Take up the remaining space */
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    margin: 65px 20px; /* Add some padding */
+    margin-bottom: 30px;
+  }
+  
+  .container-h2 {
+    margin: 40px 20px; /* Adds padding around the <h2> text */
+    margin-bottom: 10px;
+    text-align: center; /* Centers the text */
+    /* Add any additional styling you require */
+  }
+  
+  @media (max-width: 600px) {  /* Adjust breakpoint as needed */
+    .container-h1 {
+      margin: 20px;
+      margin-bottom: 10px;
+    }
+  
+    .container-h2 {
+      margin: 20px;
+      margin-bottom: 10px;
+    }
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Updated this line */
+    padding: 20px;
+    max-width: 1100px; /* Set the maximum width */
+    margin: 0 auto; /* Center the section */
+  }
+  
+  .imageContent {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-inline: 20px;
+    max-width: 100%; /* Ensure the image is responsive */
+  }
+  
+  .imageContent img { /* Target the <img> element directly for styles */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: inline-flex;
+    height: auto; /* Maintain aspect ratio */
+
+  }
+  
+  @media (max-width: 600px) {
+    .imageContent {
+      margin: 5px;
+      flex: 0.9;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  
+  
+
+  .textContainer {
+    text-align: left;
+    flex: 1;
+    padding-inline: 20px;
+  }
+  
+  .textContainer > *:not(:last-child) {
+  margin-bottom: 1rem; /* Adds space below each child except the last one */
+  }
+  
+  .highlightedText {
+    color: #0077cc; /* Example: change the color */
+    text-decoration: none; /* Removes the default underline */
+    font-weight: bold; /* Makes the text bold */
+  }
+  
+  /* Style for hover effect */
+  .highlightedText:hover {
+    text-decoration: underline; /* Adds underline on hover */
+  }
+  
+  form {
+    width: 92%;
+    max-width:800px;
+    margin: 20px ;
+    margin-bottom: 0px;
+    padding: 30px 40px;
+    background: #f8fbff;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: flex;   
+    flex-direction: column;
+    align-items: center;        /* Vertically center align the items */ 
+    gap: 10px;                  /* Optional: adds space between child elements */
+    box-sizing: border-box;
+  }
+  
+  .formRow {
+    width: 100%;
+    display: flex;   
+    flex-direction: row;        /* Align children (form inputs) in a row */
+    justify-content: space-between;    /* Horizontally center the content within the container */
+    gap: 15%;                  /* Optional: adds space between child elements */
+    box-sizing: border-box;
+  }
+  
+  .formRow > * {
+  flex: 1 1 0px; /* flex-grow, flex-shrink, flex-basis */
+  }
+  
+  @media (max-width: 600px) {  /* Adjust breakpoint as needed */
+    .form {
+      max-width: 100%;
+      margin: 10px;
+      padding: 20px;
+    }
+  
+    .formRow {
+      flex-direction: column;
+      padding: 0px;
+      gap: 0px;
+      width: 100%;  /* Adjust according to your layout needs */
+    }
+    .formRow > * {
+      width: 100%;  /* Adjust if children should not take full width */
+    }
+  }
+  /* Base styles for the input group */
+  .input-group {
+    margin: 0;
+    text-align: left; /* Left-align helper text */
+    font-family: 'Inter', sans-serif; /* Assuming you're using Inter as discussed */
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  /* Styles for the label within the input group */
+  .input-group label {
+    display: block;
+    color: #022135; /* Dark blue for clear contrast */
+    font-weight: 600; /* Semi-bold to make the label text stand out */
+    font-size: 15px; /* Moderately small size for labels */
+    margin-bottom: 6px;
+  }
+
+  .input-group label.label-secondary {
+    font-size: 12px; /* Moderately small size for labels */
+    margin-bottom: 4px;
+  }
+
+  option {
+    max-width: 100%;
+  }
+
+  /* Styles for input fields including text inputs and selects */
+  .input-field {
+    display: block;
+    font-family: 'Inter', sans-serif; /* Ensures typography consistency */
+    width: 100%;
+    max-width: 100%;
+    max-height: fit-content;
+    padding: 8px 10px; /* Comfortable padding inside the input */
+    background-color: white; /* Keeps the input visually clean */
+    border: 1px solid black; /* Solid border that is noticeable */
+    border-radius: 8px; /* Rounded corners for modern look */
+    box-sizing: border-box; /* Includes padding and border in the width and height */
+    text-align: left; /* Aligns text inside the input to the left */
+    overflow: hidden; /* Prevents text from overflowing */
+    text-overflow: ellipsis; /* Adds an ellipsis if the text overflows */
+    padding: 6px 12px; /* Comfortable padding inside the input */
+    font-size: 13px;
+    max-width: 100%;
+  }
+  
+/* Target the <select> element with the class "input-field" */
+  select.input-field {
+    font-size: 14px; /* Adjust font size */
+    max-width: 100%;
+  }
+
+  /* Enhanced visual feedback on input focus */
+  .input-field:focus {
+    border-color: black; /* Keeps border black on focus, change if needed */
+    outline: none; /* Removes the default focus outline */
+    box-shadow: 0 0 0 1px #cfcbcb; /* Subtle gray shadow to highlight focus */
+  }
+  
+  @media (max-width: 600px) {  
+      /* Styles for the label within the input group */
+    .input-group label {
+      font-size: 12px; /* Moderately small size for labels */
+      margin-bottom: 3px;
+    }
+    
+    .input-group label.label-secondary {
+      font-size: 10px; /* Moderately small size for labels */
+      margin-bottom: 3px;
+    }
+    .input-field{
+      font-size: 11px;
+    }
+    select.input-field {
+      font-size: 12px; /* Adjust font size */
+    }
+  }
+
+  /* Styles for helper text below inputs */
+  .helper-text {
+    font-size: 12px;
+    font-weight: 500; /* Medium weight for slight emphasis */
+    color: #DE0F3F; /* Vivid red color for error messages or notes */
+    margin-top: 2px; /* Keeps tight spacing between input and helper text */
+  }
+  
+  
+  .checkbox-container input[type="checkbox"] {
+    margin-right: 10px; /* Space between the checkbox and the label */
+    cursor: pointer; /* Makes the mouse cursor indicate clickable input */
+    width: auto;
+  }
+  
+  @media (max-width: 600px) {  
+  /* Styles for helper text below inputs */
+  .helper-text {
+    font-size: 11px;
+  }
+  }
+  
+  .checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Aligns the checkbox and label vertically */
+    margin-bottom: 3px; /* Adjusts spacing below the container */
+  }
+  
+  .checkbox-container input {
+    margin: 0 5px 0 0; /* 5px margin to the right of the checkbox */
+    width: 16px; /* Set a specific size for the checkbox */
+    height: 16px; /* Set a specific size for the checkbox */
+  }
+  
+  .checkbox-container label {
+    display: block;
+    margin-bottom: 3px;
+    color: #022135; /* Dark blue for clear contrast */
+    font-weight: 600; /* Semi-bold to make the label text stand out */
+    font-size: 15px; /* Moderately small size for labels */
+  }
+    
+    .formButton {
+      background-color: #024388; /* Button background color */
+      color: white; /* Button text color */
+      font-size: 14px;
+      font-family: 'Inter', sans-serif; /* Specify font family */
+      font-weight: 500;
+      padding: 7px 25px;
+      border: 2px solid #024388; /* Border with button's background color */
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: center;
+      box-sizing: border-box;
+      transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s; /* Smooth transition for hover effects */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for raised effect */
+  }
+  
+  .formButton:hover {
+      background-color: white;
+      color: #015BBB;
+      border-color: #015BBB;
+      border-style: solid;
+      border-width: 2px;
+      box-sizing: border-box;
+  }
+  
+  /* Disabled state styling */
+  .formButton:disabled {
+      background-color: #cccccc; /* Light gray background */
+      color: #666666; /* Darker gray text */
+      border-color: #cccccc; /* Matching border color */
+      cursor: not-allowed; /* Change cursor to indicate disabled state */
+      box-shadow: none; /* Remove shadow */
+      opacity: 0.6; /* Optional: make it semi-transparent */
+  }
+
+  /* Mobile-specific styles */
+@media (max-width: 600px) {
+  .formButton {
+    font-size: 12px;
+    padding: 4px 14px;
+    border-radius: 8px;
+  }
+}
+  
+  .secondaryButton {
+    background-color: white; /* White background for the secondary button */
+    color: #024388; /* Blue text, matching the primary button's background color */
+    border: 2px solid #024388; /* Blue border, same as primary button's background color */
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 7px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s, border-color 0.3s; /* Transition for hover and focus effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for a raised effect */
+}
+
+.secondaryButton:hover {
+    background-color: #024388; /* Button background becomes blue on hover/focus */
+    color: white; /* Text color becomes white on hover/focus */
+    border-color: #024388; /* Keep the border color consistent on hover/focus */
+}
+
+.secondaryButton:disabled {
+    background-color: #cccccc; /* Light gray background for disabled state */
+    color: #666666; /* Darker gray text for disabled state */
+    border-color: #cccccc; /* Matching border color for disabled state */
+    cursor: not-allowed; /* Change cursor to indicate disabled state */
+    box-shadow: none; /* Remove shadow in disabled state */
+    opacity: 0.6; /* Optional: make it semi-transparent in disabled state */
+}
+
+  /* Mobile-specific styles */
+  @media (max-width: 600px) {
+    .secondaryButton {
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 8px;
+    }
+  }
+
+  .text-2xs {
+    font-size: 10px;
+  }
+  .topic-btn {
+    flex-grow: 1; /* Make all buttons take up equal width */
+    padding: 8px 20px;
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 18px;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+.topic-btn:hover {
+    background-color: #e0e0e0;
+    border-color: #999;
+    color: #222;
+}
+
+.topic-btn.selected {
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+.topic-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.5);
+}
+
+.topic-btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px; /* Ensure consistent spacing between buttons */
+}
+
+@media (max-width: 600px) {
+  .topic-btn {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+}
+
+.topic-description {
+  background-color: #f8f9fa;
+  border-radius: 0.25rem;
+  font-size: 14px;
+  color: #555;
+  display: none;
+  z-index: 100;
+}
+
+.topic-btn:hover + .topic-description {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.timeline-box {
+  position: relative;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%; /* Middle of the box */
+  height: 0.5rem; /* Line height */
+  width: 1rem; /* Line width */
+  background-color: #3b82f6; /* Tailwind Blue */
+  border-radius: 9999px;
+}
+
+
+.time-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  position: absolute;
+  top: 0;
+}
+
+aside {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the planned content section */
+aside .text-gray-800 {
+  color: #374151;
+}
+
+aside h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-cols-2 {
+  grid-template-columns: auto auto;
+}
+
+.space-y-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+  
+  .bg-dark-red {
+    background-color: #991B1B;
+  }
+  
+  .text-dark-red {
+    color: #991B1B;
+  }
+  
+  .bg-dark-blue {
+    background-color: #022135;
+  }
+  
+  .text-dark-blue {
+    color: #022135;
+  }
+  
+  .bg-red {
+    background-color: #DE0F3F;
+  }
+  
+  .text-red {
+    color: #DE0F3F;
+  }
+  
+  .bg-light-blue {
+    background-color: #DCECFA;
+  }
+  
+  .text-light-blue {
+    color: #DCECFA;
+  }
+  
+  .bg-secondary-blue {
+    background-color: #7BB7E0;
+  }
+  
+  .text-secondary-blue {
+    color: #7BB7E0;
+  }
+  
+  .bg-button-blue {
+    background-color: #024388;
+  }
+  
+  .text-button-blue {
+    color: #024388;
+  }
+  
+  .bg-hover-blue {
+    background-color: #015BBB;
+  }
+  
+  .text-hover-blue {
+    color: #015BBB;
+  }
+  
+  
+  
+  /* Font weight classes */
+  .font-300 {
+    font-family: 'Inter';
+    font-weight: 300; /* Light */
+  }
+  
+  .font-400 {
+    font-family: 'Inter';
+    font-weight: 400; /* Regular */
+  }
+  
+  .font-500 {
+    font-family: 'Inter';
+    font-weight: 500; 
+  }
+  
+  .font-600 {
+    font-family: 'Inter';
+    font-weight: 600; /* Semi-bold */
+  }
+  
+  .font-700 {
+    font-family: 'Inter';
+    font-weight: 700; /* Bold */
+  }
+  
+  /* Text shadow class */
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Customize as needed */
+  }
+  
+  
+  /* Default font sizes for desktop */
+  h1 { font-size: 60px; 
+      margin: 0px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Customize as needed */
+  }
+  h2 { font-size: 52px; 
+    margin: 0px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Customize as needed */
+  }
+  h3 { font-size: 45px; 
+    margin: 0px;}
+  h4 { font-size: 34px; 
+    margin: 0px;}
+  h5 { font-size: 22px; 
+    margin: 0px;}
+  h6 { font-size: 18px; 
+    margin: 0px;}
+  
+  /* Font sizes for mobile devices */
+  @media (max-width: 600px) {  /* Adjust breakpoint as needed */
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Customize as needed */
+    }
+      h1 { font-size: 30px; 
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);}
+      h2 { font-size: 27px; 
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);}
+      h3 { font-size: 24px; }
+      h4 { font-size: 22px; }
+      h5 { font-size: 19px; }
+      h6 { font-size: 17px; }
+  }
+
+  .flashes{
+    padding: 0;
+  }
+
+
+@tailwind utilities;

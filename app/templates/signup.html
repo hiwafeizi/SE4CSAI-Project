@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Signup | LinkInLead
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form action="{{ url_for('app_views.signup') }}" method="post" class="mt-16 w-11/12 sm:w-96 sm:mt-32">
+        <h3 class="mb-1">Signup</h3>
+        <div class="input-group">
+            <label for="username">Email:</label>
+            <input type="text" name="username" class="form-control" id="username" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" class="form-control" id="password" required>
+        </div>
+        <button type="submit" class="formButton mt-3">Signup</button>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flashes">
+                    {% for message in messages %}
+                        <div class="alert alert-warning">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </form>
+</div>
+{% endblock %}
