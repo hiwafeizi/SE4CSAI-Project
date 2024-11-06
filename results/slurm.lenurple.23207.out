@@ -1,0 +1,3 @@
+Data loaded successfully. Number of records: 676004
+Starting transformation of descriptions...
+Processing complete. Dataset saved to 'data/pet_descriptions_dataset.csv'
