@@ -4,3 +4,5 @@ commands.txt
 results/form2text1
 ssh
 .env
+best_model/
+form2text/
