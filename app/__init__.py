@@ -4,6 +4,7 @@ from flask import Blueprint, Flask
 from .extensions import db, migrate, login_manager
 from .models import Users
 from flask_wtf.csrf import CSRFProtect
+from dotenv import load_dotenv
 
 csrf = None
 
@@ -13,9 +14,12 @@ def create_app():
     global csrf
     csrf = CSRFProtect(app)
 
+    # Load environment variables from .env file
+    load_dotenv()
+
     # Set the secret key from environment variable
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-
+    print("yoooo", os.environ.get('SECRET_KEY'))
     # Configuration setup for the database
     DATABASE_URI = os.environ.get('DATABASE_URL')
 

@@ -3,3 +3,4 @@ venv/
 commands.txt
 results/form2text1
 ssh
+.env

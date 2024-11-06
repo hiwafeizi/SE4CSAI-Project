@@ -43,9 +43,37 @@ def login():
         flash('Logged in successfully!', 'success')
         return redirect(url_for('app_views.my_account'))
 
-    # Handle the GET request (show the login form with optional email)
-    email = request.args.get('email', '')  # Get email from query parameters if present
-    return render_template('login.html', email=email)
+    return render_template('login.html')
+
+@app_views.route('/signup', methods=['GET', 'POST'])
+@csrf.exempt
+def signup():
+    if request.method == 'POST':
+        # Handle the POST request (login submission)
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        # Fetch the user from the database
+        user = Users.query.filter_by(email=email).first()
+
+        # # Check if the user exists
+        # if not user:
+        #     flash('No account found with the provided email.', 'danger')
+        #     return render_template('login.html', email=email)  # Pass the email back to the template
+
+        # # Check if the password is correct
+        # if not user.check_password(password):
+        #     flash('Incorrect password, please try again.', 'danger')
+        #     return render_template('login.html', email=email)  # Pass the email back to the template
+
+        # # If authentication is successful
+        # session['user_id'] = user.id
+        # session['user_role'] = user.role  # Store user role in the session
+        
+        # flash('Logged in successfully!', 'success')
+        # return redirect(url_for('app_views.my_account'))
+
+    return render_template('signup.html')
 
 
 @app_views.route('/terms-of-service', methods=['GET'])
