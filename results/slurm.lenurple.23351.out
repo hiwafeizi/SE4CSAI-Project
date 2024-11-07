@@ -191,3 +191,51 @@ Epoch 1, Batch 1770/2113, Batch Loss: 2.6914
 Epoch 1, Batch 1780/2113, Batch Loss: 2.6540
 Epoch 1, Batch 1790/2113, Batch Loss: 2.6460
 Epoch 1, Batch 1800/2113, Batch Loss: 2.7398
+Epoch 1, Batch 1810/2113, Batch Loss: 2.8352
+Epoch 1, Batch 1820/2113, Batch Loss: 2.6694
+Epoch 1, Batch 1830/2113, Batch Loss: 2.6644
+Epoch 1, Batch 1840/2113, Batch Loss: 2.6389
+Epoch 1, Batch 1850/2113, Batch Loss: 2.6889
+Epoch 1, Batch 1860/2113, Batch Loss: 2.8101
+Epoch 1, Batch 1870/2113, Batch Loss: 2.6551
+Epoch 1, Batch 1880/2113, Batch Loss: 2.6707
+Epoch 1, Batch 1890/2113, Batch Loss: 2.7557
+Epoch 1, Batch 1900/2113, Batch Loss: 2.6535
+Epoch 1, Batch 1910/2113, Batch Loss: 2.7857
+Epoch 1, Batch 1920/2113, Batch Loss: 2.6595
+Epoch 1, Batch 1930/2113, Batch Loss: 2.5286
+Epoch 1, Batch 1940/2113, Batch Loss: 2.7690
+Epoch 1, Batch 1950/2113, Batch Loss: 2.7259
+Epoch 1, Batch 1960/2113, Batch Loss: 2.6883
+Epoch 1, Batch 1970/2113, Batch Loss: 2.6176
+Epoch 1, Batch 1980/2113, Batch Loss: 2.6949
+Epoch 1, Batch 1990/2113, Batch Loss: 2.5710
+Epoch 1, Batch 2000/2113, Batch Loss: 2.7315
+Epoch 1, Batch 2010/2113, Batch Loss: 2.7193
+Epoch 1, Batch 2020/2113, Batch Loss: 2.7485
+Epoch 1, Batch 2030/2113, Batch Loss: 2.7587
+Epoch 1, Batch 2040/2113, Batch Loss: 2.5706
+Epoch 1, Batch 2050/2113, Batch Loss: 2.6962
+Epoch 1, Batch 2060/2113, Batch Loss: 2.6004
+Epoch 1, Batch 2070/2113, Batch Loss: 2.6478
+Epoch 1, Batch 2080/2113, Batch Loss: 2.6974
+Epoch 1, Batch 2090/2113, Batch Loss: 2.6429
+Epoch 1, Batch 2100/2113, Batch Loss: 2.7060
+Epoch 1, Batch 2110/2113, Batch Loss: 2.5935
+Epoch 1/2 - Train Loss: 2.9567 - Validation Loss: 2.4659 - Epoch Duration: 20187.21 seconds
+Saving model to 'best_model'...
+Model and tokenizer saved to 'best_model'.
+Model improved at epoch 1 and saved as 'best_model'.
+Epoch 2, Batch 10/2113, Batch Loss: 2.6068
+Epoch 2, Batch 20/2113, Batch Loss: 2.7489
+Epoch 2, Batch 30/2113, Batch Loss: 2.6770
+Epoch 2, Batch 40/2113, Batch Loss: 2.6129
+Epoch 2, Batch 50/2113, Batch Loss: 2.6756
+Epoch 2, Batch 60/2113, Batch Loss: 2.5365
+Epoch 2, Batch 70/2113, Batch Loss: 2.7397
+Epoch 2, Batch 80/2113, Batch Loss: 2.6544
+Epoch 2, Batch 90/2113, Batch Loss: 2.5487
+Epoch 2, Batch 100/2113, Batch Loss: 2.6417
+Epoch 2, Batch 110/2113, Batch Loss: 2.7302
+Epoch 2, Batch 120/2113, Batch Loss: 2.6726
+Epoch 2, Batch 130/2113, Batch Loss: 2.7284
