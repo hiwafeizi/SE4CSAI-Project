@@ -7,3 +7,9 @@ ssh
 best_model/
 form2text/
 epoch_1
+
+# Ignore all .out files
+*.out
+
+# Ignore all .err files
+*.err

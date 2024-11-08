@@ -13,12 +13,34 @@ def load_data(file_path):
     print(f"Dataset loaded with {data.shape[0]} rows and {data.shape[1]} columns.")
     return data
 
-# Prepare Form2Description input (all columns except 'text') and output (description)
+# Prepare Form2Description input (all columns except 'Description') and output (Description)
 def prepare_form2description_data(data):
     print("Preparing data for Form2Description...")
-    form_input = data.drop(columns=['text'])  # Use all columns except 'text'
-    form_input_str = form_input.apply(lambda x: ', '.join(x.astype(str)), axis=1)  # Convert form data to a single string
-    prepared_data = pd.DataFrame({'input': form_input_str, 'output': data['text']})  # Create DataFrame with input/output
+    
+    def format_input(row):
+        # Assume that the data file already contains readable labels for each attribute
+        # Use straightforward string formatting with descriptive terms
+        return (
+            f"Type: {row['Type']}, "
+            f"Primary Breed: {row['Breed1']}, "
+            f"Gender: {row['Gender']}, "
+            f"Primary Color: {row['Color1']}, "
+            f"Maturity Size: {row['MaturitySize']}, "
+            f"Fur Length: {row['FurLength']}, "
+            f"Vaccinated: {row['Vaccinated']}, "
+            f"Dewormed: {row['Dewormed']}, "
+            f"Sterilized: {row['Sterilized']}, "
+            f"Health: {row['Health']}, "
+            f"Quantity: {row['Quantity']}, "
+            f"Fee: {row['Fee']}"
+        )
+    
+    # Apply the formatted input to each row in the data
+    form_input_str = data.apply(format_input, axis=1)
+    
+    # Create DataFrame with 'input' for model input and 'output' as the description
+    prepared_data = pd.DataFrame({'input': form_input_str, 'output': data['Description']})
+    
     print("Data preparation complete.")
     return prepared_data
 
@@ -36,8 +58,8 @@ class TextDataset(Dataset):
 # Tokenize the data and return a DataLoader
 def tokenize_data(data, input_col, output_col, tokenizer, batch_size=256):
     print("Tokenizing data...")
-    input_encodings = tokenizer(data[input_col].tolist(), truncation=True, padding=True, max_length=200, return_tensors="pt")
-    target_encodings = tokenizer(data[output_col].tolist(), truncation=True, padding=True, max_length=200, return_tensors="pt")
+    input_encodings = tokenizer(data[input_col].tolist(), truncation=True, padding=True, max_length=400, return_tensors="pt")
+    target_encodings = tokenizer(data[output_col].tolist(), truncation=True, padding=True, max_length=400, return_tensors="pt")
     dataset = TextDataset({"input_ids": input_encodings['input_ids'], "labels": target_encodings['input_ids']})
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
     print("Tokenization complete.")
@@ -51,7 +73,7 @@ def save_model(model, tokenizer, model_name):
     print(f"Model and tokenizer saved to '{model_name}'.")
 
 # Train the model with intermediate saving
-def train_model(train_loader, val_loader, tokenizer, model, epochs=2, learning_rate=5e-5, patience=3, save_interval=10):
+def train_model(train_loader, val_loader, tokenizer, model, epochs=30, learning_rate=5e-5, patience=3, save_interval=10):
     optimizer = AdamW(model.parameters(), lr=learning_rate)
     model.train()
     
@@ -152,5 +174,5 @@ def run_training_pipeline(file_path, model_name='t5-small', epochs=30, batch_siz
     save_model(model, tokenizer, 'form2description-model')
 
 # Run the training pipeline with the dataset
-file_path = 'data/form2description_reduced.csv'
-run_training_pipeline(file_path, model_name='t5-small', epochs=2, batch_size=256)
+file_path = 'data/filtered_train_data.csv'  # Updated path to the cleaned data
+run_training_pipeline(file_path, model_name='t5-small', epochs=30, batch_size=256)
