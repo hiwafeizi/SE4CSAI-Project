@@ -1,27 +1,72 @@
-English: I'm CJ, they are currently working on my bio. Please check back! If you are interested not call or email! Better yet come meet me!
-Generated Dutch Translation: Ik ben CJ, ze zijn momenteel werken aan mijn bio. Check terug! Als u geïnteresseerd bent niet bellen of e-mailen! Beter nog steeds kom me ontmoeten!
-English: Sevier County Humane Society 865-453-7000 959 Gnatty Branch Rd. Sevierville Closed Mondays. Open Tuesday, Wednesday, Thursday 12 - 7 Friday, Saturday, Sunday 12 - 5
-Generated Dutch Translation: Sevier County Humane Society 865-453-7000 959 Gnatty Branch Rd. Sevierville Gesloten maandag. Open dinsdag, woensdag, donderdag 12 - 7 vrijdag, zaterdag, zondag 12 - 5
-English: Adoption fee is $67 and includes vaccinations, spay/neuter, heartworm test, and microchip. Available for adoption, foster, or rescue. 1869 Ames Blvd Marrero, LA 70072
-Generated Dutch Translation: Adoptie vergoeding is $ 67 en omvat vaccinaties, spay / neuter, hartworm test, en microchip. Beschikbaar voor adoptie, pleeg, of redding. 1869 Ames Blvd Marrero, LA 70072
-English: Misty is a sweet four year old Russian blue/lavender tabby. Loves to curl up in your lap. Very sweet. Good with dogs and cats.
-Generated Dutch Translation: Misty is een lieve vierjarige Russische blauwe / lavendel tabby. Houdt ervan om op te krullen in je schoot. Zeer lief. Goed met honden en katten.
-English: Cookie - 4 year old Shepherd mix Female - over 60 lbs (ON DIET!!!) Great with cats, kids, people but would prefer a home without other dogs.
-Generated Dutch Translation: Cookie - 4 jaar oude Shepherd mix Vrouw - meer dan 60 lbs (ON DIET!!!) Geweldig met katten, kinderen, mensen, maar zou liever een huis zonder andere honden.
-English: Very sweet dog who would love a great home! Jimmy Choo, Border Collie Mix has been shared from Shelter Exchange - http://www.shelterexchange.org.
-Generated Dutch Translation: Zeer lieve hond die zou graag een geweldig huis! Jimmy 
-Choo, Border Collie Mix is geweldig door Shelter Exchange - http://www.shelterexchange.org.
-English: Very sweet and loving and would love a good home! Dopey, Labrador Retriever Mix has been shared from Shelter Exchange - http://www.shelterexchange.org.        
-Generated Dutch Translation: Zeer lief en liefdevol en zou graag een goed huis! Dopey, Labrador Retriever Mix is ge deeld van Shelter Exchange - http://www.shelterexchange.org.
-English: Sandy enjoys playing with and spending time with dogs. Most of all, she loves to snuggle and she chirps in her sleep! Best purr ever!
-Generated Dutch Translation: Sandy geniet van spelen met en tijd doorbrengen met honden. Meest van alles, ze houdt van knuffelen en ze tijpt in haar slaap! Best spinnen ooit!
-English: To learn more about Sansa, visit https://horseandridermatch.com/2018/06/08/sansa-2015-palomino-quarter-horse-filly-with-the-appalachian-trainer-face-off/      
-Generated Dutch Translation: Bezoek https://horseandridermatch.com/2018/06/08/sansa-2015-palomino-kwart-horse-filly- with-the-appalachian-trainer-face-off/
-English: I am a fun, playful, 12-week-old handsome little man! Please visit me at Petsmart in Farmingdale or contact me at www.awaprescue.com
-Generated Dutch Translation: Ik ben een leuke, speelse, 12-weekse knappe kleine man! Bezoek me op Petsmart in Farmingdale of neem contact met me op op www.awaprescue.com
-English: Cute little Tobias was found all alone wandering in the campgrounds. Boy was he hungry! He is safe now and looking for his forever home!
-Generated Dutch Translation: Schattige kleine Tobias werd gevonden alleen zwervend in de campingen. Boy had hij honger! Hij is nu veilig en op zoek naar zijn voor altijd thuis!
-English: Male hooded rat. Hand tame and sweet. Will do well alone or with a cage mate. Most ages and colors of rats available for adoption.
-Generated Dutch Translation: Mannelijke hoed rat. Hand tam en lief. Zal goed alleen 
-doen of met een kooi mate. Meeste leeftijden en kleuren van ratten beschikbaar voor 
-adoptie.
+Input: I'm CJ, they are currently working on my bio. Please check back! If you are interested not call or email! Better yet come meet me!
+Generated: Ik ben CJ, ze zijn momenteel werken aan mijn bio. Check terug! Als u geïnteresseerd bent niet bellen of e-mailen! Beter nog steeds kom me ontmoeten!
+Expected: Ik ben CJ, ze werken momenteel aan mijn bio. Kom later nog eens terug! Als je geïnteresseerd bent, bel of e-mail niet! Nog beter, kom me ontmoeten!
+BLEU Score: 0.18988164365771953
+
+Input: Sevier County Humane Society 865-453-7000 959 Gnatty Branch Rd. Sevierville Closed Mondays. Open Tuesday, Wednesday, Thursday 12 - 7 Friday, Saturday, Sunday 12 
+- 5
+Generated: Sevier County Humane Society 865-453-7000 959 Gnatty Branch Rd. Sevierville Gesloten maandag. Open dinsdag, woensdag, donderdag 12 - 7 vrijdag, zaterdag, zondag 12 - 5
+Expected: Sevier County Humane Society 865-453-7000 959 Gnatty Branch Rd. Sevierville Gesloten op maandag. Geopend dinsdag, woensdag, donderdag 12 - 7, vrijdag, zaterdag, zondag 12 - 5
+BLEU Score: 0.7107043471680553
+
+Input: Adoption fee is $67 and includes vaccinations, spay/neuter, heartworm test, and microchip. Available for adoption, foster, or rescue. 1869 Ames Blvd Marrero, LA 
+70072
+Generated: Adoptie vergoeding is $ 67 en omvat vaccinaties, spay / neuter, hartworm 
+test, en microchip. Beschikbaar voor adoptie, pleeg, of redding. 1869 Ames Blvd Marrero, LA 70072
+Expected: Adoptiekosten zijn $67 en omvatten vaccinaties, sterilisatie/castratie, hartwormtest en microchip. Beschikbaar voor adoptie, pleegzorg of redding. 1869 Ames Blvd Marrero, LA 70072
+BLEU Score: 0.396354718559582
+
+Input: Misty is a sweet four year old Russian blue/lavender tabby. Loves to curl up 
+in your lap. Very sweet. Good with dogs and cats.
+Generated: Misty is een lieve vierjarige Russische blauwe / lavendel tabby. Houdt ervan om op te krullen in je schoot. Zeer lief. Goed met honden en katten.
+Expected: Misty is een lieve vierjarige Russische blauwe/lavendelkleurige tabby. Ze 
+kruipt graag op schoot. Erg lief. Goed met honden en katten.
+BLEU Score: 0.3763743474188507
+
+Input: Cookie - 4 year old Shepherd mix Female - over 60 lbs (ON DIET!!!) Great with cats, kids, people but would prefer a home without other dogs.
+Generated: Cookie - 4 jaar oude Shepherd mix Vrouw - meer dan 60 lbs (ON DIET!!!) Geweldig met katten, kinderen, mensen, maar zou liever een huis zonder andere honden. 
+Expected: Cookie - 4 jaar oude vrouwelijke herdermix - meer dan 60 lbs (OP DIEET!!!) Geweldig met katten, kinderen, mensen, maar zou liever een huis hebben zonder andere honden.
+BLEU Score: 0.6189172073417211
+
+Input: Very sweet dog who would love a great home! Jimmy Choo, Border Collie Mix has been shared from Shelter Exchange - http://www.shelterexchange.org.
+Generated: Zeer lieve hond die zou graag een geweldig huis! Jimmy Choo, Border Collie Mix is geweldig door Shelter Exchange - http://www.shelterexchange.org.
+Expected: Zeer lieve hond die graag een geweldig thuis zou willen hebben! Jimmy Choo, Border Collie Mix, is gedeeld van Shelter Exchange - http://www.shelterexchange.org.
+BLEU Score: 0.36968769635248216
+
+Input: Very sweet and loving and would love a good home! Dopey, Labrador Retriever Mix has been shared from Shelter Exchange - http://www.shelterexchange.org.
+Generated: Zeer lief en liefdevol en zou graag een goed huis! Dopey, Labrador Retriever Mix is ge deeld van Shelter Exchange - http://www.shelterexchange.org.
+Expected: Zeer lief en aanhankelijk en zou graag een goed thuis willen! Dopey, Labrador Retriever Mix, is gedeeld van Shelter Exchange - http://www.shelterexchange.org.BLEU Score: 0.4391254859388873
+
+D:\github\SE4CSAI Project\.venv\Lib\site-packages\nltk\translate\bleu_score.py:577: 
+UserWarning:
+The hypothesis contains 0 counts of 4-gram overlaps.
+Therefore the BLEU score evaluates to 0, independently of
+how many N-gram overlaps of lower order it contains.
+Consider using lower n-gram order or use SmoothingFunction()
+  warnings.warn(_msg)
+Input: Sandy enjoys playing with and spending time with dogs. Most of all, she loves to snuggle and she chirps in her sleep! Best purr ever!
+Generated: Sandy geniet van spelen met en tijd doorbrengen met honden. Meest van alles, ze houdt van knuffelen en ze tijpt in haar slaap! Best spinnen ooit!
+Expected: Sandy houdt ervan om te spelen en tijd door te brengen met honden. Maar bovenal houdt ze ervan om te knuffelen en ze piept in haar slaap! Beste spin ooit!    
+BLEU Score: 3.4320890595334842e-78
+
+Input: To learn more about Sansa, visit https://horseandridermatch.com/2018/06/08/sansa-2015-palomino-quarter-horse-filly-with-the-appalachian-trainer-face-off/        
+Generated: Bezoek https://horseandridermatch.com/2018/06/08/sansa-2015-palomino-kwart-horse-filly- with-the-appalachian-trainer-face-off/
+Expected: Om meer te weten te komen over Sansa, bezoek https://horseandridermatch.com/2018/06/08/sansa-2015-palomino-quarter-horse-filly-with-the-appalachian-trainer-face-off/
+BLEU Score: 0
+
+Input: I am a fun, playful, 12-week-old handsome little man! Please visit me at Petsmart in Farmingdale or contact me at www.awaprescue.com
+Generated: Ik ben een leuke, speelse, 12-weekse knappe kleine man! Bezoek me op Petsmart in Farmingdale of neem contact met me op op www.awaprescue.com
+Expected: Ik ben een leuke, speelse, 12 weken oude knappe kleine man! Bezoek me alsjeblieft bij Petsmart in Farmingdale of neem contact met me op via www.awaprescue.comBLEU Score: 0.5838163783736013
+
+Input: Cute little Tobias was found all alone wandering in the campgrounds. Boy was 
+he hungry! He is safe now and looking for his forever home!
+Generated: Schattige kleine Tobias werd gevonden alleen zwervend in de campingen. Boy had hij honger! Hij is nu veilig en op zoek naar zijn voor altijd thuis!
+Expected: Schattige kleine Tobias werd helemaal alleen gevonden terwijl hij rondzwierf op de camping. Hij had honger! Hij is nu veilig en op zoek naar zijn eeuwige thuis!
+BLEU Score: 0.46281621328489236
+
+Input: Male hooded rat. Hand tame and sweet. Will do well alone or with a cage mate. Most ages and colors of rats available for adoption.
+Generated: Mannelijke hoed rat. Hand tam en lief. Zal goed alleen doen of met een kooi mate. Meeste leeftijden en kleuren van ratten beschikbaar voor adoptie.
+Expected: Mannelijke kaprat. Handtam en lief. Zal goed gedijen alleen of met een kooigenoot. De meeste leeftijden en kleuren ratten zijn beschikbaar voor adoptie.      
+BLEU Score: 0.22067731046885494
+
+Average BLEU Score: 0.3640296123803872

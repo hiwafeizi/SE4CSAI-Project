@@ -62,8 +62,8 @@ def create_data_loader(df, tokenizer, batch_size):
     )
     return DataLoader(ds, batch_size=batch_size, num_workers=4)
 
-# Model Training Function
-def train_epoch(model, data_loader, optimizer, scheduler, device, epoch):
+# Model Training Function with Gradient Accumulation
+def train_epoch(model, data_loader, optimizer, scheduler, device, epoch, accumulation_steps=2):
     model.train()
     total_loss = 0
     start_time = time.time()
@@ -81,16 +81,19 @@ def train_epoch(model, data_loader, optimizer, scheduler, device, epoch):
         )
 
         loss = outputs.loss
+        loss = loss / accumulation_steps  # Scale loss for gradient accumulation
         total_loss += loss.item()
 
         loss.backward()
-        optimizer.step()
-        scheduler.step()
-        optimizer.zero_grad()
+
+        if (idx + 1) % accumulation_steps == 0:
+            optimizer.step()
+            scheduler.step()
+            optimizer.zero_grad()
 
         if idx % 100 == 0:
             elapsed = time.time() - start_time
-            print(f"Epoch {epoch}, Batch {idx}/{len(data_loader)}, Loss: {loss.item():.4f}, Time Elapsed: {elapsed:.2f}s")
+            print(f"Epoch {epoch}, Batch {idx}/{len(data_loader)}, Loss: {loss.item() * accumulation_steps:.4f}, Time Elapsed: {elapsed:.2f}s")
             start_time = time.time()
 
     avg_loss = total_loss / len(data_loader)
@@ -118,15 +121,12 @@ def eval_model(model, data_loader, device):
             loss = outputs.loss
             total_loss += loss.item()
 
-            if idx % 50 == 0:
-                print(f"Evaluation Batch {idx}/{len(data_loader)}, Loss: {loss.item():.4f}")
-
     avg_loss = total_loss / len(data_loader)
     print(f"Evaluation completed. Average Validation Loss: {avg_loss:.4f}")
     return avg_loss
 
 # Main Function to Train and Save the Model
-def train_model(file_path, model_name='t5-base', epochs=3, batch_size=8, learning_rate=3e-5):
+def train_model(file_path, model_name='t5-base', epochs=30, batch_size=8, learning_rate=3e-5, accumulation_steps=4):
     # Load Data
     df = load_data(file_path)
     print("Data splitting into train and validation sets...")
@@ -150,26 +150,30 @@ def train_model(file_path, model_name='t5-base', epochs=3, batch_size=8, learnin
     
     # Set Optimizer and Scheduler
     optimizer = AdamW(model.parameters(), lr=learning_rate, correct_bias=True)
-    total_steps = len(train_data_loader) * epochs
+    total_steps = len(train_data_loader) * epochs // accumulation_steps
     scheduler = get_linear_schedule_with_warmup(
-        optimizer, num_warmup_steps=0, num_training_steps=total_steps
+        optimizer, num_warmup_steps=int(total_steps * 0.1), num_training_steps=total_steps
     )
     
+    best_val_loss = float('inf')  # Track best validation loss for saving
     # Train and Evaluate the Model
     for epoch in range(1, epochs + 1):
         print(f'\n--- Training epoch {epoch}/{epochs} ---')
-        train_loss = train_epoch(model, train_data_loader, optimizer, scheduler, device, epoch)
+        train_loss = train_epoch(model, train_data_loader, optimizer, scheduler, device, epoch, accumulation_steps)
         print(f"Training Loss for epoch {epoch}: {train_loss:.4f}")
         
         val_loss = eval_model(model, val_data_loader, device)
         print(f"Validation Loss for epoch {epoch}: {val_loss:.4f}")
+
+        # Save the model only if validation loss improves
+        if val_loss < best_val_loss:
+            best_val_loss = val_loss
+            print("Validation loss improved. Saving model...")
+            model.save_pretrained('t5-text-enhancement-model')
+            tokenizer.save_pretrained('t5-text-enhancement-model')
     
-    # Save the Model
-    print("Training complete. Saving the model...")
-    model.save_pretrained('t5-text-enhancement-model')
-    tokenizer.save_pretrained('t5-text-enhancement-model')
-    print("Model and tokenizer saved successfully to 't5-text-enhancement-model'.")
+    print("Training complete. Best model saved to 't5-text-enhancement-model'.")
 
 # Run the training pipeline
 if __name__ == "__main__":
-    train_model(file_path='data/pet_descriptions_dataset.csv')
+    train_model(file_path='data/filtered_train_data.csv')

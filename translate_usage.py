@@ -51,8 +51,29 @@ test_cases = [
 ]
 
 
-# Step 4: Test each case and print results
-for en_sentence, expected_nl_sentence in test_cases:
-    translation = translate_sentence(model, tokenizer, en_sentence)
-    print(f"English: {en_sentence}")
-    print(f"Generated Dutch Translation: {translation}")
+# # Step 4: Test each case and print results
+# for en_sentence, expected_nl_sentence in test_cases:
+#     translation = translate_sentence(model, tokenizer, en_sentence)
+#     print(f"English: {en_sentence}")
+#     print(f"Generated Dutch Translation: {translation}")
+
+from nltk.translate.bleu_score import sentence_bleu
+
+def evaluate_with_bleu(model, tokenizer, test_cases):
+    scores = []
+    for input_text, expected_translation in test_cases:
+        generated_translation = translate_sentence(model, tokenizer, input_text)
+        reference = [expected_translation.split()]
+        candidate = generated_translation.split()
+        bleu_score = sentence_bleu(reference, candidate)
+        scores.append(bleu_score)
+        print(f"Input: {input_text}")
+        print(f"Generated: {generated_translation}")
+        print(f"Expected: {expected_translation}")
+        print(f"BLEU Score: {bleu_score}\n")
+    
+    avg_bleu = sum(scores) / len(scores)
+    print(f"Average BLEU Score: {avg_bleu}")
+
+# Run BLEU evaluation
+evaluate_with_bleu(model, tokenizer, test_cases)
