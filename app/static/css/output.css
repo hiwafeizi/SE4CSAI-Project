@@ -287,14 +287,6 @@ sup {
 3. Remove gaps between table borders by default.
 */
 
-table {
-  text-indent: 0;
-  /* 1 */
-  border-color: inherit;
-  /* 2 */
-  border-collapse: collapse;
-  /* 3 */
-}
 
 /*
 1. Change the font styles in all browsers.
@@ -554,39 +546,7 @@ video {
   display: none;
 }
 
-.container {
-  width: 100%;
-}
 
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
-}
 
 /* Base font style using Inter */
 
@@ -766,17 +726,6 @@ body {
   }
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Updated this line */
-  padding: 20px;
-  max-width: 1100px;
-  /* Set the maximum width */
-  margin: 0 auto;
-  /* Center the section */
-}
 
 .imageContent {
   flex: 1;
