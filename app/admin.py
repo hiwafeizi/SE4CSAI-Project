@@ -3,11 +3,11 @@ from flask import flash, render_template, redirect, url_for, session
 from app.models import Users
 
 def role_required(required_roles, error_template='login.html'):
-    print("yesssss")
+    # print("yesssss")
     def wrapper(func):
         @wraps(func)  
         def decorated_view(*args, **kwargs):
-            print(required_roles)
+            # print(required_roles)
             # Check if user is logged in
             if 'user_id' not in session:
                 flash('You need to log in to access this page.', 'danger')

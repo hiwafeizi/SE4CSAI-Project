@@ -75,11 +75,6 @@ def signup():
 
     return render_template('signup.html')
 
-@app_views.route('/admin_page', methods=['GET', 'POST'])
-@csrf.exempt
-def test():
-    print(0)
-    return role_required("admin")(admin_page)()
 
 @role_required("user")
 @app_views.route('/my-account', methods=['GET'])
