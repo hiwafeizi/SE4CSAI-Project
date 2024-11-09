@@ -26,8 +26,8 @@ class TextEnhancementDataset(Dataset):
         return len(self.data)
 
     def __getitem__(self, index):
-        source_text = self.data.iloc[index]['input']
-        target_text = self.data.iloc[index]['target']
+        source_text = self.data.iloc[index]['low_quality_description']
+        target_text = self.data.iloc[index]['high_quality_description']
 
         source_encoding = self.tokenizer(
             source_text,
