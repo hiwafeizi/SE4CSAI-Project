@@ -19,7 +19,7 @@ def create_app():
 
     # Set the secret key from environment variable
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-    print("yoooo", os.environ.get('SECRET_KEY'))
+
     # Configuration setup for the database
     DATABASE_URI = os.environ.get('DATABASE_URL')
 
