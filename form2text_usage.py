@@ -30,7 +30,7 @@ def generate_description(tokenizer, model, form_input, max_length=200):
     return description
 
 # Load the saved model and tokenizer
-tokenizer, model = load_model('best_model2')
+tokenizer, model = load_model('AI/form2text')
 
 # List of test cases with form input and expected descriptions
 test_data = [
