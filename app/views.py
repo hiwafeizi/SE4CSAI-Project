@@ -1,11 +1,9 @@
 from flask import Blueprint, render_template, redirect, request, url_for, flash, session
 from werkzeug.security import generate_password_hash
-from .forms import AccountSetupForm
-from .models import ContactMessage, Posts, Users, Accounts, db
+from .models import Users
 from .extensions import login_manager
 from .admin import role_required
 from . import csrf
-from datetime import datetime, timedelta
 
 app_views = Blueprint('app_views', __name__)
 
