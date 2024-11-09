@@ -26,8 +26,8 @@ class TextEnhancementDataset(Dataset):
         return len(self.data)
 
     def __getitem__(self, index):
-        source_text = self.data.iloc[index]['input']
-        target_text = self.data.iloc[index]['target']
+        source_text = self.data.iloc[index]['low_quality_description']
+        target_text = self.data.iloc[index]['high_quality_description']
 
         source_encoding = self.tokenizer(
             source_text,
@@ -63,7 +63,7 @@ def create_data_loader(df, tokenizer, batch_size):
     return DataLoader(ds, batch_size=batch_size, num_workers=4)
 
 # Model Training Function with Gradient Accumulation
-def train_epoch(model, data_loader, optimizer, scheduler, device, epoch, accumulation_steps=2):
+def train_epoch(model, data_loader, optimizer, scheduler, device, epoch, accumulation_steps):
     model.train()
     total_loss = 0
     start_time = time.time()
@@ -125,8 +125,39 @@ def eval_model(model, data_loader, device):
     print(f"Evaluation completed. Average Validation Loss: {avg_loss:.4f}")
     return avg_loss
 
+# Test Function to Generate Predictions for Sample Inputs
+def test_model_progress(model, tokenizer, sample_texts, device, max_length=400):
+    model.eval()
+    print("\n--- Testing Model Progress ---")
+    for i, text in enumerate(sample_texts):
+        # Tokenize the input text
+        input_tokens = tokenizer(text, return_tensors="pt", padding=True, truncation=True).to(device)
+        
+        # Generate output using specified parameters
+        outputs = model.generate(
+            input_tokens['input_ids'],
+            max_length=max_length,
+            min_length=50,
+            top_k=100,
+            top_p=0.8,
+            repetition_penalty=4.0,
+            num_beams=5,
+            do_sample=False,
+            early_stopping=True
+        )
+        
+        # Decode the output
+        output_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        
+        print(f"Test {i+1}:")
+        print(f"Input: {text}")
+        print(f"Output: {output_text}\n")
+    print("--- End of Test ---\n")
+    model.train()
+
+
 # Main Function to Train and Save the Model
-def train_model(file_path, model_name='t5-base', epochs=30, batch_size=8, learning_rate=3e-5, accumulation_steps=4):
+def train_model(file_path, model_name='t5-base', epochs=50, batch_size=256, learning_rate=5e-4, accumulation_steps=4):
     # Load Data
     df = load_data(file_path)
     print("Data splitting into train and validation sets...")
@@ -155,25 +186,48 @@ def train_model(file_path, model_name='t5-base', epochs=30, batch_size=8, learni
         optimizer, num_warmup_steps=int(total_steps * 0.1), num_training_steps=total_steps
     )
     
-    best_val_loss = float('inf')  # Track best validation loss for saving
+    # Initialize tracking for the best training and validation loss
+    best_train_loss = float('inf')
+    best_val_loss = float('inf')
+
+    # Sample test texts to evaluate progress
+    sample_texts = [
+        "This pet is friendly and enjoys playing.",
+        "A small dog with a big heart, looking for a loving home."
+    ]
+
     # Train and Evaluate the Model
     for epoch in range(1, epochs + 1):
         print(f'\n--- Training epoch {epoch}/{epochs} ---')
+        
+        # Training
         train_loss = train_epoch(model, train_data_loader, optimizer, scheduler, device, epoch, accumulation_steps)
         print(f"Training Loss for epoch {epoch}: {train_loss:.4f}")
         
+        # Validation
         val_loss = eval_model(model, val_data_loader, device)
         print(f"Validation Loss for epoch {epoch}: {val_loss:.4f}")
 
-        # Save the model only if validation loss improves
-        if val_loss < best_val_loss:
+        # Save model if train_loss is the lowest and train_loss > val_loss
+        if train_loss < best_train_loss and train_loss > val_loss:
+            best_train_loss = train_loss
+            print("Training loss improved and is greater than validation loss. Saving model...")
+            model.save_pretrained('t5-text-enhancement-model')
+            tokenizer.save_pretrained('t5-text-enhancement-model')
+            # Run test to see model progress
+            test_model_progress(model, tokenizer, sample_texts, device)
+        
+        # Alternatively, save if validation loss is the lowest
+        elif val_loss < best_val_loss:
             best_val_loss = val_loss
             print("Validation loss improved. Saving model...")
             model.save_pretrained('t5-text-enhancement-model')
             tokenizer.save_pretrained('t5-text-enhancement-model')
-    
+            # Run test to see model progress
+            test_model_progress(model, tokenizer, sample_texts, device)
+
     print("Training complete. Best model saved to 't5-text-enhancement-model'.")
 
 # Run the training pipeline
 if __name__ == "__main__":
-    train_model(file_path='data/filtered_train_data.csv')
+    train_model(file_path='data/degraded_to_high_quality_descriptions.csv')

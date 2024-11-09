@@ -1,137 +1,23 @@
-Form Input: US, Black, Dog, Adult, Female, Medium, 3
-Generated Description: I am a sweet, playful, and playful girl. I am a very sweet girl who loves to play with my siblings and other dogs. I am a very sweet girl who loves to play with my siblings. I am a very sweet girl who loves to play with my siblings. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy and I am a little shy and playful girl. I am a little shy and playful
-Expected Description: This sweet girl lost her owner when he recently went to Heaven and she now is looking for her forever home. $200 www.all4animalsrescue.org        
-Match: No
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: He is a very friendly dog and loves to be cuddled. He has been dewormed, deflead and spayed. I am looking for someone who can give him a good home. If you 
+are interested in adopting him pls contact me.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
 
-Form Input: US, Other, Cat, Baby, Male, Medium, 1
-Generated Description: I am a sweet, playful, and playful kitten. I am a very sweet, playful, and playful kitten. I am a very sweet, playful, and playful kitten. I am a very sweet, playful, and playful kitten. I am a very sweet, playful, and playful kitten. I am a very sweet, playful, and playful kitten. I am a very sweet, playful, and playful kitten. I am a very sweet, playful, and playful kitten. I am a very sweet, playful, and playful. I am a little shy and a little shy,
-Expected Description: 2 gray kittens, 1 male and 1 female 1 gray tabby female 1 medium length black/gray female 1 medium length black w/gray tips female
-Match: No
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: She is a very active and playful cat. She loves to be cuddled, she has been dewormed and can be kept indoors only. If you are interested in adopting her pls contact me. Thank you!
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
 
-Form Input: US, Unknown, Dog, Adult, Male, Small, 2
-Generated Description: I am a 2 year old, a little shy, but I am a little shy. I am 
-a very sweet, sweet, and playful dog. I am a very sweet boy who loves to play with my kids and play with my siblings. I am a very sweet boy who loves to play with my siblings. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy and a little shy, but I am
-Expected Description: Spanky is a 2yr.old cutie, he is 6 pounds and looking for a wonderful home.He is neutered, mico chipped ,heartworm tested and current.
-Match: No
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: I found this beagle in a box near my house. He is very friendly, playful and loves to cuddle. If you can give him a good home, please call or whatsapp me for more details. Thank you.
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75. 
 
-Form Input: US, White_Cream, Dog, Adult, Female, Large, 3
-Generated Description: I am a sweet, playful, and playful girl. I am a very sweet girl who loves to play with my family and play with my siblings. I am a very sweet girl who loves to play with my siblings. I am a very sweet girl who loves to play with 
-my siblings. I am a very sweet girl who loves to play with my siblings. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little 
-shy and I am a little shy and a little shy. I am
-Expected Description: Please call my foster mom, Jody @ (352)316-5155 to find out how sweet I am.. she will be posting my story soon.. Thanks, Ginger
-Match: No
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, 
+Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: She's a Siamese mix siamese cat, very playful and loves to be cuddled. Please contact me if you can give her a good home. Thank you so much for taking care of her.
+, healthy cats are playful and looking for a home. Free to a loving family.
 
-Form Input: US, Other, Cat, Adult, Female, Medium, 1
-Generated Description: I am a sweet, playful, and playful girl. I am a very sweet girl who is very affectionate and loves to play. I am a very sweet girl who loves to play with my kids and other cats. I am a little shy and I am a little shy at first but I am a little shy. I am a little shy at first but I am a little shy at first but I am a little shy. I am a little shy at first but I am a little shy at first but I am not a little shy. I am a little shy
-Expected Description: I'm Cammy, they are currently working on my bio. Please check 
-back! If you are interested not call or email! Better yet come meet me!
-Match: No
-
-Form Input: US, Other, Cat, Adult, Male, Medium, 1
-Generated Description: 
-Expected Description: I'm CJ, they are currently working on my bio. Please check back! If you are interested not call or email! Better yet come meet me!
-Match: No
-
-Form Input: US, Unknown, Dog, Adult, Male, Large, 3
-Generated Description: 
-Expected Description: Sevier County Humane Society 865-453-7000 959 Gnatty Branch Rd. Sevierville Closed Mondays. Open Tuesday, Wednesday, Thursday 12 - 7 Friday, Saturday, Sunday 12 - 5
-Match: No
-
-Form Input: US, White_Cream, Dog, Baby, Male, Medium, 1
-Generated Description: I am a sweet, playful, and playful boy. I am a very sweet boy who loves to play with my siblings. I am a very sweet boy who loves to play with my siblings. I am a little shy and I am a little shy. I am a little shy at first but I am a little shy. I am a little shy at first but I am a little shy. I am a little shy at first but I am a little shy at first. I am a little shy and a little shy. I am 
-a little shy and a
-Expected Description: Adoption fee is $67 and includes vaccinations, spay/neuter, heartworm test, and microchip.        Available for adoption, foster, or rescue.      
-  1869 Ames Blvd  Marrero, LA 70072
-Match: No
-
-Form Input: US, Other, Cat, Adult, Female, Medium, 3
-Generated Description: I am a sweet, playful, and playful kitten. I am a very sweet 
-girl who is very affectionate and loves to play. I am a very sweet girl who loves to play with my kids and other cats. I am a little shy and I am a little shy. I am a little shy and I am a little shy at first but I am a little shy. I am a little shy and I am a little shy at first but I am a little shy. I am a little shy and playful. I am a little shy and playful, but I
-Expected Description: Misty is a sweet four year old russian blue/lavender tabby. Loves to curl up in your lap. Very sweet. Good with dogs and cats.
-Match: No
-
-Form Input: US, Black, Dog, Adult, Female, Large, 1
-Generated Description: I am a 1 year old, a very sweet girl. I am a very sweet girl 
-who is very affectionate and loves to play. I am a very sweet girl who loves to play with my kids and other dogs. I am a very sweet girl who loves to play with my kids. I am a little shy and I am a little shy. I am a little shy at first but I am a little shy at first but I am a little shy. I am a little shy at first but I am a little 
-shy and I am a little shy and
-Expected Description: Cookie - 4 year old Shepherd mix Female - over 60 lbs (ON DIET!!!) Great with cats, kids, people but would prefer a home without other dogs.      
-Match: No
-
-Form Input: US, Unknown, Dog, Adult, Male, Small, 1
-Generated Description: I am a very sweet, sweet, and playful boy. I am a very sweet 
-boy who loves to play with my siblings. I am a very sweet boy who loves to play with my siblings and other dogs. I am a very sweet boy who loves to play with my siblings. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy at first but I am a little shy at first but I am a little shy. I 
-am a little shy and a little shy. I
-Expected Description: Very sweet dog who would love a great home! Jimmy Choo, Border Collie Mix has been shared from Shelter Exchange - http://www.shelterexchange.org. 
-Match: No
-
-Form Input: US, Unknown, Dog, Adult, Female, Medium, 1
-Generated Description: I am a sweet, playful, and playful girl. I am a very sweet girl who loves to play with my siblings and other dogs. I am a very sweet girl who loves to play with my siblings. I am a very sweet girl who loves to play with my siblings. I am a very sweet girl who loves to play with my siblings and other dogs. I am a very sweet girl who loves to play with my siblings. I am a little shy and I am a little shy at first but I am a little shy and a little shy. I am a little shy
-Expected Description: Very sweet and loving and would love a good home! Dopey, Labrador Retriever Mix has been shared from Shelter Exchange - http://www.shelterexchange.org.
-Match: No
-
-Form Input: US, Other, Cat, Adult, Female, Large, 3
-Generated Description: I am a 3 year old, crate trained, and a very sweet girl. I am a very sweet girl who loves to play with my other cats. I am a little shy and I am 
-a little shy at first but I am a little shy. I am a little shy and I am a little shy at first but I am a little shy. I am a little shy and I am a little shy at first but I am a little shy at first. I am a little shy and playful. I am a little shy and a little shy
-Expected Description: Sandy enjoys playing with and spending time with dogs. Most of all, she love to snuggle and she chirps in her sleep! Best purr ever!
-Match: No
-
-Form Input: US, Unknown, Horse, Adult, Female, Large, 3
-Generated Description: I am a 3 year old female chevron mix. I am a very sweet girl 
-who is very affectionate and loves to play. I am a very sweet girl who loves to play and play with my other dogs. I am a very sweet girl who loves to play with my other dogs. I am a very sweet girl who loves to play with my other dogs. I am a very sweet girl who loves to play with my other dogs and cats. I am a little shy and I am a little shy at first, but I am a little shy and a little shy
-Expected Description: To learn more about Sansa, visit https://horseandridermatch.com/2018/06/08/sansa-2015-palomino-quarter-horse-filly-with-the-appalachian-trainer-face-off/
-Match: No
-
-Form Input: US, Other, Cat, Baby, Male, Medium, 2
-Generated Description: 
-Expected Description: I am a fun, playful, 12 week old handsome little man! Please visit me at Petsmart in Farmingdale or contact me at www.awaprescue.com
-Match: No
-
-Form Input: US, Unknown, Cat, Baby, Male, Medium, 3
-Generated Description: 
-Expected Description: Cute little Tobias was found all alone wondering in the campgrounds. Boy was he hungry! He is safe now and looking for his forever home!
-Match: No
-
-Form Input: US, Unknown, Rat, Young, Male, Medium, 3
-Generated Description: 
-Expected Description: Male hooded rat. Hand tame and sweet. Will do well alone or with a cage mate. Most ages and colors of rats available for adoption.
-Match: No
-
-Form Input: US, Unknown, Rat, Young, Male, Medium, 3
-Generated Description: 
-Expected Description: Male hooded rat. Hand tame and sweet. Will do well alone or with a cage mate. Most ages and colors of rats available for adoption.
-Match: No
-
-Form Input: US, Other, Cat, Adult, Female, Medium, 3
-Generated Description: I am a sweet, playful, and playful kitten. I am a very sweet 
-girl who is very affectionate and loves to play. I am a very sweet girl who loves to play with my kids and other cats. I am a little shy and I am a little shy. I am a little shy and I am a little shy at first but I am a little shy. I am a little shy and I am a little shy at first but I am a little shy. I am a little shy and playful. I am a little shy and playful, but I
-Expected Description: Cousin It (spayed female) 3 years - tabby w/ white DSH - stray Front declawed Adoption Fee: $60 Adoption fee includes spay/neuter, up-to-date vaccinations and microchipping.
-Match: No
-
-Form Input: US, Black, Dog, Adult, Male, Large, 1
-Generated Description: 
-Expected Description: Blue is friendly, outgoing, active and very smart. He is good 
-with children. His family lost their home and can no longer care for him.
-Match: No
-
-Form Input: US, Black, Chicken, Adult, Male, Large, 2
-Generated Description: 
-Expected Description: Axel is a black rooster that is not aggressive around humans, 
-and loves watermelon as his favorite treat. He is looking for his forever home.     
-Match: No
-
-Form Input: US, Other, Cat, Adult, Female, Small, 1
-Generated Description: I am a sweet, playful, and playful kitten. I am a very sweet 
-girl. I am a very sweet girl. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy and a little shy. I am
-Expected Description: FIV/FELV negative Meet Fluffy at pet Valu in Mullica Hil NJ Adopter will need to brush/comb frequently and do eye care from tearing
-Match: No
-
-Form Input: US, Black_White, Cat, Young, Female, Medium, 1
-Generated Description: I am a sweet, playful, and playful girl. I am a very sweet girl who is very affectionate and loves to play. I am a very sweet girl who loves to play with my siblings and other cats. I am a very sweet girl who loves to play with my siblings. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy at first but I am a little shy at first but I am a little shy. I am a little shy and playful. I am
-Expected Description: Evette is a beautiful girl that is very friendly, playful and 
-a cuddler. She is very laid back. Spayed, micro-chipped and current on shots.       
-Match: No
-
-Form Input: US, Brown_Chocolate, Cat, Adult, Female, Small, 2
-Generated Description: I am a sweet, sweet, and playful kitten. I am a very sweet girl. I am a very sweet girl. I am a very sweet girl. I am a very sweet girl. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy and I am a little shy. I am a little shy and a little shy. I
-Expected Description: Mocha is a pretty sweet princess. Mocha loves to be petted and curl up in your lap. She gets along with other kitties and dogs.
-Match: No
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: I'm looking for a loving home for this Poodle. He is very playful 
+and loves to be cuddled. If you are interested in adopting him pls contact me. Thank you 
+so much, my name is Kitty
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.

@@ -5,6 +5,7 @@ from torch.utils.data import DataLoader, Dataset
 from sklearn.model_selection import train_test_split
 from transformers import T5Tokenizer, T5ForConditionalGeneration, AdamW
 import os
+from form2text_usage import run
 
 # Load the dataset
 def load_data(file_path):
@@ -40,7 +41,11 @@ def prepare_form2description_data(data):
     
     # Create DataFrame with 'input' for model input and 'output' as the description
     prepared_data = pd.DataFrame({'input': form_input_str, 'output': data['Description']})
-    
+
+    # Display a sample of the formatted input to check correctness
+    print("Sample of formatted data for verification:")
+    print(prepared_data.head(5))  # Print first 5 rows for verification
+     
     print("Data preparation complete.")
     return prepared_data
 
@@ -73,11 +78,11 @@ def save_model(model, tokenizer, model_name):
     print(f"Model and tokenizer saved to '{model_name}'.")
 
 # Train the model with intermediate saving
-def train_model(train_loader, val_loader, tokenizer, model, epochs=30, learning_rate=5e-5, patience=3, save_interval=10):
+def train_model(train_loader, val_loader, tokenizer, model, epochs, learning_rate=7e-4, patience=3):
     optimizer = AdamW(model.parameters(), lr=learning_rate)
     model.train()
     
-    best_val_loss = float('inf')
+    best_train_loss = float('inf')
     patience_counter = 0
     start_time = time.time()
 
@@ -118,19 +123,15 @@ def train_model(train_loader, val_loader, tokenizer, model, epochs=30, learning_
         epoch_duration = epoch_end_time - epoch_start_time
         print(f"Epoch {epoch + 1}/{epochs} - Train Loss: {avg_train_loss:.4f} - Validation Loss: {avg_val_loss:.4f} - Epoch Duration: {epoch_duration:.2f} seconds")
 
-        # Save the model at intervals
-        if (epoch + 1) % save_interval == 0:
-            checkpoint_path = f"form2text_checkpoint_epoch{epoch + 1}"
-            os.makedirs(checkpoint_path, exist_ok=True)
-            save_model(model, tokenizer, checkpoint_path)
-            print(f"Checkpoint saved at '{checkpoint_path}'")
-
-        # Early Stopping Check
-        if avg_val_loss < best_val_loss:
-            best_val_loss = avg_val_loss
+        # Save the best model based on the criteria:
+        # - Validation loss is less than training loss
+        # - Training loss is the lowest observed so far with validation < training
+        if avg_val_loss < avg_train_loss and avg_train_loss < best_train_loss:
+            best_train_loss = avg_train_loss
             patience_counter = 0
-            save_model(model, tokenizer, "best_model")
-            print(f"Model improved at epoch {epoch + 1} and saved as 'best_model'.")
+            save_model(model, tokenizer, "best_model2")
+            print(f"Model improved at epoch {epoch + 1} with Train Loss: {avg_train_loss:.4f} and Validation Loss: {avg_val_loss:.4f}. Saved as 'best_model2'.")
+            run()
         else:
             patience_counter += 1
 
@@ -140,6 +141,7 @@ def train_model(train_loader, val_loader, tokenizer, model, epochs=30, learning_
 
     end_time = time.time()
     print(f"Training completed in {(end_time - start_time) / 60:.2f} minutes.")
+
 
 # Main function to orchestrate the process
 def run_training_pipeline(file_path, model_name='t5-small', epochs=30, batch_size=256):
