@@ -1,5 +1,8 @@
-link to translation data: https://object.pouta.csc.fi/OPUS-ParaCrawl/v5/moses/en-nl.txt.zip
-
-link to form2description data: https://drive.google.com/file/d/1BWatmPm8pL9rUy4sh1ANU5O_AcNaROKp/view?usp=drive_link
-
+link to data:
 https://www.kaggle.com/c/petfinder-adoption-prediction/data?select=PetFinder-BreedLabels.csv
+
+We only used 0,1 and 2 adoption speeds to get high-quality descriptions.
+
+the data was used with some changes for the form2text model
+
+We used the descriptions from the data to create 2 other datasets for enhancement and translation purposes.
