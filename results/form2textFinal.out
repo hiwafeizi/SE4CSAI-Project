@@ -1,0 +1,757 @@
+Loading dataset...
+Dataset loaded with 7107 rows and 13 columns.
+Preparing data for Form2Description...
+Sample of formatted data for verification:
+                                               input                                             output
+0  Type: Cat, Primary Breed: Tabby, Gender: Male,...  Nibble is a 3+ month old ball of cuteness. He ...
+1  Type: Cat, Primary Breed: Domestic Medium Hair...  I just found it alone yesterday near my apartm...
+2  Type: Dog, Primary Breed: Mixed Breed, Gender:...  Good guard dog, very alert, active, obedience ...
+3  Type: Dog, Primary Breed: Mixed Breed, Gender:...  This handsome yet cute boy is up for adoption....
+4  Type: Cat, Primary Breed: Domestic Short Hair,...  This is a stray kitten that came to my house. ...
+Data preparation complete.
+Splitting data into training and validation sets...
+Training set size: 5685 rows, Validation set size: 1422 rows.
+Loading tokenizer and model...
+Tokenizer and model loaded.
+Tokenizing data...
+Tokenization complete.
+Tokenizing data...
+Tokenization complete.
+Training starts here...
+Epoch 1, Batch 10/23, Batch Loss: 1.2109
+Epoch 1, Batch 20/23, Batch Loss: 1.1112
+Epoch 1/30 - Train Loss: 1.3991 - Validation Loss: 0.9694 - Epoch Duration: 353.91 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 1 with Train Loss: 1.3991 and Validation Loss: 0.9694. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: Zodiad/Diam-Aren, Cocina-Ziel: 1 m. Dietly for the acclimatizing Veterinary Rehabs.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: No, not very stable. It is not good if I have to be in your own car or car when you want them to be in a cat. I would prefer to be able to do it on my family's doorstep. The Cats need to be kept vaccinated and vaccinated with a vet. However, this baby is healthy and beautiful. the puppies are unable to make him feel as pets. This is an easy way to take him to bed.
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: Ich muss für den Verlauf seiner Tätigkeit innerhalb von einem halb-jährigen, sobald meinen Zuchtversuch nach Ankunft mußte.
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: Das Buchg ist nicht voll animiert und wird für Ihre Bedürfnisse und Bedürfnisse eingesetzt. Sie ist züchtet oder an der Suche nach den besten Eigenschaften zu erkennen, als he betätigt werden. Der Hund ist sehr unangenehm und es gibt verschiedene Tiere, in welchen entweder so schwer, überflutet oder in einer neuen Umgebung zum Sterilisieren geeignet.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: In vivo dilemme - if you have a pet. I hope it will be very nice after a lot of friends dove off! Thanks for bringing them to me in a very loving home. I don't think he has a loving dog or puppy? It's a family friendly and a sweet spot, that is perfect for me. I would love to give him a room as we have chosen to take your dogs too. I am glad to help you. I am interested to seek out a companion with imbini - - breeded a few weeks before the dog is well away from getting a pet by the way but I'm a large number of boxes left at one time this animal can get his vaccination: prick f****** Please call (252) 363-220-2000 if you want to add an organic diet to any more than a dog which is a great deal of care when they have been sent to our doctor.
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 2, Batch 10/23, Batch Loss: 0.9828
+Epoch 2, Batch 20/23, Batch Loss: 0.9806
+Epoch 2/30 - Train Loss: 1.0098 - Validation Loss: 0.9117 - Epoch Duration: 346.34 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 2 with Train Loss: 1.0098 and Validation Loss: 0.9117. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: Dietary & healthy Veterinary. We have a very loving relationship with the dog, which was very friendly and friendly.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: Cat is found on our home in a sheltered shelter near the city center. It is a very nice family area, very clean and friendly, with a very caring nature.
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: Bise I was reunited and I was happy to bring them with me. She is very kind, gentle, friendly and welcoming for my friends. My only child is that they cannot bear a dog too! We are really excited to try out these adorable dogs we love her so you can see how their lives change. There are a lot of healthy options in this breed... but we are proud to recommend our dog owner to adopt the animal. But it's just fine to have them at home. If you want to raise your dog, please contact me or call me by letter, she is a pet, am I interested to help us stay together through his sister who loves to keep him all day long since being taken care of.
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: Cats are adorable, they are very close to the ocean. They are very friendly, a healthy and gentle pet with no problem keeping them from going for free at night. Pets are often too old as they are very helpful. They will love their little cats. We are looking for a loving home. They’re nice and good. And they also have an affectionate nature. She's very playful and active.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: Lazara is a breed owner, and she is very happy to be adopted by my loving mother after all but her husband was devastated. She is very sick and unloved and the other way around it. She is not squat or scared to adopt someone which has given her a lifelike witty home. She can be spooky (we only have a puppy named that one for every dog we care about).
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 3, Batch 10/23, Batch Loss: 0.9834
+Epoch 3, Batch 20/23, Batch Loss: 0.9533
+Epoch 3/30 - Train Loss: 0.9522 - Validation Loss: 0.8746 - Epoch Duration: 356.98 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 3 with Train Loss: 0.9522 and Validation Loss: 0.8746. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: Labrador-Queen was given the training to have the full training as a puppy. Can be remold by symbiotics, tyrically, vaccinated, a great friend who is ready to adopt it. You can call us today: I would do this thing again (with no dog bite)
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: Alsophile cats with little paws. He is very loving and always loving, friendly and friendly. She has been spotted by her friend and her brother so we can bring him to the nearest city. He has a strong personality that is shaped too. I would like to give him a smile for those who have a smile. If you wish to adopt he can find a loving home for him. A loving home or someone who is interested in fostering him?
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: Cat is a friendly animal but he loves to enjoy being hampered, loving and happy. He is very friendly and loving. She is now fully ready for adoption. Can't let all of them out of the house; she has got a great home. Suitable for enclose with dog. This is due to his size and weight. But if your pet needs a good home they can provide a warm, healthy and friendly home!
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: Cat cat with its petite size. Great size, healthy and well-loved. very playful. No one can ever handle dogs. I have adopted a good breed that needs shelter as an animal lovers pet. There are 6 cats in our home. They are a kitten of 3 months old, but we have to adopt them. It is a very beautiful and happy cat. She has excellent health and if you want to take care of them, please contact me before they can give them a loving home. Please call me for advice on whatsapp.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: Adoption – Scam, Poodle, Oats are a beautiful, active companion at the club and is not vaccinated. Do not expect any harm from another puppy.
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 4, Batch 10/23, Batch Loss: 0.9471
+Epoch 4, Batch 20/23, Batch Loss: 0.9319
+Epoch 4/30 - Train Loss: 0.9168 - Validation Loss: 0.8473 - Epoch Duration: 376.63 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 4 with Train Loss: 0.9168 and Validation Loss: 0.8473. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: I threw the kitten at the house while the other two kittens were rescued, both with a rubber tail. I was unable to keep them home until they got up and she rescued them, but it is very nice to sit down and find her a family that keeps them for their sake. So now on your pet website, please call 1-800-227-1530 ohm.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: Pet lovers love all the cats and they do not want to smur for long hours. We encourage you to come back with such fun as that
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: This lovely arid hygie is a soft, full colour breed dog (Is no male, no male) which is available to be vaccinated. Its healthy and playful on the other side of the road with little girl going over the road in the road/home area. If you have your pet, please do not hesitate to contact us.
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: Dogs are rescued in the middle of an abandoned cat. Their owners are looking for a loving home! All kittens are male and young. We have been given birth to this dog while I was on our way home. We cannot use them anymore as we were there and they are free to adopt all pets or from others. He is also a very gentle kitten.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: Dewormed in san francisco, tom dewormed into his garden. Now, a puppy is the new one (no animals) he is currently keeping. he’ll need it again now. He needs attention and attention after 1 month, he will be put on a litter box for adoption. We think this is very rare because we can find him with a happy dog.
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 5, Batch 10/23, Batch Loss: 0.8831
+Epoch 5, Batch 20/23, Batch Loss: 0.8901
+Epoch 5/30 - Train Loss: 0.9082 - Validation Loss: 0.8401 - Epoch Duration: 386.75 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 5 with Train Loss: 0.9082 and Validation Loss: 0.8401. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: My name is Neeh, who is a playful puppy, and she is a very kind little manja. I would love to take her in anyway. I hope that you don't waste your time with me as well. She is very playful and playful.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: Oswald's family is seeking home. She will be rescued by our rescue team and it will keep her with her for an additional time in the future.
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: I find that very close and sweet little mansion. Loves to be adopted! I want to adopt the puppy a great cat and loves my home. My loving home is with everyone. Thanks for sharing her dog photos, your family would like to bring her home. Yes.
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: She is a gentle, friendly, playful, energetic and has a cute sweet home; she is very healthy and loving, love to watch her face while at school. If you are looking for a loving home then please contact me :)
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: I found this puppy last month but he was too tired to grow out. He looked for a new home that will find him as a foster kitten, so it won't take care of himself. After getting ready for the adoption there they are starting to get up and down with their companion dog who could use his loving eyes before the adoption is finalized. His health doesn't mean no cat or cat anymore. There were no dogs born here! As a dog, he is constantly vaccinated at all times, he is also very playful and drooping. He is only 14 months old. I can't keep him until my day... The whole day:
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 6, Batch 10/23, Batch Loss: 0.9378
+Epoch 6, Batch 20/23, Batch Loss: 0.8881
+Epoch 6/30 - Train Loss: 0.8867 - Validation Loss: 0.8247 - Epoch Duration: 390.87 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 6 with Train Loss: 0.8867 and Validation Loss: 0.8247. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: She was rescued from my house in the last week after leaving this house. He was rescued from a cat's home, so I think she is healthy and happy with all puppy breeders. She has been vaccinated by the owner just yet (for now). Thanks to an independent vet who will be able to take care her again for her new owner.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: i found her in my house, She is just the same as his name, so now she is active and friendly. She is only very friendly with me, but this is a lot easier to adopt...She will be a very friendly cat! She needs a nice puppy named Cat Cat. I need a loving family for everyone who loves cats. Please bring him back soon; he must be vaccinated when he is age 12, ready for adoption. if interested please contact me or we would love to help others at any time..
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: This adorable puppy is cute and playful. She is a very nice dog. We look at it for adoption, also we call the puppy "It's always a good companion"
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: This little cat is very playful, beautiful, warm and gentle. She has a very playful personality. She is very playful and has been nurtured with respect for others but I think its best to follow the path of her own instincts. She has strong eye shape. We have no way to do such vaccination as she may lack enough confidence that we can give her a loving home in the future. Please contact me at.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: I've found 3 adorable puppies, he is a young puppy and always want to live with him. he had been having an affair with his parents for some time. He can be easily put out of my family but he has plenty of space to play with them. Thank you.
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 7, Batch 10/23, Batch Loss: 0.8210
+Epoch 7, Batch 20/23, Batch Loss: 0.8561
+Epoch 7/30 - Train Loss: 0.8676 - Validation Loss: 0.8037 - Epoch Duration: 397.45 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 7 with Train Loss: 0.8676 and Validation Loss: 0.8037. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: Labrador is very playful and good to love. She is very small but has a huge, sweet personality. The owner cant help but please tell anyone or any pet lover of the litter box that could support her. I have to give him an excellent home where she can stay while you are away at the local dog shelter.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: Cats are very playful and affectionate. Very active and very playful. We will keep her in my house as there are no new children to live here. She'll be vaccinated by a doctor who will let her walk around the pool but she is still on a very young age, but we all know they have a very safe place for them. Thank you. Please call
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: Derby is a female dog. Very playful, playful, love to play and play with. Adoption fee: $ 1 to 2 kilo. No taxation by owner
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: I've got two cats in the sand litter box and 2 grazing kittens from the house. I don't want to be out there, but I'm interested to take my cat home! I'm going to find a good place to go with her family.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: The little dog, with a lot of friends, could't live in a place where someone will care for him. They just need to be given away without the pet food as they are too long and we can't even leave the dog until soon when I have a few puppies who are already taking care of them. Please consider that their parents are also responsible for putting adoption fee on this item.
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 8, Batch 10/23, Batch Loss: 0.9319
+Epoch 8, Batch 20/23, Batch Loss: 0.8060
+Epoch 8/30 - Train Loss: 0.8548 - Validation Loss: 0.7945 - Epoch Duration: 399.64 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 8 with Train Loss: 0.8548 and Validation Loss: 0.7945. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: Pets for adoption
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: Im having a small puppy, I found this cutie on the roof of my yard and it is hard to put him in a cage now. They are healthy looking and always look like dogs! They are very busy when she got lost too by going through a lot for their own. Its all bad so I still need to make sure they are not litter trained at all. Also available to offer an option to pet your cat because we have been unable to feed her with shelter, etc.
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: No stray or other dog lover, and you are welcome to adopt this breed with my friend for adoption. All his wife is interested in sharing our pets on their own. We are looking for a new owner who can provide him with a healthy home. A must have loving cared for when we got around to me and they are very caring and playful. I am trying them out as I want to get rid of it.
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: In the morning I decided to give her a loving home. They were abandoned by a neighbor from a local area, and their father was taken to sms in early May. She was given a free antibiotic and is healthy but no extra vaccination or deworming due to poor nutritional condition (female, noodle) for more information about this kitten.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: The new breed is a very cute dog. He has plenty of fun playing with me. I have many more puppies for sale. But i have the puppy that I know and would like to keep him when he is old. Not sure, i need to take care of him. i hope you'll be able to adopt it. but just ninja-dana-mujo.
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 9, Batch 10/23, Batch Loss: 0.8109
+Epoch 9, Batch 20/23, Batch Loss: 0.8085
+Epoch 9/30 - Train Loss: 0.8507 - Validation Loss: 0.7922 - Epoch Duration: 402.91 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 9 with Train Loss: 0.8507 and Validation Loss: 0.7922. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: Cat litter box, 1 kitty,1 small kitten for adoption. Adults are very healthy and friendly! Please contact me if you can give him a home.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: I have one of the kittens that I have found litter. Thank you for reading this post.
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: Cat and Eddy are very playful and adorable! Loves the atmosphere. He has a nice, healthy look with a long tail. He loves to be played around and we all know how to listen to people. But as it'll make you a good pet owner in the future.
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: All 6 kittens were born in a house, but now they have been found alone being under my street area. A male cat, her skin was not soft and dark. The first kitten I adopted was the 2 kittens. Now we're able to give them back to our friend by letting them out too. Please contact me if you can provide them with care as soon as possible. Contact me at:
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: He was taken from our home with 5 puppies. After he has been vaccinated and spayed as they are young, the pet is healthy and friendly. Our pet manager did not expect to leave any puppies here but we asked for help because we know some old dogs are already sleeping there just outside the apartment. I believe we want you on the road at the vet who will be able to adopt him in the future or get a life-long day when he is no longer active. We are hoping that both of these puppies can be adopted by a friend and do his best to keep this puppy free of charge and vaccination all medications. We decided to give him a good home away/unhealthy home. There may be other puppies within the year. Please contact us
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 10, Batch 10/23, Batch Loss: 0.8400
+Epoch 10, Batch 20/23, Batch Loss: 0.8578
+Epoch 10/30 - Train Loss: 0.8336 - Validation Loss: 0.7815 - Epoch Duration: 408.05 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 10 with Train Loss: 0.8336 and Validation Loss: 0.7815. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: - ) Must be neutered as a Labrador puppy. • Vaccinated or neutered, pet to spay the dog for further information
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: The baby cat was found at our car park in a car park nearby as we talked to my mother. We did not see him, and she is very cute and loving. Not sure whatsapp: *Please be patient with me so I would definitely accept any money to keep her on them.
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: The pups are from Pupi who have been vaccinated and kept them indoor for 4 years now. This is not the first breed of a breed, very cute but will be fully spayed at once. If you are interested to adopt please contact us (for more details) by asking for an agreement upon adoptment as soon as possible.
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: Its really hard if you are looking for someone who can adopt her cat, it is very smoky and healthy. If you havent adopted the kitten please call/do me or e-mail me with this question. Thank you Cat Cats!
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: The dog is very healthy. It is the fastest time to find a home and we wish my mom would know what breed she's looking for. For her health, he'll be with you all at your best! I was only able to take care of him but no other pet has been born on 9/29/. He'd already been neutered and spayed. He's just 6 months old now. Please give him a good home!!
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 11, Batch 10/23, Batch Loss: 0.7860
+Epoch 11, Batch 20/23, Batch Loss: 0.9010
+Epoch 11/30 - Train Loss: 0.8263 - Validation Loss: 0.7758 - Epoch Duration: 412.02 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 11 with Train Loss: 0.8263 and Validation Loss: 0.7758. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: No tying and tying out Dogs. Must be kept in our cage before the dogs disappear. Have to spay these little dogs for months, so we are keeping them at our home with children only as soon as possible. This puppy will come in just 2 weeks time. He is extremely shy and playful. So please contact me if you can take him back to your house again. *Please do not forget this dog too often. Thanks
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: ! I'm looking for a forever home to find a lovely, loving home. Please adopt them so that you can have a good home. The cat is very playful and playful. They are ready to let go on a daily basis.
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: All the dogs are puppies that we rescued from our house. We found all the puppies at the road and were not in need of care because of the littering on our roof which is so big, with no cat food; however this dog is looking for a loving home...
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: My cat is 6 kittens. I am rescued from a home without your permission or he has been taken care of by her owner and for being pushed to a house at the other side, only two weeks ago after his death, she was found abandoned in a street on May 2nd.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: I have an adorable puppy for adoption, and my wife has a dog that would love you to take care of them.
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 12, Batch 10/23, Batch Loss: 0.8541
+Epoch 12, Batch 20/23, Batch Loss: 0.7920
+Epoch 12/30 - Train Loss: 0.8171 - Validation Loss: 0.7664 - Epoch Duration: 417.91 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 12 with Train Loss: 0.8171 and Validation Loss: 0.7664. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: I was found alone in the garden. Now my mum has been getting sick, very playful and devoted to keeping this dog at my home. I'm waiting for his family when he's ready to give away. He is very alert and playful! If anyone wants to adopt him then please call me or share her with me.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: Cats are a stray kitten looking for new home. It'll also be a happy and playful cat! Then she has an adorable furring, cute...
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: We rescued a beagle of the year. He was dewormed when he was at his house. He's now a healthy, healthy dog. He is also feeding as well but will give him good health and care for long hours. He should have been neutered by my fosterer to keep him indoors and has been given new care and attention after adopting him.
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: Samese mummy with 3 kittens, 2 cats in 1 month. 4 kittens are both fluffy and very active. All dogs are litter trained. They are healthy and fun to play as well as can be trusted by your owners or pet lover. Please adopt them regularly. We just give them up for adoption when you take care of the kittens.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: Poodles are for adoption and can be rented by them. They are very loyal in nature. They are healthy, clean and friendly dog. I wish to find the best family that possible. Thank you
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 13, Batch 10/23, Batch Loss: 0.7652
+Epoch 13, Batch 20/23, Batch Loss: 0.8484
+Epoch 13/30 - Train Loss: 0.8095 - Validation Loss: 0.7637 - Epoch Duration: 426.26 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 13 with Train Loss: 0.8095 and Validation Loss: 0.7637. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: Labrador, Labrador breed - Labrador Breed - Rm - 6th March - Rm - 1st July - Rm - Puppies 4nd June - - 3 months - Adoption and deworming for 2nd Oct - Dog - Dog, Coat.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: Gender: Persian, Female/Persian.
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: Domino is a cute, healthy and healthy dog. He loves to play in the house and gets up on the streets for walks (the first year of the day) and has a good owner's license to make sure it is clean and tidy. All puppies have been dewormed and dewormed after getting petted. Please adopt this very little beast as we do not have any food at all. Please give him a home! To keep your pets indoor please contact me immediately. Thanks
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: We are looking for a new family with an attractive and loving cat. They are in good condition, especially since I have found their mother and sister when she was a little scared of being brought to the dog house
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: The pup is currently on our house (I'm waiting for the adopter to keep these dogs at my condo) so I can't eat them anymore. Its always nice to give them a home. When someone takes up the dog, they must be very healthy and friendly with people. They are now in good condition, ready to stay within 3-5 weeks but it will be free or given away as a companion only. Please give me a taste of pet food before you choose to take care of them. We need to call upon application. Once the puppy was dewormed!
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 14, Batch 10/23, Batch Loss: 0.8190
+Epoch 14, Batch 20/23, Batch Loss: 0.8138
+Epoch 14/30 - Train Loss: 0.8014 - Validation Loss: 0.7614 - Epoch Duration: 427.39 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 14 with Train Loss: 0.8014 and Validation Loss: 0.7614. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: Labrador puppy born at the end of the month. Found on his way to my vet last night, but I was quite shocked for so few weeks because I cannot afford a proper care. He is very friendly and loves being cuddled. He has been neutered by someone who likes playing with dogs. He is not dewormed or deflea until we can be adopted in such england. He is now healthy and ready to spend time with anyone.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: - We found some kitten at the roadside last month as I was traveling and we managed to save this kitten from being put in a shelter. She is very healthy, playful and loves attentions by people. In my experience with cats now, I could have moved into a new home just 2 weeks ago because she looks like a male. So far it has been for 20 years since her start. If you are looking for someone who will be perfect here, please contact me.
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: It is a nice and friendly dog, you know we can only use it as pets or at the right age. My sister said that his cat is very shy though so much that I can't keep him anymore because she needs to stay here again. He is a very playful dog. He has a very healthy and active temperament. He is a very good guard dog. He loves being cuddled and snuggles around dogs by herself. We will take him back in soon after 1 month old. You could even be adopted on 11 May :)
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: This cute kitten is very lovable and friendly. Very active cat, very nice!
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: No caging or tying up for long hours.
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 15, Batch 10/23, Batch Loss: 0.7675
+Epoch 15, Batch 20/23, Batch Loss: 0.9013
+Epoch 15/30 - Train Loss: 0.7941 - Validation Loss: 0.7564 - Epoch Duration: 441.10 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 15 with Train Loss: 0.7941 and Validation Loss: 0.7564. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: Lenty was found in the driveway of the park near the roadside, where the owner has given him food and shelter for it. He is a very cute dog who loves to play with people, makes his appearance sweet and clean. Very friendly and will care for your house, not just petgly. Friendly, attentive as well as nice guy. We have always been trying on their lives because we have plenty of dogs that are so much more active. Please give Mr. Lee a life-long thanks!
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: I rescued her two cats in a small apartment. She was just a little nervous when she picked it up (when she gets too young). So I found her one by car and she is not so afraid of me, but now she is safe to keep her!
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: Toy is an adorable smoky beagle. He has a long tail and was the first of two to go round his fur as well, with a very gentle side too. He is very calm and friendly. He does not bark when he walks around or after sitting outside playing on his desk at front of my office building. If you are looking for haterina but would like some thanks!
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: This 2 kittens were found at my house near my shop area. I have not been able to take care of the kitten for long periods so I have to put them back and remove them from the house as well. For those interested in adopting this cat please, let me know!
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: The dog is still strays. He is too little or too tall to be fed with milk and water (if you cannot keep it indoor, not allowed at all). He is very playful and playful; needs care when he has the time for play. He is a very sweet guy because his eyes are quite small so I'm starting to look after him on her face and they need good care of him as we cant take care of him properly. Thanks!
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 16, Batch 10/23, Batch Loss: 0.6723
+Epoch 16, Batch 20/23, Batch Loss: 0.7509
+Epoch 16/30 - Train Loss: 0.7911 - Validation Loss: 0.7487 - Epoch Duration: 443.74 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 16 with Train Loss: 0.7911 and Validation Loss: 0.7487. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: This dog was found at my house, yew it had been abandoned by the owner. Very affectionate and very clean. Not to mention its fur in his mouth but also for dogs who love humans. He will have a few friends so I can arrange this family of fosterers that need them because I already have 4 puppies (Locks) out there!
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: A young cat with an extended tail can be found near the street. She needs a forever home! Please contact me at or sms me about her experience, for questions, info and to let go in response to your question.
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: Oaro is a bred beagle (til his age and mother) who are very calm, playful and friendly. He can be used to the litter box as he loves to run in cage...
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: Beautiful kitten. I have 2 cats left in my house since i am very happy that I cant keep her forever but not as they are too old to be around again. I wish to let go of the cat after looking at them and take them up for adoption. The cat is quite like two dogs (he must be cuddled) yet there is no excuse when someone gave him food, so I'm not afraid people will get into contact with it anymore except because I do not care about other cats or pets etc.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: I picked my mother for adoption, and got a little baby. She was pregnant, so suddenly we started to feel very small but could not be an indoor dog which will take them home until next morning. We now bring them home at the hospital.
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 17, Batch 10/23, Batch Loss: 0.8008
+Epoch 17, Batch 20/23, Batch Loss: 0.7806
+Epoch 17/30 - Train Loss: 0.7813 - Validation Loss: 0.7441 - Epoch Duration: 448.47 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 17 with Train Loss: 0.7813 and Validation Loss: 0.7441. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: He is very sweet but loves playing with other dogs and has a lot of fun to play with. Please don't let him run back by himself since the old owner found him sitting in the parking lot about 4 weeks ago. I think anyone who wants to give him a home, it would be great for him that you will love him. There are not many dogs out there yet
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: ()    () -  ()   (),  . (), //  () ():, ;(â)!   ( )  ()  (),  ()  (,  ==)   аме след I am not aware that this is how I found her by herself with my sister's friends and family members she could be used to living in a shelter without knowing need for each other first but one month ["I would like to leave us too soon]. Only dogs are allowed to roam freely when there were the opportunity to do more than you can ever keep it until we give her away because they have been dewormed or spayed. *Need*  () ()
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: She is very friendly and will be ready to have a home.
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: Female and White fur. I have 5 cats for adoption: 1 Siamese, 2 males, 1 female cat & 3 female cat. They are now sitting around my house with other cats.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: I'm still looking for a loving owner who could provide it with the respect of one puppy and my sister. If you can take care him very seriously or have any questions, please email me! Please help to find them a safe home.
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 18, Batch 10/23, Batch Loss: 0.6878
+Epoch 18, Batch 20/23, Batch Loss: 0.8059
+Epoch 18/30 - Train Loss: 0.7713 - Validation Loss: 0.7382 - Epoch Duration: 452.07 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 18 with Train Loss: 0.7713 and Validation Loss: 0.7382. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: These cute pups were born on 14 August by a friend of mine. They are not afraid of the dog owners and their parents would be forced to care for them. I have 3 kids and they both know that there will be no adoption fees but due to health reasons, my family has also taken several puppies with me. The puppies is very playful and so friendly you can take it in as well... We have already had one more puppy since we left us out in January. It was quite scary that we really need to bring this good breeders at home. All these puppies could get along quickly when they were given birth from our vet'd after looking before going outside/home. Thank you!
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: A lovely, playful, gentle cat, very friendly and a wonderful companion. She has the ability to make u smiles or watch his time go too.... she should not be spayed because her fur is litter-boxed.
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: This is my little smoky fur dog that was abandoned by the owner as her dogs disappeared into your apartment building, and has been dewormed. As I've mentioned before in the past of January, we believe they are very adorable! They are all very playful and healthy puppies too. But since there wasnt anything on it, please adopt these 2 cute pups. Please contact me ASAP so this puppy can be adopted together (again).
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: She is very friendly and adorable. She loves to play with the cats! I do not know anything about her but i have to stay at home for them because when you try to provide a pet, hopefully she will be safe as they are really lovely...I'm interested in being adopted by my beloved owner. However, it was easy to find a loving home so that she could love other cats and we hope our family can take care of her while she becomes comfortable together. Thank you?
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: Poodle and his parents gave birth to the same pet that you have for adoption. I believe he is very active and caring dog but it needs a good house just like my family and so did our own litter of puppies. Since we had previously told me that we need to find a loving home, then we've been asking for more than 5 dogs as well as a few other dogs at home. However, in our opinion, I hope this animal will not be dewormed. They are currently looking for a new forever home. If any kind soul would prefer if anyone offers kindly call me.
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 19, Batch 10/23, Batch Loss: 0.7832
+Epoch 19, Batch 20/23, Batch Loss: 0.7478
+Epoch 19/30 - Train Loss: 0.7662 - Validation Loss: 0.7379 - Epoch Duration: 456.08 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 19 with Train Loss: 0.7662 and Validation Loss: 0.7379. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: Hello all, this was the dog that came in and they were left with stray. I took them for vaccination as well but it is quite bad when i found them missing somewhere because of my husband's problem. The furloon looks old so you can bet about removing them easily after she gets sickening.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: O.E., She is a super sweet and healthy cat with medium-long fur (dithy color). She has been taken from the vet as soon as possible due to her genetic condition before she came over. Unfortunately I cannot see any signs of deworming in both cases.
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: Dogs for adoption
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: Cat for adoption. If you are looking for a loving home, please call: 1-3) We have 4 kittens; 2 of them and they deserve love, care, attention, care, medical attention, etc. These adorable little cats are living in the condo... I'm looking for someone who would adopt one other cat whom can treat her as a cat (i know their name/name) and also give them a forever home to be adopted together.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: Poodle puppy for adoption. Age: about 3 month old Single Size, Color: White, Grey Gender: Mixed Colour: White, Puppy Culture: Lightweight and light grey. Adoption fee: RM 1 (female) Fee: RM 2 per pet. Requirements: We accept that Petlovers can provide them with care and respect when they are new owner. I've also had him neutered from the house and took him to her property under the housing lot in case of this situation but it will be fine once vet checkups have been done because no one else found out why she would only need someone willing adopter(s). Thank you!
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 20, Batch 10/23, Batch Loss: 0.6926
+Epoch 20, Batch 20/23, Batch Loss: 0.7365
+Epoch 20/30 - Train Loss: 0.7596 - Validation Loss: 0.7349 - Epoch Duration: 460.29 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 20 with Train Loss: 0.7596 and Validation Loss: 0.7349. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: She is a loving pet, active and playful. Friendly/loving with people, loves to play (i.e. she doesn't bark or bark) who can understand the basic basic rules of "no cages" for adoption. A family member needs someone willing to give her a home. We also need to make sure that I keep him indoor only because I cannot afford them as soon as possible. Please do contact me at any time!
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: Very playful and sceptical for cats. I really cant keep her since my mother has no such much love, so I am just not sure about the cat or what breed. As well we'll be having some other cats in our house before to do anything out there. Please call if interested!
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: This is a beagle puppy that was abandoned on the street by his owner. He has been with me for 1 week now and needs to stay at my house forever, however we can't keep him as soon as possible because I already have 3 dog owners in our office but only one of them are out there. Thank you so much! My friend said it is very sad to call back when they hear people saying yes about the breed. If interested please contact me
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: - 3 months old cat that was found in a small home and have been adopted at the same time. This is due to my house being closed, but we cannot keep her because it has been built up with several kittens which are both active and good for their health when I see them coming alive on earth as they are not safe; however she has too many cats outside so far. - Currently adopting 2 cats (it'll be nicer soon). For those who love cats, please contact me if interested.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: Poodle mix breed. very active and playful
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 21, Batch 10/23, Batch Loss: 0.7650
+Epoch 21, Batch 20/23, Batch Loss: 0.7511
+Epoch 21/30 - Train Loss: 0.7560 - Validation Loss: 0.7307 - Epoch Duration: 470.50 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 21 with Train Loss: 0.7560 and Validation Loss: 0.7307. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: Hello guys! my name is Noodle : Latte, I am a cute little pup. I need to send it on to the dog office every three days or two months for him; they are still very friendly and willing to help them through the procedure of deworming but can't keep us as we have another dog which was dumped by an untreated animal in our home.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: She's a very shy and adorable cat. We are looking for someone to adopt her because our owners would like to have an animal that can offer them love, care, care, attention, attention and space. When she does get in contact with me you should inform me of your experience as we are so close to people... My friend says they were born on the 2nd day at KL. Now when I am new home here it was only 6 months ago! It is currently working fine again soon but its still not too small enough now
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: This dog was found in my apartment on 2nd October. My friend's friend gave him up for adoption as we are not doing any work, but it would look like the other 3 dogs and they will always be there for family reunion. He really loves to run around and play with animals. Also I am keeping this puppy away from us so I can send him to see if anyone is interested because of how hard our lives are.
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: She is very adorable, energetic and friendly. Quite smart but also very attentive kittens to those who want to adopt her now in the home alone (e.g. I'm not sure if your cat can be adopted by someone else), it may make me quite witty-friendly or an easy owner of this pet?
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: I'm a kind soul who can always greet him with laughter and kindness. He would take care of me when he gets to know my neighbors as people already have so many dogs or animals in the house. He is playful, energetic (with lots of love). The owners do not accept these dogs because they are being held captive by children too. My friends didn't want to see them anymore. You won't agree for adoption except for those who don't like pets!
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 22, Batch 10/23, Batch Loss: 0.6890
+Epoch 22, Batch 20/23, Batch Loss: 0.6976
+Epoch 22/30 - Train Loss: 0.7472 - Validation Loss: 0.7234 - Epoch Duration: 476.14 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 22 with Train Loss: 0.7472 and Validation Loss: 0.7234. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: My pet is a very friendly puppy. Please adopt him.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: Very active cat, friendly and adorable. I've got two lovely eyes to answer the question about me now. It looks like she is very shy as we will look for someone who is willing to take care of her before you come pick up your dog. She is with us all when she arrives on our way home! Please adopt her (or any other cats) together...
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: Puchong was rescued by the owner in New Zealand, so his father would allow him to leave her for adoption as his owners had no choice but to let him know that we can't put him up because of this old breed. Only minor injury on his leg; due to our relationship with animals, we have too many dogs and cannot take care of him anymore. I hope anyone who are willing is more good at taking care of him again. A must view
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: Baby is a cute cat that she's very affectionate, playful. She has a bit of fun and are not afraid to take care her any more. She like attention from the audience as it is our family too! We gave her a good home so we would give her a forever home where all three cats were born together (I think they are older than me or my dad) but I do prefer them to have an animal lover who really appreciate people with respect for them. The new owner must always be careful at what their culture will suggest?
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: Found this poodle from the streets without an eye infection, and she has died. I have to be giving out some vitamins and ticks to all of them. If you are interested in adopting one or more puppies, please contact me at
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 23, Batch 10/23, Batch Loss: 0.7777
+Epoch 23, Batch 20/23, Batch Loss: 0.7111
+Epoch 23/30 - Train Loss: 0.7465 - Validation Loss: 0.7202 - Epoch Duration: 475.37 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 23 with Train Loss: 0.7465 and Validation Loss: 0.7202. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: He is a very intelligent and playful puppy who loves to play around. He knows how do you run from his legs but not the furshe gets confused with other puppies. Please give him & love, care and attention, I will take good care of him as soon as possible by adopting this beautiful dog at home!
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: She was rescued by my friend when I saw her. No adoption fees, nor are they available for deworming.
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: I have a few other dogs on the street and gave birth to these puppies. Since they was born in late November, we decided to let them go as our friends couldn't keep their baby anymore because there were so many of them outside: Buchsej is very active and playful but due to the big size that this puppy must be used for feeding food from time to time. The pet lovers can give them all the heart-loving love, care and patience you deserve. They want to take some help with this type of dog... It will make me cry when it came at my house car too. So please do contact me or whatsapp/Sandbox (which does not allow us to talk about animals). Thanks!
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: She has been vaccinated, dewormed and returned to the doctor's office by 15th July. All her cats were taken home before they got adopted with their other owners in May but unfortunately it had arrived at another vet clinic due to problem. I would only do so once she is ready for adoption as my friends can not afford to live here.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: This dog was found in a cage on the street near an abandoned shop. It's about 2 months old, very playful and clean but it wont let me go for help from anyone who knows how to love him due to his health conditions such as diabetes. My mother used to keep pets inside mine because I don'm doing so with kids. She has a short tail that could be dangerous even when you call her (with my dogs) or not. I hope someone will give them lots of love!
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 24, Batch 10/23, Batch Loss: 0.7303
+Epoch 24, Batch 20/23, Batch Loss: 0.7472
+Epoch 24/30 - Train Loss: 0.7463 - Validation Loss: 0.7182 - Epoch Duration: 483.38 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 24 with Train Loss: 0.7463 and Validation Loss: 0.7182. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: Hi, i found the puppy in his neighbourhood but my dog came home on day 2 of August. I was alone trying to find someone who interested? It's very sad that it is not quite like this dog being petted and abandoned by our friend’ only sister. However please give me an email or we will call him for adoption as soon as possible because no one can take care of her since they are all old enough. But if you agree to get along well with other dogs at home without any hesitation, she must be neutered when there were lots too many puppies around before adopting/loverage some toys; then...I dont hesitate to let go: Please do inform me about your family situation which involves taking them back together. So would love more cats! If you need help keeping these pups (even though its so lucky) nor am I lost even further into your lives due to heavy rain now. The puppy needs a permanent loving home. Also, he seems shy away from people here once u start living room etc). He is healthy, friendly and playful. Will bring up for vaccination after 3 month
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: Beautiful young cat. Clean, playful and loving.
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: a beagle for adoption.. i found this dog just outside my house in the middle of the street, and I managed to find her owner but after all she needs it was broken by car (my son is so scared at the time because we have another couple already) He really need someone who can give him a new home.
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: She was abandoned and had to be adopted. Her owner is unable to give her away so they are going for better future. But she's very happy, smart and active with their parents at the same time! He really loves cats because of lack of trusting people or even serious adopter just let her run through my house when there'd come up in front of doors/way parking area. Please contact me after 3-8pm as we want to show that our current owner doesnt have any cat food but could not keep 2 pets nearby. As I am now keeping him where she needs toys. Thank you!
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: i found myself on the beach, my mother did not do anything to bring out dogs. so let me know that I can't keep them because we have 4 dogs already and need one litter of puppies for sure! The dog are very friendly with humans and some good health needs people around us....I think they all have been adopted by someone from Klang Valley likes attention. Now you will be welcome in sending me your pictures and emails (what type of name given) or calling me.
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 25, Batch 10/23, Batch Loss: 0.7446
+Epoch 25, Batch 20/23, Batch Loss: 0.7046
+Epoch 25/30 - Train Loss: 0.7372 - Validation Loss: 0.7221 - Epoch Duration: 485.26 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 25 with Train Loss: 0.7372 and Validation Loss: 0.7221. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: I am a happy, gentle and playful dog. He is also very healthy so will make his name at some of my house pet lovers around the world as much as he loves people but to go out for walks with little kids (mom). My old pups were born on 3 January. She's very cute too! Please leave me an email or call immediately
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: This lovely and adorable kitten is rescued from a shelter in KC (Adobeh). She was found to be trapped near the medical centre for an accident. She's very affectionate, playful, friendly on nature and doesnt bark much anymore. A little worried about it or her condition, so I don'm not sure why any of us are going through this situation. If you feel that you can give me kindly call me but please help!
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: We had him at my property near where I were staying. He was rescued as we did not find any homes for him because of our situation, and the owner decided to ask us how much it should be for someone who is willing to accept his life. The dog have already been adopted by this family but no longer accepting on such matters until now. His owners are also willing to return them back soon or give him a good home; so please call/whatsapp me at anytime
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: Adopters must abort or vaccinate them. Kindly contact:
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: A few months ago, a friend brought him to another house and found his dog crying on the road outside my house. He didn't make any noise but suddenly started walking beside her with no signs of it becoming too big for food (probably because our neighbour is still interested in helping other dogs do). She was very well fed by people who are eagerly waiting out more time after adopting them at home so I can't give him up due to lack of proper care as there were many others than these one.
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 26, Batch 10/23, Batch Loss: 0.7002
+Epoch 26, Batch 20/23, Batch Loss: 0.7042
+Epoch 26/30 - Train Loss: 0.7301 - Validation Loss: 0.7213 - Epoch Duration: 481.28 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 26 with Train Loss: 0.7301 and Validation Loss: 0.7213. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: A stray puppy with a big fluffy fur which is very sweet. He has a lovely thick, golden brown tail and a black streak on his cheeks. He was seen wandering at the roadside behind my driveway because it had to be left alone in front of you for short hours but I could not keep him as he does not like being outdoors anymore now. Very playful dog that understand people around me so no reason why they want dogs away (because other than those who will adopt them) or look after the dog all day long
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: She's a lovely, active and playful kitten. She loves attention, is very quiet or as well with other cats when it comes to feeding her at home. You could bring her back for free: no problem in keeping us together but I already keep them indoor only which not much sleep on the streets since last month she was sitting there outside my house so we thought that she might be quite scared of those tiny things because our dogs were still eating fish (pooches). If anyone can give her glitzy care, feel free to call/ what app me through any form below contact number given birth by this beautiful little cat...
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: I found this beagle there but now he is still away. He has been dewormed, spayed and unneutered for the first time by my friends to get him sterilizated due to illness from his owner's pet shop in San Francisco; only 6 months old. Please give me if you are interested, please contact
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: Found this lady's cat in the middle of my road. She was found with her mom, which they called Mia and she is running down a busy road (for me to stop at) as she had got food for it last night but will not be being taken care by other cats until now due to no sign of any family or work.
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: I've rescued this cute puppy from my garden and brought them to vet by our medical clinic. He was sick just after 3 weeks now which is only for the first week! Please contact me asap.
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 27, Batch 10/23, Batch Loss: 0.7141
+Epoch 27, Batch 20/23, Batch Loss: 0.7061
+Epoch 27/30 - Train Loss: 0.7248 - Validation Loss: 0.7121 - Epoch Duration: 487.88 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 27 with Train Loss: 0.7248 and Validation Loss: 0.7121. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: A very caring dog, he is extremely friendly. He knows the basic tricks of cat litter and his food are to be taught by your local breeder
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: Very obedient, energetic and playful. A very active cat with all kinds of eyes (wetballs!). She is in good condition so she needs attention from owners that can't find them any way to give her up as my pets are not living properly enough now. I dont have time for her anymore but due to their health issues please adopt the kittens... they are really little babies here........
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: If you wish to adopt this beautiful beagle please contact me.
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: Found her in our condo, left them homeless. Not afraid of people who are able to adopt both of them. No caging or chaining due to their breed issue and the availability of food is very good for those who don't allow us to take care twice(no toilet checks). There have been some cases from my neighbour that was not feeding them but I saw it there after two kittens came out; they were too small enough so we did find shelter with one other cat at home on Thursday night (after 4 weeks), now she has dark blue eyes!
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: Poodle mix - mature poodle for adoption
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Epoch 28, Batch 10/23, Batch Loss: 0.6882
+Epoch 28, Batch 20/23, Batch Loss: 0.7441
+Epoch 28/30 - Train Loss: 0.7307 - Validation Loss: 0.7063 - Epoch Duration: 490.32 seconds
+Epoch 29, Batch 10/23, Batch Loss: 0.7342
+Epoch 29, Batch 20/23, Batch Loss: 0.7921
+Epoch 29/30 - Train Loss: 0.7256 - Validation Loss: 0.7080 - Epoch Duration: 490.72 seconds
+Epoch 30, Batch 10/23, Batch Loss: 0.6981
+Epoch 30, Batch 20/23, Batch Loss: 0.6622
+Epoch 30/30 - Train Loss: 0.7127 - Validation Loss: 0.7078 - Epoch Duration: 489.65 seconds
+Saving model to 'best_model2'...
+Model and tokenizer saved to 'best_model2'.
+Model improved at epoch 30 with Train Loss: 0.7127 and Validation Loss: 0.7078. Saved as 'best_model2'.
+Form Input: Type: Dog, Primary Breed: Labrador, Gender: Male, Primary Color: Black, Maturity Size: Large, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: No, Health: Healthy, Quantity: 1, Fee: 100
+Generated Description: A dog-poor was abandoned by my neighbour, whose father had come to us in this house and told me it is still not good at getting him adopted.
+Expected Description: Energetic and loyal Labrador looking for a loving home. Black, large-sized with short fur, vaccinated and dewormed. Needs a family to give him the attention he deserves. Fee: $100.
+
+Form Input: Type: Cat, Primary Breed: Persian, Gender: Female, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: No, Dewormed: Not Sure, Sterilized: Yes, Health: Minor Injury, Quantity: 1, Fee: 50
+Generated Description: I found a lot of kittens in the street. We moved to her house with 3 cats and then our cat was put up for adoption, it was bleeding because that is so small! But as we are getting older, no one can take care of them or have any problem on these animals before she'd find their way home. And unfortunately none of them could get injured... So we want your mommy (they will only be available soon) please help me out without asking us about who they are actually from outside:( They say you should be considered adopting either now/when pregnant but there were other people around this girl already; however too many pets nearby here would not allow anyone staying at my apartment space!! The reason why really come back recently when its old by the time also decided to give me an opportunity to foster each beautiful little bit lol If interested pls call me. Please contact me via SMS + whatsapp or email regarding situation has become more suitable options
+Expected Description: Beautiful white Persian cat with long fur and a gentle temperament. Spayed and ready for adoption despite a minor injury. Looking for a caring home. Adoption fee: $50.
+
+Form Input: Type: Dog, Primary Breed: Beagle, Gender: Male, Primary Color: Brown, Maturity Size: Medium, Fur Length: Short, Vaccinated: Yes, Dewormed: Yes, Sterilized: Yes, Health: Healthy, Quantity: 1, Fee: 75
+Generated Description: I found him near my flat. He is a very smart, playful dog and has been dewormed; however the doctor said that when you have to do it for him, we cannot take care of him as this could be an alternative breed. We are looking forward in adopting him forever home because there's already many dogs within our house which need loving people who can help me find his perfect owner (need good food) or new friend(s). If interested please contact Me at -
+Expected Description: Friendly and healthy Beagle, brown and white, ready for adoption. Medium-sized with short fur, fully vaccinated, dewormed, and neutered. Adoption fee: $75.
+
+Form Input: Type: Cat, Primary Breed: Siamese, Gender: Female, Primary Color: Grey, Maturity Size: Small, Fur Length: Medium, Vaccinated: No, Dewormed: No, Sterilized: Not Sure, Health: Healthy, Quantity: 2, Fee: 0
+Generated Description: Little Girl (Affectional) and Myase I am now looking for her to find. She're very affectionate, playful
+Expected Description: Two adorable Siamese cats, grey with medium-length fur. These small, healthy cats are playful and looking for a home. Free to a loving family.
+
+Form Input: Type: Dog, Primary Breed: Poodle, Gender: Mixed, Primary Color: White, Maturity Size: Medium, Fur Length: Long, Vaccinated: Not Sure, Dewormed: No, Sterilized: Yes, Health: Serious Injury, Quantity: 1, Fee: 30
+Generated Description: Hi my name is poodle (Jordobby). I love you more than any pet. Please give me a home for this puppy, thank you!
+Expected Description: Special needs Poodle with long white fur, recently spayed. Needs attentive care due to a serious injury. Adoption fee: $30.
+
+Training completed in 218.78 minutes.
+Saving model to 'form2description-model'...
+Model and tokenizer saved to 'form2description-model'.

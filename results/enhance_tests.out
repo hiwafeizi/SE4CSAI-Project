@@ -1,0 +1,34 @@
+Testing configuration 1: {'do_sample': True, 'top_k': 200, 'top_p': 0.35, 'repetition_penalty': 2.0, 'num_beams': 3}
+Test Case 1
+Input: Nibble is an energetic, playful kitten, about 3 months old. I’m seeking a responsible new home for him due to limited space and resources.
+Generated Output: Nibble is an energetic, playful kitten, about 3 months old. I am seeking a responsible new home for him due to limited space and resources. Please contact me if you are interested in adopting Nibble. Thank you. We are looking for a loving and caring home for him.
+
+--------------------------------------------------
+
+Test Case 2
+Input: Found this little one alone near my apartment yesterday. Took it in temporarily to ensure its safety and comfort.
+Generated Output: Found this little one alone near my apartment yesterday. Temporarily took him in to ensure his safety and comfort. Please call if you can give him a home or if you would like to adopt him. He is very playful and friendly.
+
+--------------------------------------------------
+
+Test Case 3
+Input: These adorable, healthy puppies were born at the roadside after their mother was abandoned. They are dewormed, vaccinated, and ready for adoption. Please reach out if interested.
+Generated Output: These adorable, healthy puppies were born at the roadside after their mother was abandoned. They are dewormed, vaccinated, and ready for adoption. Please reach out if interested. No caging or tying for long hours except for precautionary purposes
+
+--------------------------------------------------
+
+Test Case 4
+Input: These adorable, healthy puppies were born at the roadside after their mother was abandoned. They are dewormed, vaccinated, and ready for adoption. Please reach out if interested.
+Generated Output: These adorable, healthy puppies were born at the roadside after their mother was abandoned. They are dewormed, vaccinated, and ready for adoption. Please reach out if interested. We will be happy to answer any questions.
+
+--------------------------------------------------
+
+Test Case 5
+Input: A stray kitten found its way to my home. I’ve been feeding it but am unable to keep it.
+Generated Output: A stray kitten found its way to my house. I have been feeding it but am unable to keep it. Please contact me if you can give her a forever home. She is very friendly and will be a good companion.
+
+--------------------------------------------------
+
+
+================================================================================
+
