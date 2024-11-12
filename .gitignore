@@ -1,13 +1,9 @@
-data/
 venv/
 commands.txt
 ssh
 .env
 AI/
-
-# Ignore all .out files
-*.out
-
+instance/
 # Ignore all .err files
 *.err
 
