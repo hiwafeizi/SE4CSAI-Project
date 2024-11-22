@@ -20,3 +20,21 @@ class PetDescriptionRequest(db.Model):
     fee = db.Column(db.Float, nullable=False)
     status = db.Column(db.String(20), default='pending')  # pending, processing, completed
     result = db.Column(db.Text, nullable=True)
+
+
+class TranslationRequest(db.Model):
+    __tablename__ = 'translation_requests'
+
+    id = db.Column(db.Integer, primary_key=True)
+    input_text = db.Column(db.Text, nullable=False)
+    result_text = db.Column(db.Text, nullable=True)
+    status = db.Column(db.String(20), default='pending')  # pending, processing, completed
+
+
+class EnhancementRequest(db.Model):
+    __tablename__ = 'enhancement_requests'
+
+    id = db.Column(db.Integer, primary_key=True)
+    input_text = db.Column(db.Text, nullable=False)
+    result_text = db.Column(db.Text, nullable=True)
+    status = db.Column(db.String(20), default='pending')  # pending, processing, completed
