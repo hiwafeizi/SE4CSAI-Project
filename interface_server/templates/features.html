@@ -250,7 +250,7 @@ PetMatters - Unlock Powerful Features
             const result = await response.json();
 
             // Display the result
-            document.getElementById('result-output').textContent = result.message || 'No response received.';
+            document.getElementById('result-output').textContent = result.result || 'No response received.';
             document.getElementById('result-section').classList.remove('hidden');
         } catch (error) {
             console.error('Error:', error);
