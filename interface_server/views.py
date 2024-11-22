@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, request, url_for, flash
+from flask import Blueprint, jsonify, render_template, redirect, request, url_for, flash
 
 app_views = Blueprint('app_views', __name__)
 
@@ -19,41 +19,59 @@ def privacy_policy():
 def features():
     return render_template('features.html') 
 
-# Route to handle "Enhance" functionality
-@app_views.route('/enhance', methods=['POST'])
-def enhance():
-    user_input = request.form.get('enhance_input')
-    if not user_input:
-        flash('Please provide input to enhance.', 'error')
-        return redirect(url_for('app_views.features'))
-
-    # Placeholder logic for enhancing the input
-    enhanced_output = user_input.upper()  # Example logic
-    flash(f'Enhanced content: {enhanced_output}', 'success')
-    return redirect(url_for('app_views.features'))
-
-# Route to handle "Translate" functionality
-@app_views.route('/translate', methods=['POST'])
-def translate():
-    user_input = request.form.get('translate_input')
-    if not user_input:
-        flash('Please provide text to translate.', 'error')
-        return redirect(url_for('app_views.features'))
-
-    # Placeholder logic for translation
-    translated_output = f"Translated: {user_input[::-1]}"  # Example translation logic
-    flash(translated_output, 'success')
-    return redirect(url_for('app_views.features'))
-
-# Route to handle "Create" functionality
+# Route for "Create Descriptions"
 @app_views.route('/create', methods=['POST'])
-def create():
-    user_input = request.form.get('create_input')
-    if not user_input:
-        flash('Please provide an idea to create.', 'error')
-        return redirect(url_for('app_views.features'))
+def create_description():
+    data = request.json  # Parse the JSON request data
+    animal_type = data.get('animal_type', 'Unknown')
+    primary_breed = data.get('primary_breed', 'Unknown')
+    gender = data.get('gender', 'Unknown')
+    primary_color = data.get('primary_color', 'Unknown')
+    maturity_size = data.get('maturity_size', 'Unknown')
+    fur_length = data.get('fur_length', 'Unknown')
+    vaccinated = data.get('vaccinated', 'Unknown')
+    dewormed = data.get('dewormed', 'Unknown')
+    sterilized = data.get('sterilized', 'Unknown')
+    health = data.get('health', 'Unknown')
+    quantity = data.get('quantity', 1)
+    fee = data.get('fee', 0)
 
-    # Placeholder logic for creation
-    created_output = f"Created: {user_input} with a twist!"  # Example creation logic
-    flash(created_output, 'success')
-    return redirect(url_for('app_views.features'))
+    # Generate a sample description based on the provided data
+    description = (
+        f"This {animal_type} is a {primary_breed} with {primary_color} fur. "
+        f"It is {gender.lower()}, {maturity_size.lower()} in size, and has {fur_length.lower()} fur. "
+        f"Health status: {health}. Vaccinated: {vaccinated}. Dewormed: {dewormed}. "
+        f"Sterilized: {sterilized}. Quantity: {quantity}. Adoption fee: ${fee}."
+    )
+
+    return jsonify({'message': description})
+
+@app_views.route('/translate', methods=['POST'])
+def translate_description():
+    data = request.json  # Parse the JSON request data
+    print("Received data:", data)  # Debug log
+
+    if not data:
+        return jsonify({'message': 'Invalid request: No data provided.'}), 400
+
+    description = data.get('translate_input', '')
+
+    if not description:
+        return jsonify({'message': 'Invalid request: Missing translate_input field.'}), 400
+
+    # Simulate a translation (placeholder logic)
+    translated_description = description[::-1]
+
+    return jsonify({'message': f'Translated description: {translated_description}'})
+
+
+# Route for "Enhance Descriptions"
+@app_views.route('/enhance', methods=['POST'])
+def enhance_description():
+    data = request.json  # Parse the JSON request data
+    description = data.get('enhance_input', '')
+
+    # Simulate enhancement by capitalizing the first letter of each sentence
+    enhanced_description = '. '.join(sentence.capitalize() for sentence in description.split('. '))
+
+    return jsonify({'message': f'Enhanced description: {enhanced_description}'})

@@ -29,7 +29,7 @@ PetMatters - Unlock Powerful Features
         <form id="enhance-form" class="form" onsubmit="handleFormSubmit(event, 'enhance')">
             <div class="input-group">
                 <label for="enhance-input">Enter the description you want to enhance:</label>
-                <textarea id="enhance-input" name="enhance_input" rows="4" class="input-field"></textarea>
+                <textarea id="enhance-input" name="enhance_input" rows="4" class="input-field" required></textarea>
             </div>
             <button type="submit" class="formButton">
                 Enhance
@@ -41,7 +41,7 @@ PetMatters - Unlock Powerful Features
         <form id="translate-form" class="form" onsubmit="handleFormSubmit(event, 'translate')">
             <div class="input-group">
                 <label for="translate-input">Text to Translate:</label>
-                <textarea id="translate-input" name="translate_input" rows="4" class="input-field"></textarea>
+                <textarea id="translate-input" name="translate_input" rows="4" class="input-field" required></textarea>
             </div>
             <button type="submit" class="formButton">
                 Translate
@@ -63,7 +63,7 @@ PetMatters - Unlock Powerful Features
                 </div>
                 <div class="input-group">
                     <label for="primary-breed">Primary Breed:</label>
-                    <input type="text" id="primary-breed" name="primary_breed" class="input-field" placeholder="e.g., Labrador" required>
+                    <input type="text" id="primary-breed" name="primary_breed" class="input-field" placeholder="e.g., Labrador" >
                 </div>
             </div>
     
@@ -71,7 +71,7 @@ PetMatters - Unlock Powerful Features
             <div class="formRow">
                 <div class="input-group">
                     <label for="gender">Gender:</label>
-                    <select id="gender" name="gender" class="input-field" required>
+                    <select id="gender" name="gender" class="input-field" >
                         <option value="">Select Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -79,7 +79,7 @@ PetMatters - Unlock Powerful Features
                 </div>
                 <div class="input-group">
                     <label for="primary-color">Primary Color:</label>
-                    <input type="text" id="primary-color" name="primary_color" class="input-field" placeholder="e.g., Black" required>
+                    <input type="text" id="primary-color" name="primary_color" class="input-field" placeholder="e.g., Black" >
                 </div>
             </div>
     
@@ -87,7 +87,7 @@ PetMatters - Unlock Powerful Features
             <div class="formRow">
                 <div class="input-group">
                     <label for="maturity-size">Maturity Size:</label>
-                    <select id="maturity-size" name="maturity_size" class="input-field" required>
+                    <select id="maturity-size" name="maturity_size" class="input-field" >
                         <option value="">Select Size</option>
                         <option value="Small">Small</option>
                         <option value="Medium">Medium</option>
@@ -96,7 +96,7 @@ PetMatters - Unlock Powerful Features
                 </div>
                 <div class="input-group">
                     <label for="fur-length">Fur Length:</label>
-                    <select id="fur-length" name="fur_length" class="input-field" required>
+                    <select id="fur-length" name="fur_length" class="input-field" >
                         <option value="">Select Fur Length</option>
                         <option value="Short">Short</option>
                         <option value="Medium">Medium</option>
@@ -109,7 +109,7 @@ PetMatters - Unlock Powerful Features
             <div class="formRow">
                 <div class="input-group">
                     <label for="vaccinated">Vaccinated:</label>
-                    <select id="vaccinated" name="vaccinated" class="input-field" required>
+                    <select id="vaccinated" name="vaccinated" class="input-field" >
                         <option value="">Select</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -117,7 +117,7 @@ PetMatters - Unlock Powerful Features
                 </div>
                 <div class="input-group">
                     <label for="dewormed">Dewormed:</label>
-                    <select id="dewormed" name="dewormed" class="input-field" required>
+                    <select id="dewormed" name="dewormed" class="input-field" >
                         <option value="">Select</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -129,7 +129,7 @@ PetMatters - Unlock Powerful Features
             <div class="formRow">
                 <div class="input-group">
                     <label for="sterilized">Sterilized:</label>
-                    <select id="sterilized" name="sterilized" class="input-field" required>
+                    <select id="sterilized" name="sterilized" class="input-field" >
                         <option value="">Select</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -137,7 +137,7 @@ PetMatters - Unlock Powerful Features
                 </div>
                 <div class="input-group">
                     <label for="health">Health:</label>
-                    <select id="health" name="health" class="input-field" required>
+                    <select id="health" name="health" class="input-field" >
                         <option value="">Select Health</option>
                         <option value="Healthy">Healthy</option>
                         <option value="Minor Injury">Minor Injury</option>
@@ -150,11 +150,11 @@ PetMatters - Unlock Powerful Features
             <div class="formRow">
                 <div class="input-group">
                     <label for="quantity">Quantity:</label>
-                    <input type="number" id="quantity" name="quantity" class="input-field" min="1" placeholder="e.g., 1" required>
+                    <input type="number" id="quantity" name="quantity" class="input-field" min="1" placeholder="e.g., 1" >
                 </div>
                 <div class="input-group">
                     <label for="fee">Fee:</label>
-                    <input type="number" id="fee" name="fee" class="input-field" min="0" placeholder="e.g., 100" required>
+                    <input type="number" id="fee" name="fee" class="input-field" min="0" placeholder="e.g., 100" >
                 </div>
             </div>
     
@@ -233,11 +233,15 @@ PetMatters - Unlock Powerful Features
         formData.forEach((value, key) => (data[key] = value));
 
         try {
+            // Get the CSRF token from the meta tag
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
             // Call the corresponding API endpoint
             const response = await fetch(`/${feature}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken, // Add CSRF token to the headers
                 },
                 body: JSON.stringify(data),
             });
@@ -254,5 +258,6 @@ PetMatters - Unlock Powerful Features
             document.getElementById('result-section').classList.remove('hidden');
         }
     }
+
 </script>
 {% endblock %}
