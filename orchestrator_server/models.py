@@ -2,7 +2,7 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy.dialects.postgresql import UUID
 import uuid
-from . import db
+from ..interface_server import db
 
 class Users(db.Model):
     __tablename__ = 'users'
