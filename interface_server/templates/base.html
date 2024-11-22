@@ -17,10 +17,19 @@
     <title>{% block title %}PetMatters{% endblock %}</title>
     {% block head %}{% endblock %}
 </head>
-<body class="min-h-screen flex flex-col">    
-    <!-- <nav class="nav-container"> -->
-    <nav class="nav-container p-4 w-full flex justify-between items-center">
-        <a class="navbar-brand mx-auto" href="{{ url_for('app_views.index') }}">PetMatters</a>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <nav class="nav-container p-4 w-full flex justify-between items-center bg-gray-100 shadow">
+        <!-- Logo -->
+        <a class="navbar-brand text-lg font-bold text-gray-800" href="{{ url_for('app_views.index') }}">
+            PetMatters
+        </a>
+
+        <!-- Call to Action -->
+        <a href="{{ url_for('app_views.index') }}" class="formButton">
+            Try It Now
+        </a>
     </nav>
 
     <!-- Content Wrapper -->
@@ -29,6 +38,19 @@
             {% block content %}{% endblock %}
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer-container p-4 bg-gray-300 text-center text-sm w-full">
+        <p class="text-gray-600">&copy; {{ 2024 }} PetMatters. All Rights Reserved.</p>
+        <div class="flex justify-center gap-4 mt-2">
+            <a href="{{ url_for('app_views.terms_of_service') }}" class="text-blue-500 hover:underline">
+                Terms of Service
+            </a>
+            <a href="{{ url_for('app_views.privacy_policy') }}" class="text-blue-500 hover:underline">
+                Privacy Policy
+            </a>
+        </div>
+    </footer>
 
 </body>
 </html>
