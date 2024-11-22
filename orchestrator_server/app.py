@@ -1,48 +1,25 @@
-import os
-from flask import Flask, request, jsonify
+# app.py
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-import requests
-from models import db, RequestLog, ResponseLog
+from flask_migrate import Migrate
+from config import Config
+from routes import orchestrator
+from models import db
 
+def create_app():
+    app = Flask(__name__, instance_relative_config=True)
+    app.config.from_object(Config)
+    app.config.from_pyfile('config.py', silent=True)
 
-# Configuration setup for the database
-DATABASE_URI = os.environ.get('DATABASE_URL')
+    # Initialize extensions
+    db.init_app(app)
+    migrate = Migrate(app, db)
 
-# Use SQLite as a fallback if DATABASE_URL is not set
-if not DATABASE_URI:
-    print("Warning: DATABASE_URL environment variable is not set. Using local SQLite database.")
-    DATABASE_URI = "sqlite:///local_database.db"  # Set local SQLite database file path
+    # Register blueprints
+    app.register_blueprint(orchestrator)
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URI
-db.init_app(app)
-
-# Route to process data from Interface Server
-@app.route('/process', methods=['POST'])
-def process():
-    data = request.get_json()
-    user_input = data.get('input')
-    if not user_input:
-        return jsonify({'error': 'No input provided'}), 400
-
-    # Log the request
-    request_log = RequestLog(input_text=user_input)
-    db.session.add(request_log)
-    db.session.commit()
-
-    # Send data to AI Server
-    response = requests.post('http://localhost:5002/run-ai', json={'input': user_input})
-    if response.status_code == 200:
-        ai_result = response.json().get('result')
-
-        # Log the response
-        response_log = ResponseLog(result_text=ai_result, request_id=request_log.id)
-        db.session.add(response_log)
-        db.session.commit()
-
-        return jsonify({'result': ai_result}), 200
-    else:
-        return jsonify({'error': 'AI Server error'}), 500
+    return app
 
 if __name__ == '__main__':
-    app.run(port=5001)
+    app = create_app()
+    app.run(debug=True)
