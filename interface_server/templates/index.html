@@ -1,72 +1,73 @@
 {% extends 'base.html' %}
 
 {% block title %}
-PetMatters
+PetMatters - Helping Shelters Help Pets
 {% endblock %}
 
 {% block content %}
-
-<div>
-    <!-- Hero Section -->
-    <section id="hero" style="padding: 40px; text-align: center; background-color: #f7fafc;">
-        <h1>Introducing PetMatters: Providing Shelter Pets with the Attention They Need</h1>
-        <p>We at PetMatters are committed to assisting animal shelters worldwide in finding the ideal match for their furry residents because we think every pet deserves a loving home. Our goal is clear: to assist more animals find their forever homes by giving animal shelters the resources they need to write appealing, factual pet descriptions in a variety of languages.</p>
-       <BR>
-        <p>By offering a clever, AI-powered platform that eliminates the guesswork involved in creating engaging pet profiles, we hope to ease your workload. Our platform is made to support you at every stage, regardless of whether you're beginning from scratch or need to improve an already-written description.</p>
-        <!-- Image 1 (hero image) goes here -->
+<main class="min-h-screen py-10 px-4">
+    <!-- Header Section -->
+    <section class="text-center mb-10 mt-10">
+        <h2 class=" mb-4">Streamline Pet Adoption Listings</h2>
+        <p class="text-lg text-gray-700 mb-6">
+            Helping shelters save time and focus on finding loving homes for pets with tools to create, translate, and enhance descriptions.
+        </p>
+        <a href="{{ url_for('app_views.features') }}" class="formButton">
+            Try It Now
+        </a>
     </section>
 
-    <!-- How It Operates Section -->
-    <section id="how-it-works" style="padding: 40px; background-color: #ffffff; text-align: center;">
-        <h2>How It Operates</h2>
-        <div style="max-width: 700px; margin: 0 auto; text-align: left;">
-            <h3>Create a Draft Description</h3>
-            <p>Write a preliminary description of the pet first. Just enter the essential information: breed, age, sex, personality features, and the kind of animal (dog, cat, etc.). You may also include any additional data that will assist in characterizing the pet.</p>
+    <!-- Features Section -->
+    <section class="max-w-6xl mx-auto space-y-6 mb-12 text-left">
+        <!-- Feature 1: Create Descriptions -->
+        <div class="flex flex-row lg:flex-row items-center gap-6">
+            <div class="w-1/2">
+                <h3 class="text-2xl font-bold mb-4">Create Descriptions</h3>
+                <p class="text-gray-700">
+                    Generate professional pet profiles by providing key details in our easy-to-use form. Highlight the unique traits of each pet to capture adopters’ attention.
+                </p>
+            </div>
+            <div class="w-1/2">
+                <img src="{{ url_for('static', filename='images/pet1.jfif') }}" alt="Form example" class="rounded w-10/12 p-4 object-cover h-64">
+            </div>
+        </div>
 
-            <h3>Request to Make Your Description Better</h3>
-            <p>You can ask our algorithm to make your description better once you've written it. Without sacrificing any important facts, our AI will refine your writing to make it more interesting and appealing. The outcome? A description that is more likely to attract prospective adopters' attention.</p>
+        <!-- Feature 2: Translate Descriptions -->
+        <div class="flex flex-row lg:flex-row-reverse items-center gap-6">
+            <div class="w-1/2">
+                <img src="{{ url_for('static', filename='images/pet2.jfif') }}" alt="Translation example" class="rounded w-10/12 p-4 object-cover h-64">
+            </div>
 
-            <h3>Make a New Description</h3>
-            <p>Lacking the time to compose a description? No issue! Just enter the necessary details, such as the animal's breed, age, sex, and personality, and our AI will create a fresh, interesting pet description for you.</p>
+            <div class="w-1/2">
+                <h3 class="text-2xl font-bold mb-4">Translate Descriptions</h3>
+                <p class="text-gray-700">
+                    Reach more adopters by translating your pet profiles into multiple languages. Ensure no pet is left behind because of a language barrier.
+                </p>
+            </div>
+        </div>
 
-            <h3>Translate to Dutch</h3>
-            <p>Do you want to connect with more people? Any generated description can be readily translated from English to Dutch using our technology. For shelters hoping to reach Dutch-speaking adopters and improve their chances of finding the perfect home for their animals, this option is ideal.</p>
-
-            <h3>Use and Share the Updated Description</h3>
-            <p>You can use your description for flyers, your pet's internet page, and any other promotional materials once it is completed and translated, if needed. To assist your pet find a loving home more quickly, share it with prospective adopters, on your website, and on social media.</p>
-            <!-- Image 2 goes here (illustrating the platform interface) -->
+        <!-- Feature 3: Enhance Descriptions -->
+        <div class="flex flex-row lg:flex-row items-center gap-6">
+            <div class="w-1/2">
+                <h3 class="text-2xl font-bold mb-4">Enhance Descriptions</h3>
+                <p class="text-gray-700">
+                    Improve the appeal of your listings with AI-powered enhancements. Let every pet’s profile shine and connect with adopters.
+                </p>
+            </div>
+            <div class="w-1/2 p-6">
+                <img src="{{ url_for('static', filename='images/pet3.jfif') }}" alt="Enhanced listing example" class="rounded w-10/12 p-4 object-cover h-64">
+            </div>
         </div>
     </section>
 
-    <!-- Why Choose PetMatters Section -->
-    <section id="why-choose" style="padding: 40px; background-color: #f7fafc; text-align: center;">
-        <h2>Why Pick PetMatters?</h2>
-        <div style="max-width: 700px; margin: 0 auto; text-align: left;">
-            <ul>
-                <li><strong>Platform Driven by AI:</strong> Our clever technology transforms your basic facts into an engaging, accurate, and sentimental pet description.</li>
-                <li><strong>Save Time:</strong> Spend more time with pets, not paperwork, by letting our tools streamline the profile creation process.</li>
-                <li><strong>Support for Multiple Languages:</strong> Expand your reach by translating descriptions to Dutch for broader appeal.</li>
-                <li><strong>Personalized Descriptions:</strong> Whether starting from scratch or editing, our system captures the unique personality of each pet.</li>
-                <li><strong>Simple to Use:</strong> No tech expertise required—PetMatters is designed with shelter staff in mind.</li>
-                <li><strong>Aid More Animals:</strong> Accurate, captivating profiles help animals find families faster.</li>
-            </ul>
-        </div>
-        <!-- Image 3 (e.g., happy pets or shelter volunteers) goes here -->
+    <!-- Call-to-Action Section -->
+    <section class="text-center mt-10 mb-8 max-w-6xl mx-auto">
+        <h4 class=" text-gray-700 mb-6">
+            Join the growing number of shelters using PetMatters to help pets find loving homes faster.
+        </h4>
+        <a href="{{ url_for('app_views.features') }}" class="formButton">
+            Get Started
+        </a>
     </section>
-
-    <!-- Call to Action Section -->
-    <section id="cta" style="padding: 40px; background-color: #ffffff; text-align: center;">
-        <h2>Start Now</h2>
-        <p>PetMatters is here to make your job easier, regardless of how big your rescue organization is or how small your local shelter is. To help your animals stand out and find their ideal forever homes, start writing captivating pet descriptions.</p>
-        <button onclick="location.href='/signup'" style="background-color: #0088cc; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Sign Up Now</button>
-    </section>
-
-    <!-- Community Section -->
-    <section id="community" style="padding: 40px; background-color: #f7fafc; text-align: center;">
-        <h2>Become a Part of the PetMatters Community</h2>
-        <p>Our organization is dedicated to enhancing the quality of life for both shelter pets and their caregivers. Thanks to artificial intelligence, we're increasing adoption rates, revolutionizing pet descriptions, and giving animals the chance they deserve.</p>
-        <p><em>Every pet can find a happy home if we work together.</em></p>
-    </section>
-</div>
-
+</main>
 {% endblock %}
