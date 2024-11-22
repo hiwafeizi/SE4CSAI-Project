@@ -18,7 +18,7 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=300)  # Session exp
 csrf = CSRFProtect(app)
 
 # Register Blueprints
-from .views import app_views
+from views import app_views
 app.register_blueprint(app_views)
 
 if __name__ == '__main__':
