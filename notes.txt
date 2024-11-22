@@ -1,0 +1,8 @@
+cd ai_server
+python app.py
+
+cd orchestrator_server
+python app.py
+
+cd interface_server
+python app.py
