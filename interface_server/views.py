@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, render_template, redirect, request, url_for, flash
+from flask import session, Blueprint, jsonify, render_template, redirect, request, url_for, flash
 import requests
 from flask_login import login_user, logout_user, current_user, login_required
 
@@ -22,81 +22,89 @@ def privacy_policy():
 def features():
     return render_template('features.html') 
 
+# Route for creating a description
 @app_views.route('/create', methods=['POST'])
 def create_description():
     try:
         data = request.json  # Parse the JSON request data
 
+        # Get the user_id from the session
+        user_id = session.get('user_id')
+        if not user_id:
+            flash("You need to log in to access this page.")
+            return redirect(url_for('app_views.login'))
+
+
+        # Include the user_id in the payload sent to the orchestrator
+        data['user_id'] = user_id
+
         # Forward the request to the orchestrator server
         orchestrator_response = requests.post(f"{ORCHESTRATOR_URL}/create", json=data)
 
         if orchestrator_response.status_code == 200:
-            # Successfully processed by the orchestrator
             return orchestrator_response.json(), 200
         else:
-            # Error in processing by the orchestrator
             return jsonify({
                 "error": "Failed to process the request via Orchestrator",
-                "details": orchestrator_response.result
+                "details": orchestrator_response.text
             }), orchestrator_response.status_code
     except Exception as e:
-        # Handle unexpected errors
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 
-# Route for "Translate Descriptions"
 @app_views.route('/translate', methods=['POST'])
 def translate_description():
     try:
         data = request.json  # Parse the JSON request data
 
-        # Validate input
-        description = data.get('translate_input')
-        if not description:
-            return jsonify({'error': 'The translate_input field is required.'}), 400
+        # Get the user_id from the session
+        user_id = session.get('user_id')
+        if not user_id:
+            flash("You need to log in to access this page.")
+            return redirect(url_for('app_views.login'))
+
+        # Include the user_id in the payload
+        data['user_id'] = user_id
 
         # Forward the request to the orchestrator server
-        orchestrator_response = requests.post(f"{ORCHESTRATOR_URL}/translate", json={"translate_input": description})
+        orchestrator_response = requests.post(f"{ORCHESTRATOR_URL}/translate", json=data)
 
         if orchestrator_response.status_code == 200:
-            # Successfully processed by the orchestrator
             return orchestrator_response.json(), 200
         else:
-            # Error in processing by the orchestrator
             return jsonify({
                 "error": "Failed to process the translation via Orchestrator",
                 "details": orchestrator_response.text
             }), orchestrator_response.status_code
     except Exception as e:
-        # Handle unexpected errors
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 
-# Route for "Enhance Descriptions"
 @app_views.route('/enhance', methods=['POST'])
 def enhance_description():
     try:
         data = request.json  # Parse the JSON request data
 
-        # Validate input
-        description = data.get('enhance_input')
-        if not description:
-            return jsonify({'error': 'The enhance_input field is required.'}), 400
+        # Get the user_id from the session
+        user_id = session.get('user_id')
+        if not user_id:
+            flash("You need to log in to access this page.")
+            return redirect(url_for('app_views.login'))
+
+        # Include the user_id in the payload
+        data['user_id'] = user_id
 
         # Forward the request to the orchestrator server
-        orchestrator_response = requests.post(f"{ORCHESTRATOR_URL}/enhance", json={"enhance_input": description})
+        orchestrator_response = requests.post(f"{ORCHESTRATOR_URL}/enhance", json=data)
 
         if orchestrator_response.status_code == 200:
-            # Successfully processed by the orchestrator
             return orchestrator_response.json(), 200
         else:
-            # Error in processing by the orchestrator
             return jsonify({
                 "error": "Failed to process the enhancement via Orchestrator",
                 "details": orchestrator_response.text
             }), orchestrator_response.status_code
     except Exception as e:
-        # Handle unexpected errors
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 
@@ -115,7 +123,8 @@ def signup():
             
             if login_response.status_code == 200:  # Successful login
                 user_data = login_response.json()
-                # Handle session or flash messages if necessary
+                # Store user_id in session
+                session['user_id'] = user_data.get('user_id')
                 flash("Signup and login successful!")
                 return redirect(url_for('app_views.features'))
             else:
@@ -140,7 +149,8 @@ def login():
         
         if response.status_code == 200:  # Successful login
             user_data = response.json()
-            # handle user sessions here
+            # Store user_id in session
+            session['user_id'] = user_data.get('user_id')
             flash("Logged in successfully!")
             return redirect(url_for('app_views.account_create'))
         else:
@@ -163,8 +173,14 @@ def logout():
 @app_views.route('/account/history', methods=['GET'])
 def history():
     try:
+        # Check if the user is logged in
+        user_id = session.get('user_id')
+        if not user_id:
+            flash("You need to log in to access the history.")
+            return redirect(url_for('app_views.login'))
+
         # Fetch history data from orchestrator
-        response = requests.get(f"{ORCHESTRATOR_URL}/history", params={"limit": 50})
+        response = requests.get(f"{ORCHESTRATOR_URL}/history", params={"limit": 50, "user_id": user_id})
         if response.status_code == 200:
             history_data = response.json()
             return render_template('account/history.html', history=history_data)
@@ -181,16 +197,32 @@ def account_create():
     """
     Redirects the user to the create page or features page.
     """
+    # Check if the user is logged in
+    user_id = session.get('user_id')
+    if not user_id:
+        flash("You need to log in to access this page.")
+        return redirect(url_for('app_views.login'))
+
     return render_template('account/create.html')
 
 
 @app_views.route('/delete_record/<int:record_id>', methods=['POST'])
 def delete_record(record_id):
     try:
-        record_type = request.form.get('type')  # Get the type from the form data
+        # Ensure the user is logged in
+        user_id = session.get('user_id')
+        if not user_id:
+            flash("You need to log in to delete a record.")
+            return redirect(url_for('app_views.login'))
+
+        # Get the record type from the form data
+        record_type = request.form.get('type')
 
         # Call the orchestrator to delete the record
-        response = requests.post(f"{ORCHESTRATOR_URL}/delete_record/{record_id}", params={'type': record_type})
+        response = requests.post(
+            f"{ORCHESTRATOR_URL}/delete_record/{record_id}",
+            params={'type': record_type, 'user_id': user_id}
+        )
 
         if response.status_code == 200:
             flash("Record deleted successfully.")
@@ -202,18 +234,19 @@ def delete_record(record_id):
         flash(f"An error occurred: {str(e)}")
         return redirect(url_for('app_views.history'))
 
-@app_views.route('/clear_history', methods=['POST'])
-def clear_history():
-    try:
-        # Call the orchestrator's clear_records endpoint
-        response = requests.post(f"{ORCHESTRATOR_URL}/clear_records")
 
-        if response.status_code == 200:
-            flash("All records have been cleared successfully.")
-        else:
-            flash("Failed to clear records. Please try again.")
+# @app_views.route('/clear_history', methods=['POST'])
+# def clear_history():
+#     try:
+#         # Call the orchestrator's clear_records endpoint
+#         response = requests.post(f"{ORCHESTRATOR_URL}/clear_records")
 
-        return redirect(url_for('app_views.history'))
-    except Exception as e:
-        flash(f"An error occurred: {str(e)}")
-        return redirect(url_for('app_views.history'))
+#         if response.status_code == 200:
+#             flash("All records have been cleared successfully.")
+#         else:
+#             flash("Failed to clear records. Please try again.")
+
+#         return redirect(url_for('app_views.history'))
+#     except Exception as e:
+#         flash(f"An error occurred: {str(e)}")
+#         return redirect(url_for('app_views.history'))
