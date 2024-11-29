@@ -159,12 +159,18 @@ PetMatters - Unlock Powerful Features
             </div>
     
             <!-- Submit Button -->
-            <button type="submit" class="formButton">
+            <button type="submit" class="formButton" id="submit-btn" onclick="handleFormSubmit(event)">
                 Create
             </button>
+
         </form>
     </div>
     
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="hidden text-center my-6">
+        <p class="text-blue-600 font-bold">Processing your request...</p>
+    </div>
+
     
     <!-- Results Section -->
     <div id="result-section" class="hidden mt-6 p-6 rounded max-w-4xl mx-auto">
@@ -222,17 +228,32 @@ PetMatters - Unlock Powerful Features
     }
 
 
-    // Handle form submission with AJAX
-    async function handleFormSubmit(event, feature) {
+    async function handleFormSubmit(event) {
         event.preventDefault(); // Prevent default form submission behavior
 
-        // Get the input data
-        const form = event.target;
-        const formData = new FormData(form);
-        const data = {};
-        formData.forEach((value, key) => (data[key] = value));
+        // Show loading spinner and disable button
+        const loadingSpinner = document.getElementById('loading-spinner');
+        loadingSpinner.classList.remove('hidden');
+
+        const submitButton = document.getElementById('submit-btn');
+        submitButton.disabled = true;
+        submitButton.dataset.originalText = submitButton.textContent;
+        submitButton.textContent = 'Processing...';
 
         try {
+            // Determine the active section
+            const activeSection = document.querySelector('.feature-section:not(.hidden)');
+            if (!activeSection) {
+                throw new Error('No active section found.');
+            }
+
+            // Extract the feature type and form data
+            const feature = activeSection.id; // "enhance", "translate", or "create"
+            const form = activeSection.querySelector('form');
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => (data[key] = value));
+
             // Get the CSRF token from the meta tag
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
@@ -250,14 +271,19 @@ PetMatters - Unlock Powerful Features
             const result = await response.json();
 
             // Display the result
-            document.getElementById('result-output').textContent = result.result || 'No response received.';
+            document.getElementById('result-output').value = result.result || 'No response received.';
             document.getElementById('result-section').classList.remove('hidden');
         } catch (error) {
             console.error('Error:', error);
-            document.getElementById('result-output').textContent = 'An error occurred. Please try again.';
+            document.getElementById('result-output').value = 'An error occurred. Please try again.';
             document.getElementById('result-section').classList.remove('hidden');
+        } finally {
+            // Hide loading spinner and reset button
+            loadingSpinner.classList.add('hidden');
+            submitButton.disabled = false;
+            submitButton.textContent = submitButton.dataset.originalText || 'Submit';
         }
-    }
+}
 
 </script>
 {% endblock %}
