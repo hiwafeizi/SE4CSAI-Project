@@ -163,8 +163,14 @@ def logout():
 @app_views.route('/account/history', methods=['GET'])
 def history():
     try:
+        # Check if the user is logged in
+        user_id = session.get('user_id')
+        if not user_id:
+            flash("You need to log in to access the history.")
+            return redirect(url_for('app_views.login'))
+
         # Fetch history data from orchestrator
-        response = requests.get(f"{ORCHESTRATOR_URL}/history", params={"limit": 50})
+        response = requests.get(f"{ORCHESTRATOR_URL}/history", params={"limit": 50, "user_id": user_id})
         if response.status_code == 200:
             history_data = response.json()
             return render_template('account/history.html', history=history_data)
@@ -181,6 +187,12 @@ def account_create():
     """
     Redirects the user to the create page or features page.
     """
+    # Check if the user is logged in
+    user_id = session.get('user_id')
+    if not user_id:
+        flash("You need to log in to access this page.")
+        return redirect(url_for('app_views.login'))
+
     return render_template('account/create.html')
 
 
