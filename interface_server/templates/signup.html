@@ -32,6 +32,12 @@ SignUp | PetMatters
                 </div>
             {% endif %}
         {% endwith %}
+        
+        <!-- Option to go to Login -->
+        <p class="text-sm text-center text-gray-600 mt-4">
+            Already have an account?
+            <a href="{{ url_for('app_views.login') }}" class="text-blue-600 hover:underline">Log In</a>
+        </p>
     </form>
 
 {% endblock %}

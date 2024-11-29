@@ -26,11 +26,19 @@
             PetMatters
         </a>
 
-        <!-- Call to Action -->
-        <a href="{{ url_for('app_views.features') }}" class="formButton">
-            Try It Now
-        </a>
+        <!-- Button Container -->
+        <div class="flex items-center space-x-4">
+            <!-- Log In Button -->
+            <a href="{{ url_for('app_views.login') }}" class="secondaryButton">
+                Log In
+            </a>
+            <!-- Call to Action -->
+            <a href="{{ url_for('app_views.features') }}" class="formButton">
+                Try It Now
+            </a>
+        </div>
     </nav>
+
 
     <!-- Content Wrapper -->
     <div class="flex-grow w-full">
