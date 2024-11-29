@@ -30,6 +30,10 @@ def create_description():
 
         # Get the user_id from the session
         user_id = session.get('user_id')
+        if not user_id:
+            flash("You need to log in to access this page.")
+            return redirect(url_for('app_views.login'))
+
 
         # Include the user_id in the payload sent to the orchestrator
         data['user_id'] = user_id
@@ -55,6 +59,9 @@ def translate_description():
 
         # Get the user_id from the session
         user_id = session.get('user_id')
+        if not user_id:
+            flash("You need to log in to access this page.")
+            return redirect(url_for('app_views.login'))
 
         # Include the user_id in the payload
         data['user_id'] = user_id
@@ -80,6 +87,9 @@ def enhance_description():
 
         # Get the user_id from the session
         user_id = session.get('user_id')
+        if not user_id:
+            flash("You need to log in to access this page.")
+            return redirect(url_for('app_views.login'))
 
         # Include the user_id in the payload
         data['user_id'] = user_id
@@ -199,10 +209,20 @@ def account_create():
 @app_views.route('/delete_record/<int:record_id>', methods=['POST'])
 def delete_record(record_id):
     try:
-        record_type = request.form.get('type')  # Get the type from the form data
+        # Ensure the user is logged in
+        user_id = session.get('user_id')
+        if not user_id:
+            flash("You need to log in to delete a record.")
+            return redirect(url_for('app_views.login'))
+
+        # Get the record type from the form data
+        record_type = request.form.get('type')
 
         # Call the orchestrator to delete the record
-        response = requests.post(f"{ORCHESTRATOR_URL}/delete_record/{record_id}", params={'type': record_type})
+        response = requests.post(
+            f"{ORCHESTRATOR_URL}/delete_record/{record_id}",
+            params={'type': record_type, 'user_id': user_id}
+        )
 
         if response.status_code == 200:
             flash("Record deleted successfully.")
@@ -214,18 +234,19 @@ def delete_record(record_id):
         flash(f"An error occurred: {str(e)}")
         return redirect(url_for('app_views.history'))
 
-@app_views.route('/clear_history', methods=['POST'])
-def clear_history():
-    try:
-        # Call the orchestrator's clear_records endpoint
-        response = requests.post(f"{ORCHESTRATOR_URL}/clear_records")
 
-        if response.status_code == 200:
-            flash("All records have been cleared successfully.")
-        else:
-            flash("Failed to clear records. Please try again.")
+# @app_views.route('/clear_history', methods=['POST'])
+# def clear_history():
+#     try:
+#         # Call the orchestrator's clear_records endpoint
+#         response = requests.post(f"{ORCHESTRATOR_URL}/clear_records")
 
-        return redirect(url_for('app_views.history'))
-    except Exception as e:
-        flash(f"An error occurred: {str(e)}")
-        return redirect(url_for('app_views.history'))
+#         if response.status_code == 200:
+#             flash("All records have been cleared successfully.")
+#         else:
+#             flash("Failed to clear records. Please try again.")
+
+#         return redirect(url_for('app_views.history'))
+#     except Exception as e:
+#         flash(f"An error occurred: {str(e)}")
+#         return redirect(url_for('app_views.history'))
