@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, render_template, redirect, request, url_for, flash
 import requests
+from flask_login import login_user, logout_user, current_user, login_required
 
 app_views = Blueprint('app_views', __name__)
 
@@ -97,3 +98,63 @@ def enhance_description():
     except Exception as e:
         # Handle unexpected errors
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+
+
+@app_views.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        # Send data to the orchestrator for signup
+        signup_response = requests.post(f"{ORCHESTRATOR_URL}/signup", json={"email": email, "password": password})
+        
+        if signup_response.status_code == 201:  # Successful signup
+            # Automatically log in the user
+            login_response = requests.post(f"{ORCHESTRATOR_URL}/login", json={"email": email, "password": password})
+            
+            if login_response.status_code == 200:  # Successful login
+                user_data = login_response.json()
+                # Handle session or flash messages if necessary
+                flash("Signup and login successful!")
+                return redirect(url_for('app_views.features'))
+            else:
+                flash("Signup successful, but login failed.")
+                return redirect(url_for('app_views.login'))
+        else:
+            error_message = signup_response.json().get('error', 'Signup failed.')
+            flash(error_message)
+            return redirect(url_for('app_views.signup'))
+
+    return render_template('signup.html')
+
+
+@app_views.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        # Send data to the orchestrator for login
+        response = requests.post(f"{ORCHESTRATOR_URL}/login", json={"email": email, "password": password})
+        
+        if response.status_code == 200:  # Successful login
+            user_data = response.json()
+            # handle user sessions here
+            flash("Logged in successfully!")
+            return redirect(url_for('app_views.features'))
+        else:
+            error_message = response.json().get('error', 'Login failed.')
+            flash(error_message)
+            return redirect(url_for('app_views.login'))
+
+    return render_template('login.html')
+
+
+@app_views.route('/logout', methods=['GET'])
+@login_required
+def logout():
+    # Perform any session cleanup if necessary
+    logout_user()
+    flash("Logged out successfully!")
+    return redirect(url_for('app_views.login'))

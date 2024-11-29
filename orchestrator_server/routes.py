@@ -1,9 +1,58 @@
 # routes.py
 from flask import Blueprint, request, jsonify, current_app
-from models import EnhancementRequest, TranslationRequest, db, PetDescriptionRequest
+from models import User, EnhancementRequest, TranslationRequest, db, PetDescriptionRequest
 import requests
+from werkzeug.security import generate_password_hash, check_password_hash
 
 orchestrator = Blueprint('orchestrator', __name__)
+
+
+@orchestrator.route('/signup', methods=['POST'])
+def signup():
+    try:
+        data = request.json
+        email = data.get('email')
+        password = data.get('password')
+
+        # Validate input
+        if not email or not password:
+            return jsonify({'error': 'Email and password are required.'}), 400
+
+        # Check if the email already exists
+        if User.query.filter_by(email=email).first():
+            return jsonify({'error': 'Email is already registered.'}), 400
+
+        # Create a new user
+        new_user = User(email=email, password_hash=generate_password_hash(password))
+        db.session.add(new_user)
+        db.session.commit()
+
+        return jsonify({'message': 'Signup successful.'}), 201
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@orchestrator.route('/login', methods=['POST'])
+def login():
+    try:
+        data = request.json
+        email = data.get('email')
+        password = data.get('password')
+
+        # Validate input
+        if not email or not password:
+            return jsonify({'error': 'Email and password are required.'}), 400
+
+        # Find user by email
+        user = User.query.filter_by(email=email).first()
+        if not user or not check_password_hash(user.password_hash, password):
+            return jsonify({'error': 'Invalid email or password.'}), 401
+
+        # Optionally return user data or a token
+        return jsonify({'message': 'Login successful.', 'email': user.email}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 
 @orchestrator.route('/create', methods=['POST'])
 def create_description_request():
