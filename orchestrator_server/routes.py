@@ -85,6 +85,22 @@ def create_description_request():
         quantity = parse_field(data.get('quantity'), 1, int)  # Default to 1 if empty or invalid
         fee = parse_field(data.get('fee'), 0.0, float)        # Default to 0.0 if empty or invalid
 
+        # Generate input text
+        input_text = (
+            f"Animal Type: {animal_type}. "
+            f"Breed: {primary_breed or 'None'}. "
+            f"Gender: {gender or 'None'}. "
+            f"Color: {primary_color or 'None'}. "
+            f"Size: {maturity_size or 'None'}. "
+            f"Fur Length: {fur_length or 'None'}. "
+            f"Vaccinated: {vaccinated or 'None'}. "
+            f"Dewormed: {dewormed or 'None'}. "
+            f"Sterilized: {sterilized or 'None'}. "
+            f"Health: {health or 'None'}. "
+            f"Quantity: {quantity or 'None'}. "
+            f"Fee: ${fee or 'None'}."
+        )
+
         # Save the request to the database
         new_request = PetDescriptionRequest(
             animal_type=animal_type,
@@ -98,37 +114,22 @@ def create_description_request():
             sterilized=sterilized,
             health=health,
             quantity=quantity,
-            fee=fee
+            fee=fee,
+            input_text=input_text
         )
         db.session.add(new_request)
         db.session.commit()
 
-        # Process data into a string format
-        description_string = (
-            f"Animal Type: {new_request.animal_type}. "
-            f"Breed: {new_request.primary_breed or 'None'}. "
-            f"Gender: {new_request.gender or 'None'}. "
-            f"Color: {new_request.primary_color or 'None'}. "
-            f"Size: {new_request.maturity_size or 'None'}. "
-            f"Fur Length: {new_request.fur_length or 'None'}. "
-            f"Vaccinated: {new_request.vaccinated or 'None'}. "
-            f"Dewormed: {new_request.dewormed or 'None'}. "
-            f"Sterilized: {new_request.sterilized or 'None'}. "
-            f"Health: {new_request.health or 'None'}. "
-            f"Quantity: {new_request.quantity or 'None'}. "
-            f"Fee: ${new_request.fee or 'None'}."
-        )
-
         # Call the AI server to process the string
         ai_server_url = f"{current_app.config['AI_SERVER_URL']}/create"
-        ai_response = requests.post(ai_server_url, json={"description": description_string})
+        ai_response = requests.post(ai_server_url, json={"description": input_text})
 
         if ai_response.status_code == 200:
             result = ai_response.json().get('message', '')
 
             # Update the database with the result
             new_request.status = 'completed'
-            new_request.result = result
+            new_request.result_text = result
             db.session.commit()
 
             return jsonify({'message': 'Request processed successfully', 'result': result})

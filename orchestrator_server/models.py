@@ -33,8 +33,9 @@ class PetDescriptionRequest(db.Model):
     health = db.Column(db.String(50), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
     fee = db.Column(db.Float, nullable=False)
+    input_text = db.Column(db.Text, nullable=True)  # Added to store input text
+    result_text = db.Column(db.Text, nullable=True)  # Added to store result text
     status = db.Column(db.String(20), default='pending')  # pending, processing, completed
-    result = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
 
