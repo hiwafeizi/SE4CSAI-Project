@@ -1,0 +1,60 @@
+{% extends 'account/base.html' %}
+
+{% block title %}
+History | PetMatters
+{% endblock %}
+
+{% block content %}
+<main class="p-6 bg-gray-50 min-h-screen text-left">
+    <h1 class="text-2xl font-bold mb-6 text-center">Request History</h1>
+
+    <!-- Clear Records Button -->
+    <!-- <form action="{{ url_for('app_views.clear_history') }}" method="POST" class="text-center mb-6">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button type="submit" class="formButton">
+            Clear All Records
+        </button>
+    </form> -->
+
+    {% if history %}
+        <table class="min-w-full border-collapse border border-gray-200 shadow-md bg-white">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="border border-gray-300 px-4 py-2">Type</th>
+                    <th class="border border-gray-300 px-4 py-2">Input</th>
+                    <th class="border border-gray-300 px-4 py-2">Result</th>
+                    <th class="border border-gray-300 px-4 py-2">Status</th>
+                    <th class="border border-gray-300 px-4 py-2">Date</th>
+                    <th class="border border-gray-300 px-4 py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in history %}
+                    <tr class="hover:bg-gray-100">
+                        <td class="border border-gray-300 px-4 py-2">{{ record.type }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ record.input_text or 'N/A' }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ record.result_text or 'N/A' }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ record.status }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ record.created_at }}</td>
+                        <td class="border border-gray-300 px-4 py-2 text-center">
+                            <!-- Delete Button -->
+                            <div style="display: inline-block; text-align: center;">
+                                <form action="{{ url_for('app_views.delete_record', record_id=record.id) }}" method="POST" style="margin: 0; padding: 0;">
+                                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                                    <input type="hidden" name="type" value="{{ record.type }}">
+                                    <button type="submit" class="text-red-600 bg-white hover:underline">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-gray-700 text-center">No history available.</p>
+    {% endif %}
+</main>
+{% endblock %}

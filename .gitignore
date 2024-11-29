@@ -6,5 +6,3 @@ AI/
 instance/
 # Ignore all .err files
 *.err
-
-*.sh
