@@ -27,7 +27,8 @@ def signup():
         db.session.add(new_user)
         db.session.commit()
 
-        return jsonify({'message': 'Signup successful.'}), 201
+        # Return the user_id along with the success message
+        return jsonify({'message': 'Signup successful.', 'user_id': new_user.id}), 201
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
@@ -48,8 +49,8 @@ def login():
         if not user or not check_password_hash(user.password_hash, password):
             return jsonify({'error': 'Invalid email or password.'}), 401
 
-        # Optionally return user data or a token
-        return jsonify({'message': 'Login successful.', 'email': user.email}), 200
+        # Return the user_id and email along with the success message
+        return jsonify({'message': 'Login successful.', 'user_id': user.id, 'email': user.email}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
@@ -60,7 +61,11 @@ def create_description_request():
         # Parse incoming data
         data = request.json
 
-        # Validate the required field
+        # Validate required fields
+        user_id = data.get('user_id')  # Parse the user ID
+        if not user_id:
+            return jsonify({'error': 'User ID is required.'}), 400
+
         animal_type = data.get('animal_type')
         if not animal_type:
             return jsonify({'error': 'The animal_type field is required.'}), 400
@@ -103,6 +108,7 @@ def create_description_request():
 
         # Save the request to the database
         new_request = PetDescriptionRequest(
+            user_id=user_id,
             animal_type=animal_type,
             primary_breed=primary_breed,
             gender=gender,
@@ -147,12 +153,19 @@ def translate_description_request():
     try:
         # Parse incoming data
         data = request.json
+
+        # Validate required fields
+        user_id = data.get('user_id')  # Parse the user ID
+        if not user_id:
+            return jsonify({'error': 'User ID is required.'}), 400
+
         description = data.get('translate_input')
         if not description:
             return jsonify({'error': 'The translate_input field is required.'}), 400
 
         # Save the request to the database
         translation_request = TranslationRequest(
+            user_id=user_id,
             input_text=description,
             status='processing'
         )
@@ -186,12 +199,19 @@ def enhance_description_request():
     try:
         # Parse incoming data
         data = request.json
+
+        # Validate required fields
+        user_id = data.get('user_id')  # Parse the user ID
+        if not user_id:
+            return jsonify({'error': 'User ID is required.'}), 400
+
         description = data.get('enhance_input')
         if not description:
             return jsonify({'error': 'The enhance_input field is required.'}), 400
 
         # Save the request to the database
         enhancement_request = EnhancementRequest(
+            user_id=user_id,
             input_text=description,
             status='processing'
         )

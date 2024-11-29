@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, render_template, redirect, request, url_for, flash
+from flask import session, Blueprint, jsonify, render_template, redirect, request, url_for, flash
 import requests
 from flask_login import login_user, logout_user, current_user, login_required
 
@@ -22,81 +22,79 @@ def privacy_policy():
 def features():
     return render_template('features.html') 
 
+# Route for creating a description
 @app_views.route('/create', methods=['POST'])
 def create_description():
     try:
         data = request.json  # Parse the JSON request data
 
+        # Get the user_id from the session
+        user_id = session.get('user_id')
+
+        # Include the user_id in the payload sent to the orchestrator
+        data['user_id'] = user_id
+
         # Forward the request to the orchestrator server
         orchestrator_response = requests.post(f"{ORCHESTRATOR_URL}/create", json=data)
 
         if orchestrator_response.status_code == 200:
-            # Successfully processed by the orchestrator
             return orchestrator_response.json(), 200
         else:
-            # Error in processing by the orchestrator
             return jsonify({
                 "error": "Failed to process the request via Orchestrator",
-                "details": orchestrator_response.result
+                "details": orchestrator_response.text
             }), orchestrator_response.status_code
     except Exception as e:
-        # Handle unexpected errors
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 
-# Route for "Translate Descriptions"
 @app_views.route('/translate', methods=['POST'])
 def translate_description():
     try:
         data = request.json  # Parse the JSON request data
 
-        # Validate input
-        description = data.get('translate_input')
-        if not description:
-            return jsonify({'error': 'The translate_input field is required.'}), 400
+        # Get the user_id from the session
+        user_id = session.get('user_id')
+
+        # Include the user_id in the payload
+        data['user_id'] = user_id
 
         # Forward the request to the orchestrator server
-        orchestrator_response = requests.post(f"{ORCHESTRATOR_URL}/translate", json={"translate_input": description})
+        orchestrator_response = requests.post(f"{ORCHESTRATOR_URL}/translate", json=data)
 
         if orchestrator_response.status_code == 200:
-            # Successfully processed by the orchestrator
             return orchestrator_response.json(), 200
         else:
-            # Error in processing by the orchestrator
             return jsonify({
                 "error": "Failed to process the translation via Orchestrator",
                 "details": orchestrator_response.text
             }), orchestrator_response.status_code
     except Exception as e:
-        # Handle unexpected errors
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 
-# Route for "Enhance Descriptions"
 @app_views.route('/enhance', methods=['POST'])
 def enhance_description():
     try:
         data = request.json  # Parse the JSON request data
 
-        # Validate input
-        description = data.get('enhance_input')
-        if not description:
-            return jsonify({'error': 'The enhance_input field is required.'}), 400
+        # Get the user_id from the session
+        user_id = session.get('user_id')
+
+        # Include the user_id in the payload
+        data['user_id'] = user_id
 
         # Forward the request to the orchestrator server
-        orchestrator_response = requests.post(f"{ORCHESTRATOR_URL}/enhance", json={"enhance_input": description})
+        orchestrator_response = requests.post(f"{ORCHESTRATOR_URL}/enhance", json=data)
 
         if orchestrator_response.status_code == 200:
-            # Successfully processed by the orchestrator
             return orchestrator_response.json(), 200
         else:
-            # Error in processing by the orchestrator
             return jsonify({
                 "error": "Failed to process the enhancement via Orchestrator",
                 "details": orchestrator_response.text
             }), orchestrator_response.status_code
     except Exception as e:
-        # Handle unexpected errors
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 
@@ -115,7 +113,8 @@ def signup():
             
             if login_response.status_code == 200:  # Successful login
                 user_data = login_response.json()
-                # Handle session or flash messages if necessary
+                # Store user_id in session
+                session['user_id'] = user_data.get('user_id')
                 flash("Signup and login successful!")
                 return redirect(url_for('app_views.features'))
             else:
@@ -140,7 +139,8 @@ def login():
         
         if response.status_code == 200:  # Successful login
             user_data = response.json()
-            # handle user sessions here
+            # Store user_id in session
+            session['user_id'] = user_data.get('user_id')
             flash("Logged in successfully!")
             return redirect(url_for('app_views.account_create'))
         else:

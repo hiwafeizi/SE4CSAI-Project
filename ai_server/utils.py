@@ -8,6 +8,7 @@ def generate_description(description):
     """
     Generate a description by calling the function from form2text.py.
     """
+    print(1)
     return form2text_generate_description(description)
 
 # Function to translate text
