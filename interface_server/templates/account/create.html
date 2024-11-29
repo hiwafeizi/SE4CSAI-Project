@@ -1,0 +1,263 @@
+{% extends 'account/base.html' %}
+
+{% block title %}
+PetMatters - Unlock Powerful Features
+{% endblock %}
+
+{% block content %}
+<main class="flex-grow p-6 bg-gray-50">
+    <h1 class="text-2xl font-bold text-center mb-6">Explore Our Features</h1>
+    <p class="text-center text-gray-700 mb-6">
+        Choose from three powerful tools designed to help you.
+    </p>
+
+    <!-- Feature Selection Buttons -->
+    <div class="flex justify-center gap-4 mb-8">
+        <button class="secondaryButton" onclick="showSection('enhance')">
+            Enhance Description
+        </button>
+        <button class="secondaryButton" onclick="showSection('translate')">
+            Translate English to Dutch
+        </button>
+        <button class="secondaryButton" onclick="showSection('create')">
+            Create Descrition with Form
+        </button>
+    </div>
+
+    <!-- Features -->
+    <div id="enhance" class="feature-section hidden flex justify-center">
+        <form id="enhance-form" class="form" onsubmit="handleFormSubmit(event, 'enhance')">
+            <div class="input-group">
+                <label for="enhance-input">Enter the description you want to enhance:</label>
+                <textarea id="enhance-input" name="enhance_input" rows="4" class="input-field" required></textarea>
+            </div>
+            <button type="submit" class="formButton">
+                Enhance
+            </button>
+        </form>
+    </div>
+
+    <div id="translate" class="feature-section hidden flex justify-center">
+        <form id="translate-form" class="form" onsubmit="handleFormSubmit(event, 'translate')">
+            <div class="input-group">
+                <label for="translate-input">Text to Translate:</label>
+                <textarea id="translate-input" name="translate_input" rows="4" class="input-field" required></textarea>
+            </div>
+            <button type="submit" class="formButton">
+                Translate
+            </button>
+        </form>
+    </div>
+
+    <div id="create" class="feature-section hidden flex justify-center">
+        <form id="create-form" class="form" onsubmit="handleFormSubmit(event, 'create')">
+            <p class="text-gray-700 mb-4 text-center">
+                Provide details about the pet you want to create description for.
+            </p>
+    
+            <!-- Row 1 -->
+            <div class="formRow">
+                <div class="input-group">
+                    <label for="animal-type">Animal Type:</label>
+                    <input type="text" id="animal-type" name="animal_type" class="input-field" placeholder="e.g., Dog" required>
+                </div>
+                <div class="input-group">
+                    <label for="primary-breed">Primary Breed:</label>
+                    <input type="text" id="primary-breed" name="primary_breed" class="input-field" placeholder="e.g., Labrador" >
+                </div>
+            </div>
+    
+            <!-- Row 2 -->
+            <div class="formRow">
+                <div class="input-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" class="input-field" >
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="primary-color">Primary Color:</label>
+                    <input type="text" id="primary-color" name="primary_color" class="input-field" placeholder="e.g., Black" >
+                </div>
+            </div>
+    
+            <!-- Row 3 -->
+            <div class="formRow">
+                <div class="input-group">
+                    <label for="maturity-size">Maturity Size:</label>
+                    <select id="maturity-size" name="maturity_size" class="input-field" >
+                        <option value="">Select Size</option>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="fur-length">Fur Length:</label>
+                    <select id="fur-length" name="fur_length" class="input-field" >
+                        <option value="">Select Fur Length</option>
+                        <option value="Short">Short</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Long">Long</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Row 4 -->
+            <div class="formRow">
+                <div class="input-group">
+                    <label for="vaccinated">Vaccinated:</label>
+                    <select id="vaccinated" name="vaccinated" class="input-field" >
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="dewormed">Dewormed:</label>
+                    <select id="dewormed" name="dewormed" class="input-field" >
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Row 5 -->
+            <div class="formRow">
+                <div class="input-group">
+                    <label for="sterilized">Sterilized:</label>
+                    <select id="sterilized" name="sterilized" class="input-field" >
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="health">Health:</label>
+                    <select id="health" name="health" class="input-field" >
+                        <option value="">Select Health</option>
+                        <option value="Healthy">Healthy</option>
+                        <option value="Minor Injury">Minor Injury</option>
+                        <option value="Serious Injury">Serious Injury</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Row 6 -->
+            <div class="formRow">
+                <div class="input-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" class="input-field" min="1" placeholder="e.g., 1" >
+                </div>
+                <div class="input-group">
+                    <label for="fee">Fee:</label>
+                    <input type="number" id="fee" name="fee" class="input-field" min="0" placeholder="e.g., 100" >
+                </div>
+            </div>
+    
+            <!-- Submit Button -->
+            <button type="submit" class="formButton">
+                Create
+            </button>
+        </form>
+    </div>
+    
+    
+    <!-- Results Section -->
+    <div id="result-section" class="hidden mt-6 p-6 rounded max-w-4xl mx-auto">
+        <h4 class=" font-bold text-gray-800 mb-4 text-center">Generated Description</h4>
+        <p class="text-sm text-gray-600 text-center mb-4">
+            You can edit the result below as needed.
+        </p>
+        <textarea
+            id="result-output"
+            class="w-11/12 p-4 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800"
+            rows="6"
+        ></textarea>
+        <div class="flex justify-center mt-4 gap-4">
+            <button
+                class="secondaryButton"
+                onclick="copyToClipboard()"
+            >
+                Copy to Clipboard
+            </button>
+            <button
+                class="thirdButton"
+                onclick="clearResult()"
+            >
+                Clear Result
+            </button>
+        </div>
+    </div>
+
+</main>
+
+<script>
+    // JavaScript to toggle section visibility
+    function showSection(sectionId) {
+        // Hide all sections
+        document.querySelectorAll('.feature-section').forEach((section) => {
+            section.classList.add('hidden');
+        });
+        // Show the selected section
+        document.getElementById(sectionId).classList.remove('hidden');
+    }
+
+    // Copy the content of the result textarea to the clipboard
+    function copyToClipboard() {
+        const resultTextarea = document.getElementById('result-output');
+        resultTextarea.select();
+        document.execCommand('copy');
+    }
+
+    // Clear the result content and hide the section
+    function clearResult() {
+        const resultSection = document.getElementById('result-section');
+        const resultTextarea = document.getElementById('result-output');
+        resultTextarea.value = '';
+        resultSection.classList.add('hidden');
+    }
+
+
+    // Handle form submission with AJAX
+    async function handleFormSubmit(event, feature) {
+        event.preventDefault(); // Prevent default form submission behavior
+
+        // Get the input data
+        const form = event.target;
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => (data[key] = value));
+
+        try {
+            // Get the CSRF token from the meta tag
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            // Call the corresponding API endpoint
+            const response = await fetch(`/${feature}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken, // Add CSRF token to the headers
+                },
+                body: JSON.stringify(data),
+            });
+
+            // Parse the JSON response
+            const result = await response.json();
+
+            // Display the result
+            document.getElementById('result-output').textContent = result.result || 'No response received.';
+            document.getElementById('result-section').classList.remove('hidden');
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById('result-output').textContent = 'An error occurred. Please try again.';
+            document.getElementById('result-section').classList.remove('hidden');
+        }
+    }
+
+</script>
+{% endblock %}

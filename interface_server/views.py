@@ -142,7 +142,7 @@ def login():
             user_data = response.json()
             # handle user sessions here
             flash("Logged in successfully!")
-            return redirect(url_for('app_views.features'))
+            return redirect(url_for('app_views.account_create'))
         else:
             error_message = response.json().get('error', 'Login failed.')
             flash(error_message)
@@ -160,17 +160,60 @@ def logout():
     return redirect(url_for('app_views.login'))
 
 
-@app_views.route('/history', methods=['GET'])
+@app_views.route('/account/history', methods=['GET'])
 def history():
     try:
         # Fetch history data from orchestrator
         response = requests.get(f"{ORCHESTRATOR_URL}/history", params={"limit": 50})
         if response.status_code == 200:
             history_data = response.json()
-            return render_template('history.html', history=history_data)
+            return render_template('account/history.html', history=history_data)
         else:
             flash("Failed to fetch history from the server.")
-            return render_template('history.html', history=[])
+            return render_template('account/history.html', history=[])
     except Exception as e:
         flash(f"An error occurred: {str(e)}")
-        return render_template('history.html', history=[])
+        return render_template('account/history.html', history=[])
+
+
+@app_views.route('/account/create', methods=['GET'])
+def account_create():
+    """
+    Redirects the user to the create page or features page.
+    """
+    return render_template('account/create.html')
+
+
+@app_views.route('/delete_record/<int:record_id>', methods=['POST'])
+def delete_record(record_id):
+    try:
+        record_type = request.form.get('type')  # Get the type from the form data
+
+        # Call the orchestrator to delete the record
+        response = requests.post(f"{ORCHESTRATOR_URL}/delete_record/{record_id}", params={'type': record_type})
+
+        if response.status_code == 200:
+            flash("Record deleted successfully.")
+        else:
+            flash("Failed to delete record. Please try again.")
+
+        return redirect(url_for('app_views.history'))
+    except Exception as e:
+        flash(f"An error occurred: {str(e)}")
+        return redirect(url_for('app_views.history'))
+
+@app_views.route('/clear_history', methods=['POST'])
+def clear_history():
+    try:
+        # Call the orchestrator's clear_records endpoint
+        response = requests.post(f"{ORCHESTRATOR_URL}/clear_records")
+
+        if response.status_code == 200:
+            flash("All records have been cleared successfully.")
+        else:
+            flash("Failed to clear records. Please try again.")
+
+        return redirect(url_for('app_views.history'))
+    except Exception as e:
+        flash(f"An error occurred: {str(e)}")
+        return redirect(url_for('app_views.history'))

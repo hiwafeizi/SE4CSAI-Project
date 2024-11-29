@@ -280,3 +280,54 @@ def get_history():
         return jsonify({'error': str(e)}), 500
 
 
+@orchestrator.route('/delete_record/<int:record_id>', methods=['POST'])
+def delete_record(record_id):
+    try:
+        # Determine which table the record belongs to based on its ID
+        record_type = request.args.get('type')  # 'create', 'translate', 'enhance'
+        if record_type == 'create':
+            record = PetDescriptionRequest.query.get(record_id)
+        elif record_type == 'translate':
+            record = TranslationRequest.query.get(record_id)
+        elif record_type == 'enhance':
+            record = EnhancementRequest.query.get(record_id)
+        else:
+            return jsonify({'error': 'Invalid record type.'}), 400
+
+        if not record:
+            return jsonify({'error': 'Record not found.'}), 404
+
+        # Delete the record
+        db.session.delete(record)
+        db.session.commit()
+
+        return jsonify({'message': 'Record deleted successfully.'}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+
+
+@orchestrator.route('/clear_records', methods=['POST'])
+def clear_records():
+    try:
+        # Clear all records from the three tables
+        num_create_deleted = db.session.query(PetDescriptionRequest).delete()
+        num_translate_deleted = db.session.query(TranslationRequest).delete()
+        num_enhance_deleted = db.session.query(EnhancementRequest).delete()
+
+        # Commit the changes to the database
+        db.session.commit()
+
+        # Return success message
+        return jsonify({
+            "message": "All records have been deleted successfully.",
+            "details": {
+                "create_deleted": num_create_deleted,
+                "translate_deleted": num_translate_deleted,
+                "enhance_deleted": num_enhance_deleted
+            }
+        }), 200
+    except Exception as e:
+        # Rollback in case of an error
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
