@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+History | PetMatters
+{% endblock %}
+
+{% block content %}
+<main class="p-6 bg-gray-50 min-h-screen">
+    <h1 class="text-2xl font-bold mb-6 text-center">Request History</h1>
+
+    {% if history %}
+        <table class="min-w-full border-collapse border border-gray-200 shadow-md bg-white">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="border border-gray-300 px-4 py-2">Type</th>
+                    <th class="border border-gray-300 px-4 py-2">Input</th>
+                    <th class="border border-gray-300 px-4 py-2">Result</th>
+                    <th class="border border-gray-300 px-4 py-2">Status</th>
+                    <th class="border border-gray-300 px-4 py-2">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in history %}
+                    <tr class="hover:bg-gray-100">
+                        <td class="border border-gray-300 px-4 py-2">{{ record.type }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ record.input_text or 'N/A' }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ record.result_text or 'N/A' }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ record.status }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ record.created_at }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-gray-700 text-center">No history available.</p>
+    {% endif %}
+</main>
+{% endblock %}

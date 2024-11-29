@@ -158,3 +158,19 @@ def logout():
     logout_user()
     flash("Logged out successfully!")
     return redirect(url_for('app_views.login'))
+
+
+@app_views.route('/history', methods=['GET'])
+def history():
+    try:
+        # Fetch history data from orchestrator
+        response = requests.get(f"{ORCHESTRATOR_URL}/history", params={"limit": 50})
+        if response.status_code == 200:
+            history_data = response.json()
+            return render_template('history.html', history=history_data)
+        else:
+            flash("Failed to fetch history from the server.")
+            return render_template('history.html', history=[])
+    except Exception as e:
+        flash(f"An error occurred: {str(e)}")
+        return render_template('history.html', history=[])

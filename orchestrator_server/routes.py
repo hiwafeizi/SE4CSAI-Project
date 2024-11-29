@@ -217,3 +217,66 @@ def enhance_description_request():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+@orchestrator.route('/history', methods=['GET'])
+def get_history():
+    try:
+        # Query parameters for filtering (optional)
+        request_type = request.args.get('type')  # create, translate, enhance
+        limit = int(request.args.get('limit', 10))  # Number of records to fetch (default: 10)
+
+        # Fetch records based on type
+        if request_type == 'create':
+            records = PetDescriptionRequest.query.order_by(PetDescriptionRequest.created_at.desc()).limit(limit).all()
+        elif request_type == 'translate':
+            records = TranslationRequest.query.order_by(TranslationRequest.created_at.desc()).limit(limit).all()
+        elif request_type == 'enhance':
+            records = EnhancementRequest.query.order_by(EnhancementRequest.created_at.desc()).limit(limit).all()
+        else:
+            # Fetch all types
+            create_records = [
+                {"record": record, "type": "create"}
+                for record in PetDescriptionRequest.query.order_by(PetDescriptionRequest.created_at.desc()).limit(limit).all()
+            ]
+            translate_records = [
+                {"record": record, "type": "translate"}
+                for record in TranslationRequest.query.order_by(TranslationRequest.created_at.desc()).limit(limit).all()
+            ]
+            enhance_records = [
+                {"record": record, "type": "enhance"}
+                for record in EnhancementRequest.query.order_by(EnhancementRequest.created_at.desc()).limit(limit).all()
+            ]
+            records = create_records + translate_records + enhance_records
+
+        # Serialize the records
+        if request_type:
+            results = [
+                {
+                    "id": record.id,
+                    "type": request_type,
+                    "input_text": getattr(record, 'input_text', None),
+                    "result_text": getattr(record, 'result_text', None),
+                    "status": record.status,
+                    "created_at": record.created_at,
+                }
+                for record in records
+            ]
+        else:
+            results = [
+                {
+                    "id": item["record"].id,
+                    "type": item["type"],
+                    "input_text": getattr(item["record"], 'input_text', None),
+                    "result_text": getattr(item["record"], 'result_text', None),
+                    "status": item["record"].status,
+                    "created_at": item["record"].created_at,
+                }
+                for item in records
+            ]
+
+        return jsonify(results), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+

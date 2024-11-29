@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -7,6 +8,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), nullable=False, unique=True)
     password_hash = db.Column(db.String(256), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -33,6 +35,7 @@ class PetDescriptionRequest(db.Model):
     fee = db.Column(db.Float, nullable=False)
     status = db.Column(db.String(20), default='pending')  # pending, processing, completed
     result = db.Column(db.Text, nullable=True)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
 
 class TranslationRequest(db.Model):
@@ -42,6 +45,7 @@ class TranslationRequest(db.Model):
     input_text = db.Column(db.Text, nullable=False)
     result_text = db.Column(db.Text, nullable=True)
     status = db.Column(db.String(20), default='pending')  # pending, processing, completed
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
 
 class EnhancementRequest(db.Model):
@@ -51,3 +55,4 @@ class EnhancementRequest(db.Model):
     input_text = db.Column(db.Text, nullable=False)
     result_text = db.Column(db.Text, nullable=True)
     status = db.Column(db.String(20), default='pending')  # pending, processing, completed
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
